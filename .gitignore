@@ -1,3 +1,11 @@
 #╨Жбтртоб╪Ч
 *.[ao]
-.idea
+.idea/
+WEB-INF/
+log/
+/TODO
+build/
+doc/
+*.txt
+*.swp
+*.tmp
