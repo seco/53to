@@ -1,0 +1,46 @@
+{
+    "item.quickBuy": {
+        "routes": [{
+            "path": "/quickbuy/:goodsId",
+            "controller": "ctrl.item.quickbuy",
+            "templateUrl": "/item/view/quickbuy.html"
+        },{
+            "path": "/quickbuy/:goodsId/:commentId",
+            "controller": "ctrl.item.quickbuy",
+            "templateUrl": "/item/view/quickbuy.html"
+        },{
+            "path": "/quickbuy/:goodsId/:commentId/:key",
+            "controller": "ctrl.item.quickbuy",
+            "templateUrl": "/item/view/quickbuy.html"
+        }],
+        "dependencies": [
+            "item-ctrl/quickbuy"
+        ]
+    },
+    "item.detail": {
+        "routes": [{
+            "path": "/comment/:goodsId",
+            "controller": "ctrl.item.detail",
+            "templateUrl": "/item/view/detail.html"
+        },{
+            "path": "/comment/:goodsId/:commentId",
+            "controller": "ctrl.item.detail",
+            "templateUrl": "/item/view/detail.html"
+        },{
+            "path": "/:goodsId",
+            "controller": "ctrl.item.detail",
+            "templateUrl": "/item/view/detail.html"
+        }, {
+            "path": "/:goodsId/:commentId",
+            "controller": "ctrl.item.detail",
+            "templateUrl": "/item/view/detail.html"
+        }, {
+            "path": "/:goodsId/:commentId/:key",
+            "controller": "ctrl.item.detail",
+            "templateUrl": "/item/view/detail.html"
+        }],
+        "dependencies": [
+            "item-ctrl/detail"
+        ]
+    }
+}

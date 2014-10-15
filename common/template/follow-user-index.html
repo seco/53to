@@ -1,0 +1,39 @@
+<div class="bg-ff home-left mgt-5" ng-if="userList">
+    <div class="follow-channel-title active"> <!-- ng-class="{'active':path == '/'}" -->
+        <a class="h5" href="javascript:;">可能感兴趣的人<button class="pull-right mgr-30 mgt-10 btn btn btn-warning pdlr-10" ng-click="getUser()">换一批</button></a>
+    </div>
+    <div class="home-sidenav">
+        <div class="mh-80 bd-b bd-1 bdc-ef mg-0 mgl-20 pdt-15" ng-repeat="fans in userList" ng-show="$index==oneNum||$index==twoNum||$index==threeNum">
+            <a ng-href="#/user/{{fans.nickName}}" class="sz-50 pull-left">
+                <img ng-src="{{fans.headImage}}" width="50" height="50">
+            </a>
+            <div class="mgl-65">
+                <div class="h-20 mgt-3">
+                    <a target="_blank" ng-href="#/user/{{fans.nickName}}" class="h5 mgt-0" ng-bind="fans.nickName" at-user-popover="fans"></a>
+                    <button type="button" class="btn btn-default btn-xs pull-right mgr-30" ng-click="userFollow(fans)" ng-show="!fans.isFollowRelation||fans.isFollowRelation==2">
+                        <span class="c-f50 ft-bd">+</span>
+                        加关注
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs pull-right mgr-10" ng-click="cancelFollow(fans, $event)" ng-show="fans.isFollowRelation==1">
+                        <span class="glyphicon glyphicon-ok c-090"></span>
+                        已关注
+                        |
+                        取消
+                    </button>
+                </div>
+                <!-- is_follow_relation:关注关系 0：没有关系 1：我关注TA 2：TA关注我 3：互相关注 -->
+                <div class="clearfix mgt-10">
+                    <a target="_blank" ng-href="/weibo/#/user/{{fans.nickName}}/follow">关注 <span ng-bind="fans.followCount"></span></a>
+                    <span class="mglr-5 c-ccc">|</span>
+                    <a target="_blank" ng-href="/weibo/#/user/{{fans.nickName}}/fans">粉丝 <span ng-bind="fans.fansCount"></span></a>
+                    <span ng-if="fans.provinceName" class="mglr-5 c-ccc">|</span>
+                    <span class="text-muted">
+                        <span ng-bind="fans.provinceName"></span>
+                        <span ng-bind="fans.cityName"></span>
+                        <span ng-bind="fans.areaName"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

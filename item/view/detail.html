@@ -1,0 +1,371 @@
+<div class="container w-800 mgt-100" ng-if="page.status.goods == 0">
+    <div class="loading-bar"></div>
+</div>
+<div class="container w-800 mgtb-50" ng-if="page.status.goods == 2">
+    <div class="alert alert-warning lh-50">
+        <span class="icon-error-lg pull-left mg-5"></span>
+        <span class="h5">商品不存在！</span>
+    </div>
+</div>
+<div class="container w-1170 relative hide" ng-class="{hide: !(page.status.goods == 1)}">
+<div class="gd-info-container">
+<div class="gd-info-left">
+    <div class="gd-top-comment" ng-if="model.goods.topCommentType > 1">
+        <img ng-if="model.goods.topCommentType==3" src="/atmanlib/asset/images/avatar/avatar_administrator_180.jpg" class="sz-60 pull-left" />
+        <a ng-if="model.goods.topCommentType==2" at-user-popover="model.goods.topCommentBuyer.nickName" target="_blank" ng-href="/weibo/#/user/{{ model.goods.topCommentBuyer.nickName }}" class="sz-60 pull-left">
+            <img ng-src="{{ model.goods.topCommentBuyer.headImage }}" class="sz-60" />
+        </a>
+        <div class="mgl-80 top-comment word-break">
+            <span class="icon-16 icon-quotation-left"></span>
+            <span class="c-666 ft-14" ng-bind-html="model.goods.topComment | emojisFr"></span>
+            <span class="icon-16 icon-quotation-right"></span>
+        </div>
+    </div>
+    <div class="gd-info">
+        <div class="gd-img-container">
+            <div class="gd-img-block bd-1 bdc-ef bd-b pd-15">
+                <a href="javascript:void(0);" id="jqZoom" rel='gal1' data-large-url="{{model.goods.mainImg}}/{{ATConfig.IconSize.large}}">
+                    <img class="wp-100" ng-src="{{model.goods.mainImg}}/{{ATConfig.IconSize.middle}}" />
+                </a>
+            </div>
+            <div class="img-group mg-10 mgt-20">
+                <a class="at-thumb-left" ng-disabled="atThumbLeftDisabled" ng-click="imgLeft()" href="javascript:void(0);"></a>
+                <div class="img-li">
+                    <ul id="thumblist" class="at-thumb" ng-style="imgStyle">
+                        <li ng-repeat="img in model.goods.goodsImages track by $index" ng-mouseover="replaceMainImg($index)" ng-class="{'img-hover':$index==imgHover}">
+                            <a href="javascript:void(0);" ng-class="{'zoomThumbActive':$first}" rel="{gallery: 'gal1', smallimage: '{{img}}/{{ATConfig.IconSize.middle}}',largeimage: '{{img}}/{{ATConfig.IconSize.huge}}'}">
+                                <img ng-src="{{img}}/{{ATConfig.IconSize.tiny}}" width="60" height="60">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="at-thumb-right" ng-disabled="atThumbRightDisabled" ng-click="imgRight()" href="javascript:void(0);"></a>
+            </div>
+        </div>
+        <div class="gd-detail">
+            <div class="pd-15 pdl-10 mh-200">
+                <h5 class="mgl-10 mgt-0 ft-bd ft-16" ng-bind="model.goods.goodsName"></h5>
+                <div class="mgt-8 mgl-10">
+                    <span class="inline-block w-60">吾商价</span>
+                            <span class="inline-block" ng-if="model.goods.saleStatus==2 || model.goods.saleStatus==4">
+                                <span class="yen">¥</span>
+                                <span class="ft-14 text-md-ln" ng-bind="model.goods.originalPrice|number:2"></span>
+
+                            </span>
+                            <span class="inline-block c-d00" ng-if="!(model.goods.saleStatus==2 || model.goods.saleStatus==4)">
+                                <span class="yen">¥</span>
+                                <span class="ft-24" ng-bind="model.goods.price|number:2"></span>
+                                <span class="mgl-10 bg-c00 pdlr-3 c-fff bd-rd-3" ng-bind="model.goods.promotionDesc" ng-show="model.goods.promotionDesc"></span>
+                            </span>
+                </div>
+                <div class="mgt-5 mgl-10 h-30" ng-if="model.goods.saleStatus==2 || model.goods.saleStatus==4">
+                    <span class="inline-block w-60 pull-left mgt-10">促销价</span>
+                            <span class="inline-block pull-left">
+                                <span class="c-d00">
+                                    <span class="yen">¥</span>
+                                    <span class="ft-24" ng-bind="model.goods.price|number:2"></span>
+                                </span>
+                            </span>
+                            <span class="inline-block mgl-10 pull-left mgt-5" ng-if="model.goods.saleStatus==2">
+                                <span class="inline-block bg-c00 pdlr-3 c-fff bd-rd-3" ng-bind="model.goods.promotionBriefBean.promotionDesc || '抢购价'"></span>
+                                <span class="mgl-10">
+                                    剩余
+                                    <span class="c-d00 ft-14 ft-bd" ng-bind="model.promRemainHours"></span>
+                                    时
+                                    <span class="c-d00 ft-14 ft-bd" ng-bind="model.promRemainMinutes"></span>
+                                    分
+                                    <span class="c-d00 ft-14 ft-bd" ng-bind="model.promRemainSeconds"></span>
+                                    秒
+                                </span>
+                            </span>
+                </div>
+                <div class="mgt-10 h-30">
+                    <div class="pull-left">
+                        <div class="mgl-10">
+                            <a href="/common/template/serviceClause/consumer-finance.html#rebateFund" target="_blank" class="inline-block w-60">返利金</a>
+                                    <span class="inline-block">
+                                        <span class="ft-14 ft-bd" ng-bind="(model.goods.rebateFund || 0)|number:2"></span> 元
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="popover popover-static-warning right-top mgt-0 flat h-25 pull-left" ng-hide="hideRF==1">
+                        <div class="arrow"></div>
+                        <div class="pdlr-10 lh-20 overflow-hd">
+                            <span class="c-fa8">推广者可得的返利金额</span>
+                            <!--<a href="javascript:;" ng-click="hideRF=1" class="inline-block pull-right sz-16 c-f50">&times;</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="mgt-10 h-30">
+                    <div class="pull-left">
+                        <div class="mgl-10">
+                            <a href="/common/template/serviceClause/consumer-finance.html#popularizeFund" target="_blank" class="inline-block w-60">推广金</a>
+                                    <span class="inline-block">
+                                        <span class="ft-14 ft-bd" ng-bind="(model.goods.popularizeFund || 0)|number:2"></span> 元
+                                    </span>
+                        </div>
+                    </div>
+                    <div class="popover popover-static-warning right-top flat h-25 pull-left" ng-hide="hidePF==1">
+                        <div class="arrow"></div>
+                        <div class="pdlr-10 lh-20 overflow-hd">
+                            <span class="c-fa8">推广者可分给粉丝的金额</span>
+                            <!--<a href="javascript:;" ng-click="hidePF=1" class="inline-block pull-right sz-16 c-f50">&times;</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="mgt-10 mgl-10" ng-if="model.goods.stockBriefBean">
+                    <div class="inline-block w-60 pull-left">送<a href="/common/template/serviceClause/consumer-finance.html#stockDesc" target="_blank" >商票</a></div>
+                    <div class="bd-1 bdc-e6 pd-10 pdt-3 mgl-65">
+                        <div class="pdtb-5 c-888">
+                            买家获得商票可持续分红
+                        </div>
+                        <span class="inline-block bg-f50 c-fff pdlr-5 mgt-4">满送商票</span>
+                        <span class="c-f50 mgl-5" ng-bind="model.goods.stockBriefBean.stockDesc"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pdlr-15 mgt-10">
+                <div class="h-50 bg-ef pd-10 pdtb-6">
+                    <span class="inline-block w-60 pull-left mgt-10">购买数量</span>
+                    <div class="input-group at-number-input-lg pull-left w-120">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn" ng-disabled="GDSubmitModel.quantity==1||!model.goods.canBuy" ng-click="modifyNum(0)">-</button>
+                                </span>
+                        <input type="text" class="form-control" ng-model="GDSubmitModel.quantity" />
+                                <span class="input-group-btn">
+                                    <button type="button" ng-disabled="GDSubmitModel.quantity == model.buyNumLimit||!model.goods.canBuy" ng-click="modifyNum(1)" class="btn">
+                                        +
+                                    </button>
+                                </span>
+                    </div>
+                    <div ng-if="model.goods.saleStatus==2" class="pull-left mgt-8 mgl-12">
+                        <i class="glyphicon glyphicon-minus-sign c-f50"></i>
+                        每人限购
+                        <span ng-bind="model.goods.promotionBriefBean.promotionLimit"></span>
+                        件
+                    </div>
+                </div>
+            </div>
+            <div class="mgl-80 mgt-20">
+                <button ng-if="model.goods.saleStatus < 3" add-cart-item ng-model="GDSubmitModel" data-placement="right" class="btn btn-lg btn-primary w-200 h5 mg-0">
+                    <span ng-bind="model.goods.saleStatus==2?'我要抢':'加入购物车'"></span>
+                </button>
+                <button ng-if="model.goods.saleStatus > 2" class="btn btn-lg btn-default w-200 h5">已售完</button>
+                <div class="jiathis_style mgt-10">
+                    <span class="jiathis_txt mgr-5">分享到</span>
+                    <a class="jiathis_button_weixin"></a>
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_tqq"></a>
+                    <!-- <a version="1.0" class="qzOpenerDiv" ng-href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?{{shareQQZoneUrl}}" target="_blank">分享</a> -->
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_cqq"></a>
+                </div>
+
+                <!--<button type="button" class="btn btn-primary btn-lg" ng-click="test()">测试掉金币</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gd-info-right">
+    <div class="mg-10" ng-if="promoCoin && !promoCoinGet">
+        <button class="btn btn-default btn-lg btn-block" type="button" ng-click="getPromo()">
+            点击领取
+            <span class="c-c00 mglr-5 ft-bd" ng-bind="promoCoin"></span>吾商币
+        </button>
+    </div>
+    <div class="gd-bonus-container">
+        <div class="gd-bonus" ng-if="model.goods.goodsTypeCode">
+            <div class="gd-bonus-title">
+                <span ng-bind="model.goods.goodsTypeCode | stockcode"></span>
+                <span ng-bind="model.goods.goodsTypeName"></span>
+            </div>
+            <div class="pd-10">
+                <table class="wp-100 lh-40">
+                    <tbody>
+                    <tr>
+                        <td class="w-80">
+                            昨日收益
+                        </td>
+                        <td>
+                            <span class="c-f50 ft-20 ft-bd" ng-bind="(model.bonus.bonusYesterday||0)|number:2"></span>
+                            元/票
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            年化收益率
+                        </td>
+                        <td>
+                            <span class="c-f50 ft-20 ft-bd" ng-bind="(model.bonus.yearReturnRate||0)"></span>
+                            %
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="bd-1 bdc-ef bd-t mgt">
+        <div id="sevenYearsBobus" class="h-200 wp-100 mgt-30"></div>
+    </div>
+</div>
+</div>
+<div class="w-800 pull-left">
+    <div class="h-50">
+        <div id="gd-dtl-nav" class="gd-dtl-nav">
+            <ul class="at-tab pull-left">
+                <li ng-class="{'current': currentNav == 'description'}">
+                    <a href="javascript:void(0);" ng-click="gotoNav('description')">商品介绍</a>
+                </li>
+                <li ng-class="{'current': currentNav == 'comment'}">
+                    <a href="javascript:void(0);" ng-click="gotoNav('comment')">评价详情</a>
+                </li>
+                <li ng-class="{'current': currentNav == 'typicalParam'}">
+                    <a href="javascript:void(0);" ng-click="gotoNav('typicalParam')">规格参数</a>
+                </li>
+                <li ng-class="{'current': currentNav == 'afterSale'}">
+                    <a href="javascript:void(0);" ng-click="gotoNav('afterSale')">售后服务</a>
+                </li>
+            </ul>
+            <div class="pull-right mg-10" ng-if="model.goods.saleStatus < 3">
+                <button add-cart-item ng-model="GDSubmitModel" data-placement="bottom-right" class="btn btn-sm btn-primary w-100 hide">
+                    <span ng-bind="model.goods.saleStatus==2?'我要抢':'加入购物车'"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="bg-ff bd-1 bdc-ef bd-lbr clearfix text-center overflow-hd" ng-show="currentNav == 'description'" ng-bind-html="model.goods.goodsDesc"></div>
+    <div class="bg-ff bd-1 bdc-ef bd-lbr overflow-hd" ng-show="currentNav == 'typicalParam'">
+        <img ng-src="{{model.goods.goodsParameters}}" class="block mgtb-10 mglr-auto"/>
+    </div>
+    <div class="about-us bg-ff bd-1 bdc-ef bd-lbr pd-10 overflow-hd" ng-show="currentNav == 'afterSale'">
+
+        <h5>
+            1.退货流程
+        </h5>
+        <img src="/atmanlib/asset/images/icon/flow_chart.jpg" />
+        <p class="mgt-15">
+            由用户在线申请退货，由吾商客服进行退货申请审核，（审核不通过，将会将未通过的原因反馈给您），审核通过后，用户自行寄回并且承担运费，售后中心收货后将进行商品查验，符合条件将进行退款。不符合退货条件，吾商客服将与你沟通，并将商品返还给您。
+        </p>
+        <h5>
+            2.换货流程
+        </h5>
+        <p>
+            由用户在线申请换货，由吾商客服进行换货申请审核，（审核不通过，将会将未通过的原因反馈给您），审核通过后，用户自行寄回并且承担运费，售后中心收货后将进行商品查验，符合条件将进行换货。不符合换货条件，吾商客服将与你沟通，并将商品返还给您。
+        </p>
+        <p>
+            <strong>附:《吾商订单取消或更改规则》:</strong>
+        </p>
+        <p>1.用户有权在下列情况下，取消或更改订单:</p>
+        <p class="mgl-2em">a) 经用户和商家协商达成一致的;</p>
+        <p class="mgl-2em">b) 商家对用户订单做出承诺之前;</p>
+        <p class="mgl-2em">c) 吾商网站上公布的商品价格发生变化或错误，用户在商家发货之前通知商家的。</p>
+        <p>2.商家在下列情况下，可以取消或更改用户订单:</p>
+        <p class="mgl-2em">a) 经商家和用户协商达成一致的;</p>
+        <p class="mgl-2em">b) 吾商网站上显示的商品信息明显错误或缺货的;</p>
+        <p class="mgl-2em">c) 用户订单信息明显错误或用户订购数量超出商家备货量的。</p>
+        <p>3.吾商网站在下列情况下，亦可取消或更改用户订单:</p>
+        <p class="mgl-2em">a) 因不可抗力、吾商网站系统发生故障或遭受第三方攻击，及其他吾商网站无法控制的情形，根据吾商网站判断需要取消用户订单的;</p>
+        <p class="mgl-2em">b) 经吾商网站判断，用户订购行为不符合公平原则或诚实信用原则的情形(如同一用户多次无理由拒收订购商品);</p>
+        <p class="mgl-2em">c) 按吾商网站已经发布的或将来可能发布或更新的各类规则，可取消用户订单的其他情形。</p>
+    </div>
+    <div ng-controller="commentCtrl">
+        <div class="clearfix pdtb-10 pdlr-20">
+            <!-- <span class="pull-left">今天 14:52 来自即信商城</span> -->
+                <span class="pull-right">
+                    <a href="javascript:void(0);" ng-click="openForwards(wr)">转发({{model.goods.forwards}})</a> | 评论({{model.goods.replys}})
+                </span>
+        </div>
+        <div class="relative bd-1 bdc-ef bg-fa pd-20" ng-init="wr=model.goods;">
+            <i class="up-anguar"></i>
+            <div ng-controller="ctrl.weibo-forwards"></div>
+            <div ng-controller="ctrl.weibo-comment-input" class="pdtb-20" ng-init="wr=model.goods;wr.root=0;classh=1;btnType='reply';"></div>
+            <!-- <div weibo-forwards weibo-info="Goods"></div>
+            <div weibo-comment-input comment-info="Goods" btn-Type="reply" classh="1" class="mgtb-20"></div> -->
+            <div class="bd-1 bdc-dd bd-t mgt-15 pdt-15">
+                <a href="javascript:void(0);" ng-class="{commentFilter:'comment'==commentFilter}" ng-click="selFilter('comment')">全部</a>
+                <span class="mglr-5">|</span>
+                <a href="javascript:void(0);" ng-class="{commentFilter:'buyerComment'==commentFilter}" ng-click="selFilter('buyerComment')">买家评论</a>
+            </div>
+            <div ng-if="commentFilter=='comment'" class="buyer-comment" ng-controller="ctrl.weibo-comment-list" ng-init="wr=model.goods;wr.root=0;"></div>
+            <div ng-if="commentFilter=='buyerComment'">
+                <div class="bg-ef h-30 mgt-15 pdt-6">
+                    <a href="javascript:;" class="mgr-20 mgl-10" ng-class="{'lk-primary': commentParams.star==undefined}" ng-click="getByStarNum(undefined)">全部(<span ng-bind="model.goods.goodsCommentStatisticsBean.fiveStar+model.goods.goodsCommentStatisticsBean.fourStar+model.goods.goodsCommentStatisticsBean.threeStar+model.goods.goodsCommentStatisticsBean.twoStar+model.goods.goodsCommentStatisticsBean.oneStar"></span>)</a>
+                    <a href="javascript:;" class="mgr-20" ng-class="{'lk-primary':commentParams.star==5}" ng-click="getByStarNum(5)">5星(<span ng-bind="model.goods.goodsCommentStatisticsBean.fiveStar"></span>)</a>
+                    <a href="javascript:;" class="mgr-20" ng-class="{'lk-primary':commentParams.star==4}" ng-click="getByStarNum(4)">4星(<span ng-bind="model.goods.goodsCommentStatisticsBean.fourStar"></span>)</a>
+                    <a href="javascript:;" class="mgr-20" ng-class="{'lk-primary':commentParams.star==3}" ng-click="getByStarNum(3)">3星(<span ng-bind="model.goods.goodsCommentStatisticsBean.threeStar"></span>)</a>
+                    <a href="javascript:;" class="mgr-20" ng-class="{'lk-primary':commentParams.star==2}" ng-click="getByStarNum(2)">2星(<span ng-bind="model.goods.goodsCommentStatisticsBean.twoStar"></span>)</a>
+                    <a href="javascript:;" class="mgr-20" ng-class="{'lk-primary':commentParams.star==1}" ng-click="getByStarNum(1)">1星(<span ng-bind="model.goods.goodsCommentStatisticsBean.oneStar"></span>)</a>
+                </div>
+                <div class="bd-1 bdc-ef bd-b pdtb-15" ng-repeat="comment in commentList">
+                    <a ng-href="/weibo/#/user/{{comment.buyer.nickName}}" at-user-popover="comment.buyer.nickName" class="block pull-left sz-50">
+                        <img ng-src="{{comment.buyer.headImage}}/50" class="sz-40" />
+                    </a>
+                    <div class="mgl-50 pdr-15">
+                        <div class="mg-auto">
+                            <div class="pull-right w-120">
+                                <div class="star-icon pull-right" ng-class="{star_{{comment.starCount}}:1}"></div>
+                                <span class="text-muted pull-right mgt-8" ng-bind="comment.createTime | date:'yyyy-MM-dd HH:mm'"></span>
+                            </div>
+                            <a href="javascript:;" class="c-000" ng-bind="comment.buyer.nickName" at-user-popover="comment.buyer.nickName"></a>
+                        </div>
+                        <div class="mg-auto">
+                            <div class="mgt-5 mgr-120  over-line" ng-bind-html="comment.content | emojisFr | atLink"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mgtb-15" ng-show="!commentList.length">
+                    <span ng-show="commentParams.star==1">该商品暂时没有1星评价！</span>
+                    <span ng-show="commentParams.star==2">该商品暂时没有2星评价！</span>
+                    <span ng-show="commentParams.star==3">该商品暂时没有3星评价！</span>
+                    <span ng-show="commentParams.star==4">该商品暂时没有4星评价！</span>
+                    <span ng-show="commentParams.star==5">该商品暂时没有5星评价！</span>
+                    <span ng-show="!commentParams.star">该商品暂时没有评价！</span>
+                </p>
+                <div class="page-right" ng-hide="!commentList.length">
+                    <div at-paging current="commentParams.currentPage" size="commentParams.pageSize" total="commentParams.count"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="w-340 pull-left bg-fa bd-1 bdc-ef bd-trb">
+    <div class="bd-1 bdc-ef bd-b pd-15">
+        <h5 class="mgt-0 ft-bd">以下用户购买了此商品</h5>
+        <a class="inline-block sz-30 mg-10 mgl-0" ng-if="RecentlyBuyerList.length > 0" ng-repeat="buyer in RecentlyBuyerList" href="javascript:;" at-user-popover="buyer.nickName" data-placement="bottom-right">
+            <img ng-src="{{ buyer.headImage }}/50" class="sz-30 bd-rd-3" />
+        </a>
+        <div class="mgt-20" ng-if="RecentlyBuyerList.length == 0">
+            <span class="h6">暂无用户购买！</span>
+                <span ng-if="model.goods.saleStatus < 3">
+                    我要做第一个购买者！
+                    <button add-cart-item ng-model="GDSubmitModel" type="button" class="btn btn-primary btn-xs" data-placement="bottom-right">立即购买</button>
+                </span>
+        </div>
+    </div>
+    <div class="pdlr-15">
+        <h5 class="ft-bd">类品推荐</h5>
+        <div class="h-100 pdtb-10" ng-repeat="item in relatedGoods">
+            <a target="_blank" href="/item/#/{{ item.goodsId }}" class="block sz-80 pull-left">
+                <img ng-src="{{ item.goodsImage }}" class="sz-80 bd-1 bdc-dd" />
+            </a>
+            <div class="mgl-100">
+                <a target="_blank" href="/item/#/{{ item.goodsId }}" class="h6 mgt-5 ft-bd" ng-bind="item.goodsName"></a>
+                <div>
+                    返利：
+                    <span ng-bind="(item.rebateFund || 0)|number:2"></span>
+                    | 推广金：
+                    <span ng-bind="(item.popularizeFund || 0)|number:2"></span>
+                </div>
+                <div class="c-f50">
+                    <span class="yen">¥</span>
+                    <span class="ft-16 ft-bd" ng-bind="item.price|number:2"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="promo-coins" ng-animate="" ng-if="showCoin"></div>
+</div>
+<div float-widget></div>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org">
+
+<head>
+    <title>吾商--上自家的商城购物</title>
+    <meta charset="utf-8" />
+    <!-- <meta name="fragment" content="!" />
+    -->
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="吾商 电商 商城 电器 返利金 推广金 商票 上自家商城">
+    <meta name="keywords" content="吾商,电商,商城,电器,返利金,推广金,商票,上自家商城">
+    <meta name="author" content="阿特门">
+
+    <script>
+        function SetCookie(name, value) //两个参数，一个是cookie的名子，一个是值
+        {
+            var Days = 1; //此 cookie 将被保存 1 天
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        }
+
+        function getCookie(name) {
+            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+            if (arr = document.cookie.match(reg))
+
+                return unescape(arr[2]);
+            else
+                return null;
+        }
+        var uk = getCookie('USER_TOKEN');
+        if (!uk) {
+            //window.location.href = '/login?url=' + escape(window.location.pathname + window.location.hash) + "#login";
+        }
+    </script>
+
+    <!-- build:css /atmanlib/asset/theme/min/home.css -->
+    <!-- Bootstrap -->
+    <!-- Atman Util -->
+    <!-- jqzoom -->
+    <!-- Animation -->
+    <!--
+    <link rel="stylesheet" href="/atmanlib/vendor/bower_components/At.js/dist/css/jquery.atwho.css" />
+    <link rel="stylesheet" href="/atmanlib/vendor/bower_components/blueimp-file-upload/css/jquery.fileupload.css" />
+    <link rel="stylesheet" href="/atmanlib/vendor/bower_components/blueimp-file-upload/css/jquery.fileupload-ui.css" />
+    <link rel="stylesheet" href="/atmanlib/vendor/bower_components/blueimp-file-upload/css/jquery.fileupload-noscript.css" />
+    <link rel="stylesheet" href="/atmanlib/vendor/bower_components/blueimp-file-upload/css/jquery.fileupload-ui-noscript.css" />
+    <link rel="stylesheet" type="text/css" href="/atmanlib/asset/theme/css/at-bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/atmanlib/asset/theme/css/at-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="../asset/at-theme/at-theme-customize.css" />
+    <link rel="stylesheet" type="text/css" href="../asset/at-theme/weibo.css" />
+    <link rel="stylesheet" type="text/css" href="../asset/at-theme/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/atmanlib/vendor/bower_components/jqzoom/css/jquery.jqzoom.css" />
+    <link rel="stylesheet" type="text/css" href="/atmanlib/asset/theme/css/angular-motion.min.css" />
+    -->
+
+    <!-- 兼容低版本浏览器 -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/atmanlib/vendor/bower_components/html5shiv-dist/html5shiv.js"></script>
+    <script src="/atmanlib/vendor/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="RootCtrl" class="bg-f8" ng-cloak>
+
+<div class="notification fade-fast" ng-cloak ng-animate ng-if="rootEmit">
+    <div class="ntf-bg"></div>
+    <div class="ntf-container">
+        <!--<span class="glyphicon glyphicon-ok-circle"></span>
+    -->
+        <span ng-bind="message"></span>
+    </div>
+</div>
+
+<div class="container w-1170 mh-600 pd-0">
+    <div class="w-370 pull-left pdr-20" ng-cloak>
+        <a class="at-logo-lg" href="/"></a>
+        <div class="bg-ff home-left">
+            <div ng-if="isLogged" class="clearifx h-222">
+                <div class="pdtb-20">
+                    <a href="/weibo/#/mine" target="_blank" class="mgl-20 pull-left">
+                        <img class="sz-60 lazy" ng-src="{{WbUser.headImage}}/50" />
+                    </a>
+                    <div class="mgtb-0 mgb-5 mgl-80">
+                        <a href="/weibo/#/mine" target="_blank" class="pdlr-10 ft-bd" ng-bind="WbUser.nickName"></a>
+                    </div>
+                    <ul class="user-info-list clearfix mgl-80">
+                        <li>
+                            <a href="/weibo/#/mine/fans" target="_blank">
+                                <span class="ft-14 ft-bd" ng-bind="WbUser.fansCount||0"></span>
+                                <p>粉丝</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/weibo/#/mine/onsale" target="_blank">
+                                <span class="ft-14 ft-bd" ng-bind="WbUser.promoGoodsCount||0"></span>
+                                <p>在售</p>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="/weibo/#/mine/follow" target="_blank">
+                                <span class="ft-14 ft-bd" ng-bind="WbUser.followCount||0"></span>
+                                <p>关注</p>
+                            </a>
+                        </li>
+                        <li class="br-tt">
+                            <a href="/weibo/#/mine" target="_blank">
+                                <span class="ft-14 ft-bd" ng-bind="WbUser.topicCount||0"></span>
+                                <p>微博</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="h-120 bd-1 bd-t bdc-ef">
+                    <div class="pdl-20 h-60">
+                        <div class="inline-block wp-45 pdt-6">
+                            <span class="block">昨日收益</span>
+                            <a target="_blank" href="/common/template/serviceClause/consumer-finance.html" class="lk-no-udl">
+                            <span class="block c-f50 ft-20">
+                                <span class="yen ft-14">¥</span><span class="mgl-3" ng-bind="stockbrief.bonusDetail.bonusYesterday || 0 | number:3"></span>
+                            </span>
+                            </a>
+                        </div>
+                        <div class="inline-block wp-45  pdt-6">
+                            <span class="block">累积收益</span>
+                            <a target="_blank" href="/common/template/serviceClause/consumer-finance.html" class="lk-no-udl">
+                            <span class="block c-f50 ft-20">
+                                <span class="yen ft-14">¥</span><span class="mgl-3" ng-bind="stockbrief.totalProfit || 0 | number:3"></span>
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pdl-20 h-60 bd-1 bd-t-dot bdc-ef">
+                        <div class="inline-block wp-45  pdt-6">
+                            <span class="block">年化收益率</span>
+                            <a target="_blank" href="/common/template/serviceClause/consumer-finance.html" class="lk-no-udl">
+                                <span class="block c-f50 ft-20" ng-bind="stockbrief.bonusDetail.yearReturnRate+'%' || '0.00%'"></span>
+                            </a>
+                        </div>
+                        <div class="inline-block wp-45  pdt-6">
+                            <span class="block">累积返利</span>
+                            <a target="_blank" href="/common/template/serviceClause/consumer-finance.html" class="lk-no-udl">
+                            <span class="block c-f50 ft-20">
+                                <span class="yen ft-14">¥</span><span class="mgl-3" ng-bind="buyerAccountInfo.rebateFund || 0 | number:2"></span>
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-block" ng-if="modules_path!='/weibo/search/:selectInfo'&&modules_path!='/user/search/:selectInfo'&&modules_path!='/item/search/:selectInfo'">
+                <div class="global-search search-primary" global-search></div>
+            </div>
+            <div ng-controller="ctrl.follow-now-info"></div>
+        </div>
+        <div class="bg-ff home-left mgt-5">
+            <ul class="hot-user">
+                <li>
+                    <a class="hot-user-img" target="_blank" href="http://www.53to.com/weibo/#/user/%E5%A6%88%E5%A6%88%E5%9C%88">
+                        <img src="http://www.53to.com/imageServer/636Ee355f669aff2442d81ecea49148843b6.jpg" alt="">
+                    </a>
+                    <span class="hot-user-info">
+                        <a class="ft-bd c-f50 ft-14" at-user-popover="'妈妈圈'" target="_blank" href="http://www.53to.com/weibo/#/user/%E5%A6%88%E5%A6%88%E5%9C%88">妈妈圈</a>
+                        <span class="user-icon user-icon-3"></span>
+                        <p class="hot-user-desc">爱生活，爱宝贝~~要做最Fashion的潮妈，也把小宝培养成下一代购物狂~~：）</p>
+                    </span>
+                </li>
+                <li>
+                    <a class="hot-user-img" target="_blank" href="http://www.53to.com/weibo/#/user/%E5%81%A5%E5%BA%B7%E5%B0%8F%E9%9B%B6%E9%A3%9F">
+                        <img src="http://www.53to.com/imageServer/659B3e49aafff0f64ece9a690857eb3a25c6.jpg" alt="">
+                    </a>
+                    <span class="hot-user-info">
+                        <a class="ft-bd c-f50 ft-14" at-user-popover="'健康小零食'" target="_blank" href="http://www.53to.com/weibo/#/user/%E5%81%A5%E5%BA%B7%E5%B0%8F%E9%9B%B6%E9%A3%9F">健康小零食</a>
+                        <span class="user-icon user-icon-3"></span>
+                        <p class="hot-user-desc">史上最大吃货驾到，各种美食快到我碗里来，减肥是神马我完全不知道！</p>
+                    </span>
+                </li>
+                <li>
+                    <a class="hot-user-img" target="_blank" href="http://www.53to.com/weibo/#/user/%E5%93%81%E5%91%B3%E7%94%B7%E4%BA%BA">
+                        <img src="http://www.53to.com/imageServer/B8715fd90bc6cfc74c9d9f5a02b3ab91edc5.jpg" alt="">
+                    </a>
+                    <span class="hot-user-info">
+                        <a class="ft-bd c-f50 ft-14" at-user-popover="'品味男人'" target="_blank" href="http://www.53to.com/weibo/#/user/%E5%93%81%E5%91%B3%E7%94%B7%E4%BA%BA">品味男人</a>
+                        <span class="user-icon user-icon-3"></span>
+                        <p class="hot-user-desc">喜欢在时尚潮流上冲浪，喜欢品味最in的男人味，就是要表现最Man的一面</p>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div follow-user-index></div>
+    </div>
+    <div class="w-800 pull-left" ng-cloak>
+        <div class="clearfix header-sm">
+            <div class="user-state">
+                <span ng-if="isLogged">
+                    <a href="/manage/#/infocenter" class="lk-primary mglr-3" ng-bind="USER.nickName"></a>
+                    <a href="javascript:void(0);" class="mglr-3" ng-click="logout()">退出</a>
+                </span>
+                <span ng-if="!isLogged">
+                    <span class="mgr-3">请</span>
+                    <a class="lk-primary mglr-3" ng-href="/login{{(at_path&&at_path.length>0)?('?url=/manage/#'+at_path):''}}">登录</a>
+                    <a class="lk-primary mglr-3" href="/login">免费注册</a>
+                </span>
+                <span class="c-ccc">|</span>
+                <a href="/#/" class="mglr-5">首页</a>
+                <span class="c-ccc">|</span>
+                <a target="_blank" href="/manage/#/order/list" class="mglr-5">我的订单</a>
+                <span class="c-ccc">|</span>
+                <a target="_blank" href="/manage/#/infocenter" class="mglr-5">我的吾商</a>
+            </div>
+            <div tiny-shop-car class="pull-right"></div>
+            <div notice class="pull-right"></div>
+            <div class="pull-right" ng-show="promoCoin" ng-cloak>
+                <div class="bdc-f50 bdl-1 bdr-1 bdb-1 pdtb-8 pdlr-15 pull-left" ng-bind="'领取('+promoCoin+')吾商币'"></div>
+                <a href="javascript:void(0);" class="bg-f50 lk-white lk-no-udl bd-trans pd-8 bdl-1 bdr-1 bdb-1 pull-right" title="" ng-click="promoCoin=!promoCoin;">^</a>
+            </div>
+        </div>
+        <div ng-include="loading"></div>
+    </div>
+</div>
+<div ng-include="ATConfig.footTemplate"></div>
+<div float-widget></div>
+<script src="atmanlib/vendor/bower_components/requirejs/require.js" data-main="home/boot/at_bootstrap"></script>
+</body>
+</html>
