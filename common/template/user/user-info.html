@@ -1,0 +1,62 @@
+<div class="pdtb-20">
+    <a href="/weibo/#/mine" target="_blank" class="mgl-20 pull-left">
+        <img class="sz-60 lazy" ng-src="{{wbUserInfo.headImage}}/50" />
+    </a>
+    <div class="mgtb-0 mgb-5 mgl-80">
+        <a href="/weibo/#/mine" target="_blank" class="pdlr-10 ft-bd" ng-bind="wbUserInfo.nickName"></a>
+    </div>
+    <ul class="user-info-list clearfix mgl-80">
+        <li>
+            <a href="/weibo/#/mine/fans" target="_blank">
+                <span class="ft-14 ft-bd" ng-bind="wbUserInfo.fansCount||0"></span>
+                <p>粉丝</p>
+            </a>
+        </li>
+        <li>
+            <a href="/weibo/#/mine/onsale" target="_blank">
+                <span class="ft-14 ft-bd" ng-bind="wbUserInfo.promoGoodsCount||0"></span>
+                <p>在售</p>
+            </a>
+        </li>
+        <li class="">
+            <a href="/weibo/#/mine/follow" target="_blank">
+                <span class="ft-14 ft-bd" ng-bind="wbUserInfo.followCount||0"></span>
+                <p>关注</p>
+            </a>
+        </li>
+        <li class="br-tt">
+            <a href="/weibo/#/mine" target="_blank">
+                <span class="ft-14 ft-bd" ng-bind="wbUserInfo.topicCount||0"></span>
+                <p>微博</p>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="h-120 bd-1 bd-t bdc-ef">
+    <div class="pdl-20 h-60">
+        <div class="inline-block wp-45 pdt-6">
+            <span class="block">昨日收益</span>
+            <span class="block c-f50 ft-20">
+                <span class="yen ft-14">¥</span><span class="mgl-3" ng-bind="stockbrief.bonusDetail.bonusYesterday || 0 | number:2"></span>
+            </span>
+        </div>
+        <div class="inline-block wp-45  pdt-6">
+            <span class="block">累积收益</span>
+            <span class="block c-f50 ft-20">
+                <span class="yen ft-14">¥</span><span class="mgl-3" ng-bind="stockbrief.totalProfit || 0 | number:2"></span>
+            </span>
+        </div>
+    </div>
+    <div class="pdl-20 h-60 bd-1 bd-t-dot bdc-ef">
+        <div class="inline-block wp-45  pdt-6">
+            <span class="block">年化收益率(%)</span>
+            <span class="block c-f50 ft-20" ng-bind="stockbrief.bonusDetail.yearReturnRate || '0.00'"></span>
+        </div>
+        <div class="inline-block wp-45  pdt-6">
+            <span class="block">累积返利</span>
+            <span class="block c-f50 ft-20">
+                <span class="yen ft-14">¥</span><span class="mgl-3" ng-bind="buyerAccountInfo.rebateFund || 0 | number:2"></span>
+            </span>
+        </div>
+    </div>
+</div>

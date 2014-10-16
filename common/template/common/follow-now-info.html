@@ -1,0 +1,26 @@
+<div class="follow-channel-title" ng-class="{'active':path == '/'}">
+    <a class="h5" ng-href="/#">全部商品分类</a>
+</div>
+<ul class="home-sidenav">
+    <li class="h-35">
+        <span class="inline-block wp-15 pdt-7 mgl-20">状态</span>
+        <span class="inline-block wp-20 pdt-7">商品类目</span>
+        <span class="inline-block wp-25 pdt-7">
+            收益(元/票)
+            <a class="icon-help" target="_blank" href="/common/template/serviceClause/consumer-finance.html"></a>
+        </span>
+        <span class="inline-block wp-30 pdt-7">
+            年化收益率
+            <a class="icon-help" target="_blank" href="/common/template/serviceClause/consumer-finance.html#perTenThousand"></a>
+        </span>
+    </li>
+    <li class="h-50" bindonce ng-repeat="gt in GoodsType" ng-class="{'active':path ==('/channel/'+gt.id)}">
+        <a bo-href="'#/channel/'+gt.id" >
+            <span class="icon-gt-status icon-gt-status-{{ gt.status }}"></span>
+            <span class="inline-block wp-20 gt-name ft-yh mgl-15" bo-bind="gt.name"></span>
+            <span class="inline-block wp-25 c-e71f19 ft-bd text-center" bo-bind="gt.bonus"></span>
+            <span class="inline-block wp-30 c-e71f19 ft-bd text-center" >{{gt.yearReturnRate}}%</span>
+        </a>
+        <span class="arrow"></span>
+    </li>
+</ul>
