@@ -8660,7 +8660,6 @@ define('service/cart',['at_app'], function(app) {
 define('service/goods',['at_app'], function(app) {
     app.lazy.factory('goods', ['$resource',
         function($resource) {
-
             var GP =  $resource('/restful/rest/common/goodsPromotion', {}, {
                 'get': {
                     method: 'GET'
@@ -8687,7 +8686,6 @@ define('service/goods',['at_app'], function(app) {
                     isArray: !0
                 }
             });
-
             var GR =  $resource('/restful/rest/common/goodsRecommend/:id', {}, {
                 'get': {
                     method: 'GET',
@@ -8696,7 +8694,6 @@ define('service/goods',['at_app'], function(app) {
             });
 
             var goods ={};
-
             goods.getGoodsRecommend = function(data) {
                 return GR.get(data);
             }
@@ -8715,8 +8712,6 @@ define('service/goods',['at_app'], function(app) {
             goods.getGoodsBuyer = function(data) {
                 return GB.get(data);
             }
-
-
             return goods;
         }
     ]);
@@ -8730,7 +8725,6 @@ define('service/order',['at_app'], function(app) {
                 }
             });
             var BuyerOrder = $resource('/restful/rest/buyer/order/:statistics');
-
             var BuyerOrderStatusReceived = $resource('/restful/rest/buyer/order/:id/status/received', {}, {
                 'confirmOrder': {
                     method: 'PUT',
@@ -8741,22 +8735,18 @@ define('service/order',['at_app'], function(app) {
             });
 
             var order = {};
-
             order.cancelBuyerOrder = function(data) {
                 return cancelBuyerOrder.put(data);
             }
-
             order.getBuyerOrder = function(data) {
                 return BuyerOrder.get(data);
             }
             order.putOrderStatusReceived = function(data) {
                 return BuyerOrderStatusReceived.confirmOrder(data);
             }
-
             return order;
         }
     ]);
-
     app.lazy.factory('GetBuyerOrder', ['$resource',
         function($resource) {
             return $resource('/restful/rest/buyer/order/:statistics', {}, {
@@ -8766,7 +8756,6 @@ define('service/order',['at_app'], function(app) {
             });
         }
     ]);
-
     app.lazy.factory('ConfirmBuyerOrder', ['$resource',
         function($resource) {
             return $resource('/restful/rest/buyer/order/:id/status/received', {}, {
@@ -8779,13 +8768,11 @@ define('service/order',['at_app'], function(app) {
             });
         }
     ]);
-
     app.lazy.factory('GetDeliveryCode', ['$resource',
         function($resource) {
             return $resource('/restful/rest/buyer/order/orderReceiptCode');
         }
     ]);
-
     app.lazy.factory('AplipayOrder', ['$resource',
         function($resource) {
             return $resource('/restful/rest/buyer/order/:orderId/pay', {}, {

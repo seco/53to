@@ -1,3 +1,83 @@
+define('common-ctrl/at.follow.now.info.ctrl', ['at_app', 'service/goods', 'filter/stockcode'], function(app) {
+
+    app.lazy.controller('ctrl.follow-now-info', ['$scope', '$element', '$compile', '$rootScope', '$location', 'goods',
+        function($scope, $element, $compile, $rootScope, $location, goods) {
+            $element.html('<div ng-include="template" onload="htmlLoad()" class="scale-animate" ></div>');
+            $scope.template = '/common/template/common/follow-now-info.html';
+            $compile($element.contents())($scope);
+
+            function getGoodsType() {
+                goods.getGoodsType(function(datas) {
+                    angular.forEach(datas, function(data, i) {
+                        if (data.name == '首发') {
+                            datas.splice(i, 1);
+                            datas.unshift(data);
+                        }
+                    })
+                    $scope.GoodsType = datas;
+                });
+            }
+            $rootScope.$on('OAuth:login', function(e, data) {
+                if (data) {
+                    getGoodsType();
+                }
+            })
+
+            $scope.$watch(function() {
+                return $location.path();
+            }, function(news, olds) {
+                $scope.path = news;
+            })
+            $scope.getStockItemsByGoodsType = function(goodsTypeId, i) {
+                $scope.idIndex = i;
+                window.location.href = "/home/#/channel/" + goodsTypeId;
+            }
+        }
+    ]);
+
+});
+define('common-ctrl/user/at.user.info.ctrl', ['at_app', 'service/weibo'], function(app) {
+
+    app.lazy.controller('ctrl.user-info', ['$scope', '$element', '$compile', '$rootScope', '$timeout', 'weibo', 'Notice', 'GetStockBrief', 'BuyerAccountmyself',
+        function($scope, $element, $compile, $rootScope, $timeout, weibo, Notice, GetStockBrief, BuyerAccountmyself) {
+            $element.html('<div ng-include="template" onload="htmlLoad()" class="scale-animate" ></div>');
+            $scope.template = '/common/template/user/user-info.html';
+            $compile($element.contents())($scope);
+
+            $scope.htmlLoad = function() {
+                var obj = {};
+                $rootScope.$on('OAuth:login', function(e, data) {
+                    if (data) {
+                        getWbUI();
+                        getStockBrief();
+                    }
+                });
+                function getWbUI() {
+                    weibo.getWbUser({
+                        name: $rootScope.userInfo.nickName
+                    }).then(function(data) {
+                        $scope.wbUserInfo = data;
+                    })
+                }
+                function getStockBrief() {
+                    //BUG 查询还是原用户的股票首页
+                    GetStockBrief.get({
+                        brief: 'brief'
+                    }, function(data) {
+                        $scope.stockbrief = data;
+                    })
+                }
+                getWbUI();
+                getStockBrief();
+                $scope.buyerAccountInfo = BuyerAccountmyself.get();
+            }
+        }
+    ]);
+})
+
+
+
+
 define('common-ctrl/at.crush.ctrl', ['at_app', 'service/goods'], function(app) {
     app.lazy.controller('ctrl.crush', ['$scope', 'goods', '$routeParams', '$element', '$compile', '$timeout',
         function($scope, goods, $routeParams, $element, $compile, $timeout) {
@@ -60,42 +140,6 @@ define('common-ctrl/at.crush.ctrl', ['at_app', 'service/goods'], function(app) {
                 }
 
 
-            }
-        }
-    ]);
-});
-define('common-ctrl/at.follow.now.info.ctrl', ['at_app', 'service/goods', 'filter/stockcode'], function(app) {
-    app.lazy.controller('ctrl.follow-now-info', ['$scope', '$element', '$compile', '$rootScope', '$location', 'goods',
-        function($scope, $element, $compile, $rootScope, $location, goods) {
-            $element.html('<div ng-include="template" onload="htmlLoad()" class="scale-animate" ></div>');
-            $scope.template = '/common/template/common/follow-now-info.html';
-            $compile($element.contents())($scope);
-
-            function getGoodsType() {
-                goods.getGoodsType(function(datas) {
-                    angular.forEach(datas, function(data, i) {
-                        if (data.name == '首发') {
-                            datas.splice(i, 1);
-                            datas.unshift(data);
-                        }
-                    })
-                    $scope.GoodsType = datas;
-                });
-            }
-            $rootScope.$on('OAuth:login', function(e, data) {
-                if (data) {
-                    getGoodsType();
-                }
-            })
-
-            $scope.$watch(function() {
-                return $location.path();
-            }, function(news, olds) {
-                $scope.path = news;
-            })
-            $scope.getStockItemsByGoodsType = function(goodsTypeId, i) {
-                $scope.idIndex = i;
-                window.location.href = "/home/#/channel/" + goodsTypeId;
             }
         }
     ]);
@@ -165,63 +209,6 @@ define('common-ctrl/user/at.sign.in.ctrl', ['at_app', 'bower/md5/md5.min', 'serv
         }
     ]);
 });
-define('common-ctrl/user/at.user.info.ctrl', ['at_app', 'service/weibo'], function(app) {
-    app.lazy.controller('ctrl.user-info', ['$scope', '$element', '$compile', '$rootScope', '$timeout', 'weibo', 'Notice', 'GetStockBrief', 'BuyerAccountmyself',
-        function($scope, $element, $compile, $rootScope, $timeout, weibo, Notice, GetStockBrief, BuyerAccountmyself) {
-            $element.html('<div ng-include="template" onload="htmlLoad()" class="scale-animate" ></div>');
-            $scope.template = '/common/template/user/user-info.html';
-            $compile($element.contents())($scope);
-
-            $scope.htmlLoad = function() {
-                var obj = {};
-                $rootScope.$on('OAuth:login', function(e, data) {
-                    if (data) {
-                        getWbUI();
-                        getStockBrief();
-                    }
-                });
-
-                // Notice.get().$promise.then(function(data) {
-                //         scope.noticeData = data;
-                //         scope.noticeAmount = (scope.noticeData.atNew || 0) + (scope.noticeData.fansNew || 0) + (scope.noticeData.newpm || 0);
-                //     });
-
-                // $rootScope.$watch('isLogged', function(news,olds){
-                //     getWbUI();
-                // })
-
-                function getWbUI() {
-                    weibo.getWbUser({
-                        name: $rootScope.userInfo.nickName//,
-                        //uuid: new Date().getTime()
-                    }).then(function(data) {
-                        $scope.wbUserInfo = data;
-                    })
-                    // $rootScope.loadWbUser($rootScope.userInfo.nickName);
-                    // $scope.wbUserInfo =$rootScope.WbUser;
-                    // console.log($rootScope.WbUser);
-                }
-
-                function getStockBrief() {
-                    //BUG 查询还是原用户的股票首页
-                    GetStockBrief.get({
-                        brief: 'brief'//,
-                        //uuid: new Date().getTime()
-                    }, function(data) {
-                        $scope.stockbrief = data;
-                    })
-                }
-                // $timeout(function(){
-                getWbUI();
-                getStockBrief();
-                $scope.buyerAccountInfo = BuyerAccountmyself.get();
-                // },100)
-
-
-            }
-        }
-    ]);
-})
 define('common-ctrl/user/at.user.state.ctrl', ['at_app', 'service/oauth'], function(app) {
     app.lazy.controller('ctrl.user-state', ['$scope', '$element', '$compile', '$rootScope', 'OAuth',
         function($scope, $element, $compile, $rootScope, OAuth) {

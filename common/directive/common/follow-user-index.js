@@ -1,4 +1,5 @@
 define('directive-common/follow-user-index',['at_app','filter/stockcode', "atmanlib-provider/confirm"], function(app) {
+
     app.lazy.directive('followUserIndex', ['$rootScope', 'UserRecommend','$ATConfirm','DeleteFollow','FollowUser',
         function($rootScope,UserRecommend,$modalConfirm,DeleteFollow,FollowUser) {
             return {
@@ -103,4 +104,5 @@ define('directive-common/follow-user-index',['at_app','filter/stockcode', "atman
             }
         }
     ]);
+
 })

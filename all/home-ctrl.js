@@ -3,9 +3,7 @@ define('home-ctrl/channel', ['at_app', 'atmanlib-lib/GOODS_TYPE', 'filter/at_lin
     app.lazy.controller('ctrl.home.channel', ['$scope', '$routeParams', 'GOODSTYPE', 'StockCategoryBonusDetail', '$timeout',
         function($scope, $routeParams, GOODSTYPE, StockCategoryBonusDetail, $timeout) {
             //注意：不能取service里面的这个GOODSTYPE，静态化文件更新后，会造成取到的商品类目名称不统一
-
             $scope.GOODSTYPE = GOODS_TYPE;
-
             //取当前类目收益（必须）
             StockCategoryBonusDetail.get({
                 'categoryId': $routeParams.id
@@ -17,38 +15,16 @@ define('home-ctrl/channel', ['at_app', 'atmanlib-lib/GOODS_TYPE', 'filter/at_lin
             $scope.categoryId = $routeParams.id;
             //类目曲线图隐藏
             $scope.chartShow = false;
-
             $timeout(function() {
                 $scope.chartShow = true;
-                // $('#highChart-box').style.height = 0;
             }, 5000);
-
             $scope.toggleChart = function() {
                 $scope.chartShow = !$scope.chartShow;
                 // $('#highChart-box').style.height = $scope.chartShow?'0px':'200px';
                 return false;
             }
-            /*function chartsHide() {
-             console.log(1111)
-             }
-
-             $(function() {
-             $('#charts-area').delay(5000).hide(0);
-             })
-             $('#stockCategoryArea').toggle(
-             function() {
-             $('#charts-area').show();
-             },
-             function() {
-             $('#charts-area').hide();
-             }
-             );*/
-            /* $scope.chartShow = function() {
-             $('#charts-area').show();
-             }*/
         }
     ]);
-
     app.lazy.controller('ctrl.home.channel.recommend', ['$scope', '$routeParams', 'goods',
         function($scope, $routeParams, goods) {
             goods.getGoodsRecommend($routeParams).$promise.then(function(data) {
@@ -56,7 +32,6 @@ define('home-ctrl/channel', ['at_app', 'atmanlib-lib/GOODS_TYPE', 'filter/at_lin
             });
         }
     ]);
-
     app.lazy.controller('ctrl.home.channel.list', ['$scope', '$routeParams', 'goods',
         function($scope, $routeParams, goods) {
             $scope.clNum = 10;
@@ -88,6 +63,7 @@ define('home-ctrl/channel', ['at_app', 'atmanlib-lib/GOODS_TYPE', 'filter/at_lin
             $(window).bind('scroll', autoScroll);
         }
     ]);
+
 });
 define('home-ctrl/goods-detail',['at_app', 'atmanlib-lib/GOODS_TYPE', 'filter/emojis', 'filter/at_link', 'directive/at_validate','directive/at_goods_detail_tip', 'directive/at_paging', 'directive/at_zoom', 'filter/emojis', 'directive/weibo/weibo-comment-input', 'directive/weibo/weibo-comment-list', 'directive/weibo/weibo-forwards', 'directive-common/add-cart-item'], function(app, GOODS_TYPE) {
 

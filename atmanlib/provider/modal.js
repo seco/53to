@@ -22,39 +22,37 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
             var bodyElement = angular.element($window.document.body);
             var htmlReplaceRegExp = /ng-bind="/ig;
             function ModalFactory(config) {
-
                 var $ATModal = {};
-
                 // Common vars
                 var options = $ATModal.$options = angular.extend({}, defaults, config);
                 $ATModal.$promise = fetchTemplate(options.template);
-                var scope = $ATModal.$scope = options.scope && options.scope.$new() || $rootScope.$new();
+                //TODO: Scope是一个指向应用的 model的object.它也是expression的执行上下文。Scope被放置于一个类似应用的DOM结构的层次结构中。Scope可监测（$watch）expression和传播事件。
+                /**
+                 * 1)scope提供$watch API,用于监测model的变化
+                 * 2)scope提供$apply API,在“Angular realm”(controller, server,angular event handler)之外，从系统到视图传播任何model的变化
+                 * 3)scope可以在提供到被共享的model属性的访问时，被嵌入到独立的应用组件中。scope通过（原型）,从parent scope中继承属性
+                 * 4)scope在expression求值时提供上下文环境
+                 */
+                var scope
+                    = $ATModal.$scope
+                    = options.scope && options.scope.$new() || $rootScope.$new();
                 if(!options.element && !options.container) {
                     options.container = 'body';
                 }
-
                 // Support scope as string options
                 forEach(['title', 'content'], function(key) {
                     if(options[key]) scope[key] = $sce.trustAsHtml(options[key]);
                 });
-
                 // Provide scope helpers
                 scope.$hide = function() {
-                    scope.$$postDigest(function() {
-                        $ATModal.hide();
-                    });
+                    scope.$$postDigest(function() {$ATModal.hide();});
                 };
                 scope.$show = function() {
-                    scope.$$postDigest(function() {
-                        $ATModal.show();
-                    });
+                    scope.$$postDigest(function() {$ATModal.show();});
                 };
                 scope.$toggle = function() {
-                    scope.$$postDigest(function() {
-                        $ATModal.toggle();
-                    });
+                    scope.$$postDigest(function() {$ATModal.toggle();});
                 };
-
                 // Support contentTemplate option
                 if(options.contentTemplate) {
                     $ATModal.$promise = $ATModal.$promise.then(function(template) {
@@ -68,7 +66,6 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                             });
                     });
                 }
-
                 // Fetch, compile then initialize modal
                 var modalLinker, modalElement;
                 var backdropElement = angular.element('<div class="' + options.prefixClass + '-backdrop"/>');
@@ -79,20 +76,11 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                     modalLinker = $compile(template);
                     $ATModal.init();
                 });
-
                 $ATModal.init = function() {
-
                     // Options: show
-                    if(options.show) {
-                        scope.$$postDigest(function() {
-                            $ATModal.show();
-                        });
-                    }
-
+                    if(options.show) {scope.$$postDigest(function() {$ATModal.show();});}
                 };
-
                 $ATModal.destroy = function() {
-
                     // Remove element
                     if(modalElement) {
                         modalElement.remove();
@@ -102,24 +90,17 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                         backdropElement.remove();
                         backdropElement = null;
                     }
-
                     // Destroy scope
                     scope.$destroy();
-
                 };
-
                 $ATModal.show = function() {
-
                     scope.$emit(options.prefixEvent + '.show.before', $ATModal);
                     var parent = options.container ? findElement(options.container) : null;
                     var after = options.container ? null : options.element;
-
                     // Fetch a cloned element linked from template
                     modalElement = $ATModal.$element = modalLinker(scope, function(clonedElement, scope) {});
-
                     // Set the initial positioning.
                     modalElement.css({display: 'block'}).addClass(options.placement);
-
                     // Options: animation
                     if(options.animation) {
                         if(options.backdrop) {
@@ -127,7 +108,6 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                         }
                         modalElement.addClass(options.animation);
                     }
-
                     if(options.backdrop) {
                         $animate.enter(backdropElement, bodyElement, null, function() {});
                     }
@@ -139,23 +119,17 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                     // Focus once the enter-animation has started
                     // Weird PhantomJS bug hack
                     var el = modalElement[0];
-                    requestAnimationFrame(function() {
-                        el.focus();
-                    });
-
+                    requestAnimationFrame(function() {el.focus();});
                     if(options.placement == "center"){
                         var dialogElement = modalElement.children(".modal-dialog");
                         var dialogWidth = dialogElement.prop('offsetWidth'),
                             dialogHeight = dialogElement.prop('offsetHeight');
                         dialogElement.css({"margin-left": (0-dialogWidth/2) + "px", "margin-top": (0-dialogHeight/2) + "px"});
                     }
-
                     bodyElement.addClass(options.prefixClass + '-open');
-
                     if(options.animation) {
                         bodyElement.addClass(options.prefixClass + '-with-' + options.animation);
                     }
-
                     // Bind events
                     if(options.backdrop) {
                         modalElement.on('click', hideOnBackdropClick);
@@ -165,9 +139,7 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                         modalElement.on('keyup', $ATModal.$onKeyUp);
                     }
                 };
-
                 $ATModal.hide = function() {
-
                     scope.$emit(options.prefixEvent + '.hide.before', $ATModal);
                     $animate.leave(modalElement, function() {
                         scope.$emit(options.prefixEvent + '.hide', $ATModal);
@@ -191,39 +163,28 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                         modalElement.off('keyup', $ATModal.$onKeyUp);
                     }
                 };
-
                 $ATModal.toggle = function() {
-
                     scope.$isShown ? $ATModal.hide() : $ATModal.show();
-
                 };
-
                 $ATModal.focus = function() {
                     modalElement[0].focus();
                 };
-
                 // Protected methods
-
                 $ATModal.$onKeyUp = function(evt) {
-
                     evt.which === 27 && $ATModal.hide();
-
                 };
-
                 // Private methods
-
                 function hideOnBackdropClick(evt) {
                     if(evt.target !== evt.currentTarget) return;
                     options.backdrop === 'static' ? $ATModal.focus() : $ATModal.hide();
                 }
-
                 return $ATModal;
-
             }
             // Helper functions
             function findElement(query, element) {
                 return angular.element((element || document).querySelectorAll(query));
             }
+            /// 使用$q+$http获取模板Html并暂存, 然后返回
             function fetchTemplate(template) {
                 return $q.when($templateCache.get(template) || $http.get(template)).then(function(res) {
                     if(angular.isObject(res)) {
@@ -234,8 +195,6 @@ define('atmanlib-provider/modal',['at_app'], function (app) {
                 });
             }
             return ModalFactory;
-
         }];
-
     });
 });

@@ -56,9 +56,9 @@ define('at_root_ctrl', ['at_app', 'atmanlib-lib/ATCONFIG', 'service/oauth', 'ser
                 })
             }
 
-            //$rootScope.loadWbUser();
-            //$rootScope.getStockBrief();
-            //OAuth.userInfo();
+            $rootScope.loadWbUser();
+            $rootScope.getStockBrief();
+            OAuth.userInfo();
 
             $rootScope.homeLogout = function() {
                 $rootScope.$emit('OAuth:login', 0);

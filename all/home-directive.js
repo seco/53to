@@ -6,7 +6,6 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
                 restrict: 'EACM',
                 scope: true,
                 link: function(scope, element, attr) {
-
                     var thisTimeOut;
                     // Directive options
                     var options = {
@@ -41,6 +40,7 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
                             });
                         });
                     });
+
                     var popover;
                     scope.isMouseover = false;
                     element.on("mouseover", function(){
@@ -82,7 +82,6 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
                         $timeout.cancel(thisTimeOut);
                         hidePopover();
                     });
-
                     function hidePopover(){
                         $timeout(function(){
                             if(popover && !scope.isMouseover){
@@ -94,16 +93,13 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
                             }
                         }, 500);
                     }
-
                     scope.popMouseover = function(){
                         scope.isMouseover = true;
                     };
-
                     scope.popMouseout = function(){
                         scope.isMouseover = false;
                         hidePopover();
                     };
-
                     scope.follow = function(){
                         FollowUser.send({id: scope.userData.uid}).$promise.then(function(data){
                             if(data.$resolved && !data.resultStatusBean){
@@ -128,6 +124,7 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
                             }
                         });
                     };
+
                     scope.atConfirm = null;
                     $document.click(function($event){
                         if(scope.atConfirm){
@@ -136,12 +133,8 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
                         }
                     });
                     scope.unFollow = function($event){
-                        if($event && $event.stopPropagation){
-                            $event.stopPropagation();
-                        }
-                        else{
-                            window.event.cancelBubble = true;
-                        }
+                        if($event && $event.stopPropagation){$event.stopPropagation();}
+                        else{window.event.cancelBubble = true;}
                         if(!scope.atConfirm){
                             var options = {placement: "top"};
                             scope.atConfirm = $ATConfirm(angular.element($event.target), options);
@@ -191,6 +184,7 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
         }
     ]);
 });
+
 define('directive/float-widget',["at_app", 'atmanlib-provider/modal'], function (app) {
     app.lazy.directive("floatWidget", ["$rootScope","$window","$ATModal", function($rootScope, $window,$ATModal) {
         return {
@@ -204,13 +198,8 @@ define('directive/float-widget',["at_app", 'atmanlib-provider/modal'], function 
                     if(!scope.animating){
                         var st = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
                         if(st > 100){
-                            if(returnTop.is(":hidden")){
-                                returnTop.fadeIn();
-                            }
-                        }
-                        else if(!returnTop.is(":hidden")){
-                            returnTop.fadeOut();
-                        }
+                            if(returnTop.is(":hidden")){returnTop.fadeIn();}
+                        }else if(!returnTop.is(":hidden")){returnTop.fadeOut();}
                     }
                 });
                 scope.returnToTop = function(){
