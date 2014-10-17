@@ -1,0 +1,607 @@
+html {
+    overflow: hidden;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+.quick-start {
+    display: block;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 999;
+    width: 102px;
+    height: 102px;
+    background: url("../images/guide/quickstart.png") no-repeat;
+}
+
+#page{
+    position: fixed;
+    width: 16px;
+    height: 178px;
+    bottom: 8%;
+    right: 3%;
+}
+
+#page .page-icon {
+    width: 16px;
+    height: 16px;
+    background: url("../images/guide/steps_2.png") center no-repeat;
+}
+
+#page .active {
+    background: url("../images/guide/steps_1.png") center no-repeat;
+}
+
+#next-step {
+    display: block;
+    position: fixed;
+    bottom: 120px;
+    right: 10%;
+    z-index: 999;
+    width: 168px;
+    height: 60px;
+    -webkit-animation: nextStep 1.5s linear infinite;
+    animation: nextStep 1.5s linear infinite;
+    background: url("../images/guide/nextstep.png") no-repeat;
+}
+@-webkit-keyframes nextStep{
+    0%{bottom:120px}
+    50%{bottom:160px}
+    100%{bottom:120px}
+}
+@keyframes nextStep{
+    0%{bottom:120px}
+    50%{bottom:150px}
+    100%{bottom:120px}
+}
+
+#guide-container {
+    margin-top: 0;
+}
+.guide-item {
+    width: 100%;
+}
+.item-inner {
+    width: 830px;
+    margin: auto;
+    position: relative;
+}
+.item-01 {
+    background: #A1D6DC url("../images/guide/guide01.png") bottom center no-repeat;
+}
+.item-02 {
+    background: url("../images/guide/guide02.png") bottom center no-repeat;
+}
+.item-03 {
+    background: #F8BD3B url("../images/guide/guide03.png") bottom center no-repeat;
+}
+.item-04 {
+    background: url("../images/guide/guide04.png") bottom center no-repeat;
+}
+.item-05 {
+    background: #C54543 url("../images/guide/bg_05.jpg") repeat;
+}
+.item-06 {
+    background: #FBE7D9 url("../images/guide/bg_06.jpg") bottom repeat-x;
+}
+.item-07 {
+    background: url("../images/guide/guide07.png") bottom center no-repeat;
+}
+.item-08 {
+    background: #F59F00 url("../images/guide/guide08.png") bottom center no-repeat;
+}
+.item-09 {
+    background: url("../images/guide/guide09.png") bottom center no-repeat;
+}
+.item-10 {
+    background: #03B0C3 url("../images/guide/guide10.png") bottom center no-repeat;
+}
+.item-11 {
+    background: url("../images/guide/bg_11.jpg") bottom center repeat-x;
+}
+
+.item-01 .goods {
+    position: absolute;
+    left: 0;
+    bottom: 150px;
+}
+.item-01 .goods-primary {
+    position: absolute;
+    bottom: 350px;
+    left: 210px;
+    -webkit-animation: goods 1.5s linear infinite;
+    animation: goods 1.5s linear infinite;
+}
+@-webkit-keyframes goods{
+    0%{bottom:330px}
+    50%{bottom:350px}
+    100%{bottom:330px}
+}
+@keyframes goods{
+    0%{bottom:330px}
+    50%{bottom:350px}
+    100%{bottom:330px}
+}
+.item-01 .flybanner {
+    position: absolute;
+    bottom: 550px;
+    right: 0;
+    -webkit-animation: flybanner 1.5s linear infinite;
+    animation: flybanner 1.5s linear infinite;
+}
+@-webkit-keyframes flybanner{
+    0%{bottom:550px}
+    50%{bottom:520px}
+    100%{bottom:550px}
+}
+@keyframes flybanner{
+    0%{bottom:550px}
+    50%{bottom:520px}
+    100%{bottom:550px}
+}
+
+.item-02-wrapper {
+    background: #03B0C3 url("../images/guide/bg_02.jpg") bottom repeat-x;
+}
+
+.item-02 .word-02{
+    position: absolute;
+    width: 339px;
+    height: 18px;
+    bottom: 580px;
+    left: 240px;
+    display: none;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.item-02 .search-02{
+    position: absolute;
+    width: 223px;
+    height: 43px;
+    bottom: 300px;
+    right: -115px;
+    display: none;
+}
+
+.item-02 .search-02 img {
+    width: 100%;
+}
+
+.item-02 .search-02 .search-text{
+    font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei", inherit;
+    font-size: 16px;
+    height: 100%;
+    vertical-align: middle;
+    padding-left: 10px;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    display: none;
+}
+
+.item-02 .goods-list {
+    position: absolute;
+    width: 200px;
+    height: 98px;
+    bottom: 206px;
+    right: 196px;
+    display: none;
+}
+
+.item-02 .cover-02 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: 322px;
+    right: 425px;
+    background-color: #fff;
+    display: none;
+}
+
+.item-03 .cleaner-03 {
+    position: absolute;
+    width: 77px;
+    bottom: 984px;
+    right: 436px;
+    display: none;
+}
+
+.item-03 .addcart-01, .item-03 .addcart-02 {
+    position: absolute;
+    bottom: 200px;
+    right: 157px;
+}
+
+.item-03 .addcart-02 {
+    display: none;
+}
+
+.item-03 .cover-03 {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    bottom: 170px;
+    right: 412px;
+    background-color: #fff;
+    display: none;
+}
+
+.item-03 .cleaner-03 {
+    position: absolute;
+    width: 77px;
+    right: 436px;
+    display: none;
+}
+
+.item-04 .cart-04 {
+    position: absolute;
+    width: 360px;
+    bottom: 84px;
+    right: 250px;
+}
+
+.item-04-wrapper {
+    background: #03B0C3 url("../images/guide/bg_04.jpg") bottom repeat-x;
+}
+
+.item-04 .cleaner-04 {
+    position: absolute;
+    right: 456px;
+    display: none;
+}
+.item-04 .cloud-04 {
+    position: absolute;
+    width: 884px;
+    height: 122px;
+    bottom: 500px;
+    left: -300px;
+    -webkit-animation: cloud04 70s linear infinite;
+    animation: cloud04 70s linear infinite;
+    background: url("../images/guide/guide04/cloud_04.png") no-repeat;
+
+}
+@-webkit-keyframes cloud04{
+    0%{left:-300px}
+    50%{left:300px}
+    100%{left:-300px}
+}
+@keyframes cloud04{
+    0%{left:-300px}
+    50%{left:300px}
+    100%{left:-300px}
+}
+.item-04 #word-04-01, .item-04 #word-04-02 {
+    position: absolute;
+    bottom: 500px;
+    left: 200px;
+    display: none;
+}
+.item-04 #word-04-02 {
+    left: 220px;
+}
+.item-04 #delivery {
+    display: none;
+    width: 326px;
+    height: 237px;
+    left: 250px;
+    bottom: 200px;
+    position: absolute;
+    background: url("../images/guide/guide04/ipad.png") no-repeat;
+}
+.item-04 #delivery-address {
+    display: none;
+    left: 32px;
+    top: 17px;
+    position: absolute;
+    background: url("../images/guide/guide04/ipad.png") no-repeat;
+}
+.item-05 {
+    overflow: hidden;
+}
+.item-05 .bankcard {
+    left: 0;
+    bottom: 200px;
+    position: absolute;
+}
+.item-05 .mouse-05 {
+    right: -50px;
+    bottom: 180px;
+    position: absolute;
+}
+.item-05 #mouse-05-2 {
+    display: none;
+}
+.item-05 #cleaner-05 {
+    left: 60px;
+    bottom: 800px;
+    position: absolute;
+    display: none;
+}
+.item-05 #hand-05 {
+    right: 32px;
+    bottom: -378px;
+    position: absolute;
+    display: none;
+}
+.item-05 #receipt-05 {
+    left: 120px;
+    bottom: 268px;
+    position: absolute;
+}
+.item-05 .word-05 {
+    left: 32px;
+    bottom: 560px;
+    position: absolute;
+}
+
+.item-06 #cleaner-06 {
+    left: 60px;
+    position: absolute;
+    display: none;
+}
+
+.item-06 #box-06 {
+    left: -500px;
+    bottom: 450px;
+    position: absolute;
+    display: none;
+}
+
+.item-06 #truck-06 {
+    left: 50px;
+    bottom: 0;
+    position: absolute;
+}
+
+.item-06 #courier-06 {
+    height: 120px;
+    width: 69px;
+    left: 100px;
+    bottom: 0;
+    position: absolute;
+    display: none;
+}
+.item-06 #door-06 {
+    right: 145px;
+    bottom: 116px;
+    position: absolute;
+    display: none;
+}
+
+.item-06 #girl-06 {
+    height: 120px;
+    right: 150px;
+    bottom: 116px;
+    position: absolute;
+    display: none;
+}
+
+.item-06 #item-06-bg {
+    width: 2500px;
+    height: 600px;
+    bottom: 0;
+    left: -300px;
+    position: absolute;
+    background: #FBE7D9 url("../images/guide/guide06.png") bottom left no-repeat;
+}
+
+.item-06 .cloud-06 {
+    position: absolute;
+    width: 473px;
+    height: 50px;
+    bottom: 550px;
+    left: -300px;
+    -webkit-animation: cloud04 70s linear infinite;
+    animation: cloud04 70s linear infinite;
+    background: url("../images/guide/guide06/cloud_06.png") no-repeat;
+
+}
+@-webkit-keyframes cloud06{
+    0%{left:-300px}
+    50%{left:300px}
+    100%{left:-300px}
+}
+@keyframes cloud06{
+    0%{left:-300px}
+    50%{left:300px}
+    100%{left:-300px}
+}
+
+.item-06 #word-06-01 {
+    left: 150px;
+    bottom: 500px;
+    position: absolute;
+}
+
+.item-06 #word-06-02 {
+    left: 120px;
+    bottom: 450px;
+    position: absolute;
+    display: none;
+
+}
+
+.item-06 #pop-talk {
+    left: 450px;
+    bottom: 400px;
+    position: absolute;
+    display: none;
+
+}
+
+.item-06 #address-01, .item-06 #address-02 {
+    left: 70px;
+    bottom: 140px;
+    position: absolute;
+    display: none;
+}
+
+.item-07-wrapper {
+    background: url("../images/guide/bg_07.jpg") bottom repeat-x;
+}
+
+.item-07 .star {
+    bottom: 486px;
+    position: absolute;
+    display: none;
+}
+
+.item-07 #star-07-01 {
+    left: 246px;
+}
+
+.item-07 #star-07-02 {
+    left: 267px;
+}
+
+.item-07 #star-07-03 {
+    left: 288px;
+}
+
+.item-07 #star-07-04 {
+    left: 309px;
+}
+
+.item-07 #star-07-05 {
+    left: 330px;
+}
+
+.item-07 #word-07-01 {
+    left: 255px;
+    bottom: 445px;
+    position: absolute;
+    display: none;
+}
+.item-07 #word-07-02 {
+    left: 255px;
+    bottom: 420px;
+    position: absolute;
+    display: none;
+}
+
+.item-08 .word-08 {
+    left: 100px;
+    bottom: 450px;
+    position: absolute;
+}
+
+.item-08 #girl-08 {
+    right: 110px;
+    bottom: 390px;
+    position: absolute;
+    display: none;
+}
+
+.item-08 #screen {
+    left: 332px;
+    bottom: 215px;
+    position: absolute;
+    display: none;
+}
+
+.item-08 #coins {
+    left: 380px;
+    bottom: 1015px;
+    position: absolute;
+    display: none;
+}
+
+.item-09-wrapper {
+    background: url("../images/guide/bg_09.jpg") bottom repeat-x;
+}
+
+.item-09 .word-09 {
+    left: 300px;
+    bottom: 450px;
+    position: absolute;
+}
+
+.item-09 #pop-09-01 {
+    left: 50px;
+    bottom: 240px;
+    position: absolute;
+    display: none;
+}
+
+.item-09 #plus {
+    left: 360px;
+    bottom: 350px;
+    position: absolute;
+    display: none;
+}
+
+.item-09 #pop-09-02 {
+    bottom: 240px;
+    right: 90px;
+    position: absolute;
+    display: none;
+}
+
+.item-09 #favor {
+    right: 250px;
+    bottom: 140px;
+    position: absolute;
+    display: none;
+}
+
+.item-10 #word-10 {
+    bottom: 560px;
+    left: 350px;
+    position: absolute;
+    display: none;
+}
+
+.item-10 #pop-10-01 {
+    bottom: 416px;
+    left: 200px;
+    position: absolute;
+    display: none;
+}
+
+.item-10 #pop-10-02 {
+    bottom: 416px;
+    left: 416px;
+    position: absolute;
+    display: none;
+}
+
+.item-10 #chart {
+    bottom: 100px;
+    left: 200px;
+    position: absolute;
+    width: 424px;
+    height: 243px;
+    background: #fff;
+}
+
+.item-11 {
+    position: relative;
+}
+
+.item-11 #start-btn {
+    display: none;
+    width: 406px;
+    height: 169px;
+    left: 212px;
+    bottom: 360px;
+    position: absolute;
+}
+
+.item-11 #again-btn {
+    display: none;
+    width: 110px;
+    height: 37px;
+    right: 360px;
+    bottom: 250px;
+    position: absolute;
+}
+
+.item-11 #hand-11 {
+    right: 100px;
+    bottom: 380px;
+    position: absolute;
+    display: none;
+}
