@@ -1,0 +1,29 @@
+<div class="loading-bar mgt-30" ng-if="!loading"></div>
+<div class="ct-feed pdtb-5 mgb-5 bdb-1 bdc-e7" bindonce ng-repeat="cr in commentList">
+    <img class="lazy cur pull-left" ng-src="{{cr.weiboUserBean.headImage}}/50" at-user-popover="cr.weiboUserBean" width="30" height="30">
+    <div class="ct-detail">
+        <a bo-href-i="/weibo/#/user/{{cr.weiboUserBean.nickName}}" bo-if="cr.weiboUserBean.loginType!='ADMIN'" class="wb-name" at-user-popover="cr.weiboUserBean" bo-bind="cr.weiboUserBean.nickName"></a>
+        <span bo-if="cr.weiboUserBean.loginType=='ADMIN'" class="wb-name" bo-bind="cr.weiboUserBean.nickName"></span>
+        &nbsp;:&nbsp;
+        <span compile="cr.topicBean.content | emojisFr | atLink"></span>
+        <p class="mgb-0 mgt-5">
+            <span class="c-ae" bo-bind="cr.addtime*1000|date:'yyyy-MM-dd HH:mm:ss'"></span>
+            <!-- <a href="javascript:;" >赞</a> <i class="split-line">|</i> -->
+            <a href="javascript:void(0);" class="pull-right" ng-click="cr.answerFlag=!cr.answerFlag;">回复</a>
+        </p>
+    </div>
+    <div class="wb-expand" ng-if="cr.answerFlag">
+        <div class="wb-arrow wb-answer-arrow">
+            <em class="c-ddd">◆</em>
+            <span class="c-fb">◆</span>
+        </div>
+        <div class="wb-expand-content mrb-20">
+            <div ng-controller="ctrl.weibo-comment-input" ng-init="btnType='answer';"></div>
+        </div>
+    </div>
+</div>
+</div>
+<div ng-if="commentPage.count-commentPage.pageSize*commentPage.currentPage>0">
+    <strong ng-bind="'后面还有'+(commentPage.count-commentPage.pageSize*commentPage.currentPage||0)+'条评论,'"></strong>
+    <a href="javascript:void(0);" ng-click="nextMore()">点击查看更多 <em class="c-f50">&gt;</em></a>
+</div>

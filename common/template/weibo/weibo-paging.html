@@ -1,0 +1,32 @@
+<ul class="pagination">
+    <li ng-class="{'disabled':currentPage==1}">
+        <a ng-disabled="currentPage==1" href="javascript:void(0);" ng-click="lastPage(currentPage-1)">
+            <span class="at-arrow at-arrow-f50-left"></span>
+        </a>
+    </li>
+    <li ng-repeat="(key,val) in paging track by $index" ng-class="{'active':currentPage == val}">
+        <span ng-if="val=='...'">...</span><a ng-if="val!='...'" ng-click="selectPage(val)" href="javascript:void(0);">{{val}} <span class="sr-only">({{val}})</span></a>
+    </li>
+    <li ng-class="{'disabled':!(currentPage<totalPage)}">
+        <a href="javascript:void(0);" ng-disabled="!(currentPage<totalPage)" ng-click="nextPage(currentPage+1)">
+            <span class="at-arrow at-arrow-f50-right"></span>
+        </a>
+    </li>
+    <li>
+        <span>共{{totalPage}}页&nbsp;{{total}}条记录</span>
+    </li>
+    <li>
+        <span>到第</span>
+    </li>
+    <li>
+        <span>
+            <input type="text" class="pagingnumber" maxlength="10" ng-keyup="enterPage($event)" ng-model="one.jump" />
+        </span>
+    </li>
+    <li>
+        <span>页</span>
+    </li>
+    <li>
+        <span class="btn btn-default btn-pagination" ng-click="jumpPage(currentPage+1)">确定</span>
+    </li>
+</ul>

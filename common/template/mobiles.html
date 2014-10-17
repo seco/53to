@@ -1,0 +1,155 @@
+<style type="text/css">
+    .modal-width{
+        width: 710px;
+        margin-top: 100px;
+    }
+    .mobile{
+        width: 700px;
+        padding: 0px;
+    }
+    .mobile-title{
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .mobile-dd{
+        margin-top: 3px;
+    }
+    .mobile-dl{
+        margin-top: 20px;
+        padding-top: 5px;
+    }
+</style>
+<div id="MobileModal" class="modal fade" data-backdrop="static">
+    <div class="modal-dialog modal-lg modal-width">
+        <div class="modal-content us-content">
+            <div class="modal-header us-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">手机验证-
+                    <span ng-if="!mobile">绑定手机</span>
+                    <span ng-if="!!mobile">更换手机</span>
+                </h4>
+            </div>
+            <div  class="modal-body us-body mobile mgt-10 mh-200">
+                <form class="form-horizontal" name="mobile_form">
+                    <!--当用户没有绑定手机号码时绑定手机显示-->
+                    <!-- <dl class="dl-horizontal mobile-dl" ng-if="!mobile&&!">
+                        <dt><span class="mobile-title">手机绑定</span></dt>
+                        <dd>&nbsp;</dd>
+                    </dl> -->
+                    <!-- <dl class="dl-horizontal" ng-show="!mobile&&!isEmail">
+                        <dt>输入手机号码:</dt>
+                        <dd>
+                            <input type="text" ng-model="phone" name="phone" at-mobile="1" ng-blur="checkedMobile()" ng-disabled="mobileDisabled">
+                            <a href="javascript:void(0)" ng-show="mobileDisabled&&!countdown" ng-click="changePhone()">使用其他手机号码</a>
+                            <span ng-if="mobile_form.phone.$error.atMobile">格式不正确</span>
+                            <span ng-if="mobileValue">{{mobileValue}}</span>
+                        </dd>
+                    </dl> -->
+
+                    <div class="form-group" ng-show="!mobile">
+                        <label class="col-xs-3 control-label ft-12 text-right pdt-5">输入手机号码:</label>
+                        <div class="col-xs-4">
+                            <input type="text" tabindex="1" class="form-control" ng-model="submitModel.phone" maxlength="11" ng-focus="changeEditStatus('phone')" ng-blur="mobileBlur()" placeholder="请输入手机号码" ng-disabled="mobileDisabled" />
+                        </div>
+                        <div class="col-xs-5 pdt-5">
+                            <a href="javascript:void(0)" ng-show="mobileDisabled&&!countdown" ng-click="changePhone()">使用其他手机号码</a>
+                            <span class="glyphicon glyphicon-remove c-f50" ng-if="!validation.phone.result"></span>
+                            <!-- <span class="glyphicon glyphicon-ok c-0c0" ng-if="validation.phone.result && submitModel.phone"></span> -->
+                            <span ng-bind-html="validation.phone.message"></span>
+                        </div>
+                    </div>
+                    <!--当用户有绑定手机号码时取消绑定手机显示-->
+                    <!-- <dl class="dl-horizontal mobile-dl">
+                        <dt><span ng-if="!!mobile">更换手机</span></dt> -->
+                    <!-- <dd class="mobile-dd"><a href="javascript:void()" ng-click="changeIsEmail()">使用安全邮箱更换手机号码</a></dd> -->
+                    <!-- </dl> -->
+                    <!-- <dl class="dl-horizontal" ng-if="!!mobile&&!isEmail">
+                        <dt>原有号码:</dt>
+                        <dd>
+                            <span>{{mobile}}</span>
+                        </dd>
+                    </dl> -->
+
+                    <div class="form-group" ng-show="!!mobile">
+                        <label class="col-xs-3 control-label ft-12 text-right">原有号码:</label>
+                        <div class="col-xs-4">
+                            <span>{{mobile}}</span>
+                        </div>
+                    </div>
+                    <!--安全邮箱发送-->
+                    <!-- <dl class="dl-horizontal mobile-dl" ng-if="!!mobile&&isEmail">
+                        <dt>验证方式：</dt>
+                        <dd>安全邮箱</dd>
+                    </dl>
+                    <dl class="dl-horizontal" ng-if="!!mobile&&isEmail">
+                        <dt>安全邮箱：</dt>
+                        <dd>{{email}}</dd>
+                    </dl> -->
+                    <!-- <dl class="dl-horizontal">
+                        <dt></dt>
+                        <dd>
+                            <button ng-if="!mobile&&!isEmail" class="btn btn-success" ng-model="getCaptchas" ng-disabled="mobile_form.phone.$error.atMobile||!phone||clickGetCaptchas||mobileValue" ng-click="clickCaptchasButton()">发送验证码</button>
+                            <button ng-if="!!mobile&&!isEmail" class="btn btn-success" ng-model="getCaptchas" ng-disabled="clickGetCaptchas" ng-click="clickCaptchasButton()">发送验证码</button>
+                            <button ng-if="!!mobile&&isEmail" class="btn btn-success" ng-model="getCaptchas" ng-disabled="clickGetCaptchas" ng-click="clickCaptchasButton()">发送验证码</button>
+                        </dd>
+                    </dl> -->
+
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label ft-12 text-right">&nbsp;</label>
+                        <div class="col-xs-6">
+                            <button ng-if="!mobile" class="btn btn-success" ng-model="getCaptchas" ng-disabled="!validation.phone.result||!submitModel.phone||clickGetCaptchas" ng-click="clickCaptchasButton()">发送验证码</button>
+                            <button ng-if="!!mobile" class="btn btn-success" ng-model="getCaptchas" ng-disabled="clickGetCaptchas" ng-click="clickCaptchasButton()">发送验证码</button>
+                            <!-- <button ng-if="!!mobile" class="btn btn-success" ng-model="getCaptchas" ng-disabled="clickGetCaptchas" ng-click="clickCaptchasButton()">发送验证码</button> -->
+                        </div>
+                    </div>
+                    <!-- <dl class="dl-horizontal">
+                        <dt></dt>
+                        <dd><span ng-if="getMoboileValue">{{getMoboileValue}}</span></dd>
+                    </dl> -->
+                    <div class="form-group" ng-if="getMoboileValue">
+                        <label class="col-xs-3 control-label ft-12 text-right">&nbsp;</label>
+                        <div class="col-xs-6">
+                            <span ng-bind-html="getMoboileValue"></span>
+                        </div>
+                    </div>
+                    <!-- <dl class="dl-horizontal">
+                        <dt>验证码：</dt>
+                        <dd>
+                            <input type="text" ng-model="captchasCode" name="captchasCode" at-nil="1" ng-disabled="!clickCaptchas">
+                            <span ng-if="captchasValue">{{captchasValue}}</span>
+                            <span ng-if="mobile_form.captchasCode.$error.atNil">请输入验证码</span>
+                        </dd>
+                    </dl> -->
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label ft-12 text-right">验证码：</label>
+                        <div class="col-xs-4">
+                            <!-- <input type="text" ng-model="captchasCode" name="captchasCode" at-nil="1" ng-disabled="!clickCaptchas"> -->
+                            <input type="text" tabindex="2" class="form-control" ng-model="submitModel.captchasCode" maxlength="11" ng-focus="changeEditStatus('captchasCode')" ng-blur="captchasCodeBlur()" placeholder="请输入验证码" ng-disabled="!clickCaptchas" />
+                        </div>
+                        <div class="col-xs-4">
+                            <!-- <span class="glyphicon glyphicon-remove c-f50" ng-if="!validation.captchasCode.result"></span>
+                            <span class="glyphicon glyphicon-ok c-0c0" ng-if="validation.captchasCode.result && submitModel.captchasCode"></span> -->
+                            <span ng-bind-html="validation.captchasCode.message"></span>
+                        </div>
+                    </div>
+                    <!--  <dl class="dl-horizontal">
+                         <dt></dt>
+                         <dd>
+                             <button ng-if="!mobile" type="button" class="btn btn-primary" ng-model="subutton" ng-disabled="mobile_form.phone.$error.atMobile||!phone||!captchasCode||mobile_form.captchasCode.$error.atNil||mobileClick" ng-click="captcha()">确认</button>
+                             <button ng-if="!!mobile" type="button" class="btn btn-primary" ng-model="subutton" ng-disabled="!captchasCode||mobile_form.captchasCode.$error.atNil||mobileClick" ng-click="captcha()">确认</button>
+                             &nbsp;&nbsp;<button type="button" class="btn btn-default" ng-click="cancel()">取消</button>
+                         </dd>
+                     </dl> -->
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label ft-12 text-right">&nbsp;</label>
+                        <div class="col-xs-6">
+                            <button ng-if="!mobile" type="button" class="btn btn-primary" ng-model="subutton" ng-disabled="!validation.phone.result || !submitModel.phone||!submitModel.captchasCode||!validation.captchasCode.result||mobileClick" ng-click="captcha()">确认</button>
+                            <button ng-if="!!mobile" type="button" class="btn btn-primary" ng-model="subutton" ng-disabled="!submitModel.captchasCode||!validation.captchasCode.result||mobileClick" ng-click="captcha()">确认</button>
+                            &nbsp;&nbsp;<button type="button" class="btn btn-default" ng-click="cancel()">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

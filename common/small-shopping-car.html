@@ -1,0 +1,26 @@
+<div class="panel panel-default mz-hv-show w-300 pos-r-0">
+    <div class="panel-body" ng-show="item.cartItemBeans">
+        <div class="media underline" ng-repeat="carItems in item.cartItemBeans | limitTo:5">
+            <a class="pull-left" href="/item/#/{{carItems.goodsBrief.goodsId}}" target="_blank">
+                <img class="media-object" ng-src="{{carItems.goodsBrief.goodsImage}}" alt="" width="50px" height="50px"></a>
+            <div class="media-body">
+                <span class="media-heading font-12 tinycar-fontfamily"><a href="/item/#/{{carItems.goodsBrief.goodsId}}" target="_blank">{{carItems.goodsBrief.goodsName}}</a></span>
+                <p><span class="c-f50"> {{carItems.goodsBrief.price | currency:'¥'}}</span> &times; <span class="highlight">{{carItems.quantity}}</span></p>
+            </div>
+
+        </div>
+        <a href="javascirpt:void(0)" ng-href="/#/shopping-cart" ng-show="item.cartItemBeans.length >5">查看全部<span class="highlight">{{item.cartItemBeans.length}}</span>件商品</a>
+    </div>
+    <div class="panel-footer" ng-show="item.cartItemBeans">
+        <p class="text-right">共 <span class="label-num"> {{item.cartItemBeans.length}} </span> 件商品总计 ： <span class="label-num">{{item.totalPrice | currency:'¥'}}</span></p>
+        <p class="text-right">
+            <a class="btn btn-primary" ng-href="/#/shopping-cart">
+                去购物车结算
+            </a>
+        </p>
+    </div>
+    <div class="panel-body" ng-if="!item.cartItemBeans.length">
+        您的购物车是空的,去<a href=""><span class="c-f50">随便逛逛</span></a>
+        <p ng-if="!flag">如您已添加商品，请 <a href="/login" class="c-f50 ft-14">登录</a> 查看</p>
+    </div>
+</div>

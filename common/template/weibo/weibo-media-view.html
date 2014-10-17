@@ -1,0 +1,52 @@
+<div class="wb-media-expand">
+    <p class="medis-func">
+        <a href="javascript:;" ng-click="close()" class="retract">
+            <span class="weibo-icon weibo-icon-retract"></span>
+            收起
+        </a> <i class="split-line">|</i>
+        <!--         <a href="javascript:void(0);">
+                    <span class="weibo-icon weibo-icon-larImg"></span>
+                    查看大图
+                </a> <i class="split-line">|</i> -->
+        <a href="javascript:void(0);" class="turn-left" ng-click="turnLeft()">
+            <span class="weibo-icon weibo-icon-clockwise"></span>
+            向左转
+        </a>
+        <i class="split-line">|</i>
+        <a href="javascript:void(0);" class="turnRight" ng-click="turnRight()">
+            <span class="weibo-icon weibo-icon-anticlockwise"></span>
+            向右转
+        </a>
+    </p>
+    <div class="loading-bar mgt-30"></div>
+    <div class="pic-list-view">
+        <div class="pic-show-box" ng-style="wmv.cssdiv" >
+            <!-- <img ng-src="{{imgList[wmv.picBoxNum]}}/400" ng-style="wmv.cssimg" class="pic-show-box-img" > -->
+            <div class="pic-left-btn" ng-if="wmv.picBoxNum > 0"  ng-click="picImgPrev()">
+            </div>
+            <div class="pic-small-btn" ng-click="close()" ng-style="wmv.cssdiv">
+            </div>
+            <div class="pic-right-btn" ng-if="wmv.picBoxNum < imgList.length-1"  ng-click="picImgNext()">
+            </div>
+            <img class="pic-show-box-img" >
+        </div>
+        <div class="pic-choose-box clearfix" ng-if="imgList.length!=1">
+            <a href="javascript:void(0);" ng-click="picPrev()" class="arrow-left-small ico-pic-prev" title="上一页">
+                <span class="weibo-icon weibo-icon-left"></span>
+            </a>
+            <div class="stage-box">
+                <ul class="choose-box clearfix" ng-style="styleLi">
+                    <li bindonce ng-repeat="(imgkey, imgVal) in imgList track by $index">
+                        <a href="javascript:;" ng-click="selImg(imgkey);" ng-class="{current:wmv.picBoxNum==imgkey}">
+                            <img bo-src-i="{{imgVal}}/80" alt="" width="50" height="50">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="javascript:void(0);" ng-click="picNext()" class="arrow-right-small ico-pic-next" title="下一页">
+                <span class="weibo-icon weibo-icon-right"></span>
+            </a>
+        </div>
+    </div>
+</div>
+</div>

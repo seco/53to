@@ -1,0 +1,63 @@
+<div class="bd-1 bd-b bdc-ef">
+    <div class="pull-left pdtb-10 pdlr-18 ft-14 h-40"><span  ng-hide="newWeibo">吾商微博</span><span  ng-show="newWeibo">发新微博</span></div>
+    <div class="pull-right pdtb-10 pdlr-20 bd-1 bd-l bdc-ef ft-14 c-666 bg-fa m-finger h-40" style="height:39px;inline-height:39px;" ng-click="newWeibo = true;" ng-hide="newWeibo">
+        <span class="glyphicon glyphicon-edit"></span>
+        发布微博
+    </div>
+
+    <div class="pdlr-20 chartsContainer" ng-class="{'weiboBox-hide':!newWeibo,'weiboBox-show':newWeibo}">
+        <textarea class="weiboinputor atWeiboTextarea mgt-10" name="at" ng-model="weiboTextarea"></textarea>
+        <div class="mgtb-5 h-30">
+            <a href="javascript:void(0);" class="emojisBtn">
+                <span class="weibo-icon-emojis"></span>
+                <span class="btn-text">表情</span>
+            </a>
+            <a href="javascript:void(0);" class="imgBtn mgl-10">
+                <span class="weibo-icon-camera"></span>
+                <span class="btn-text">图片</span>
+            </a>
+            <div class="pull-right">
+                <button type="button" disabled="disabled" class="btn btn-primary pdlr-25 send-btn mgr-10" ng-click="send();newWeibo = false;">发布</button>
+                <button type="button" class="btn btn-default pdlr-25" ng-click="newWeibo = false;closeImg();closeEmojis();">取消</button>
+            </div>
+            <div class="pull-right pdlr-15 c-888 weiboNumTip">
+                还可以输入
+                <span class="weiboNum">140</span>
+                字
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="weiboEmojisTmp">
+    <!-- 延迟加载表情HTML-->
+</div>
+<div class="weiboUploadFileTmp  w-325" style="display: none;">
+    <div data-file-upload="options" >
+        <div ng-bind="'共'+(queue.length||0)+'张,还能上传'+(options.maxNumberOfFiles-queue.length<0?0:options.maxNumberOfFiles-queue.length)+'张'"></div>
+        <div class="mg-10 clearfix">
+            <div class="col-80" data-ng-class="{'processing': file.$processing()}" data-ng-repeat="file in queue track by ($index)">
+                <div class="weiboImgBlock">
+                    <a data-ng-href="{{file.url}}" target="_blank" title="{{file.url}}" data-gallery>
+                        <img class="" data-ng-src="{{file.url}}" style="width:80px;height:80px;">
+                    </a>
+                    <!--<a ng-show="!file.successful" data-file-upload-preview="file"></a>-->
+                    <div class="caption">
+                        <div class="progress progress-striped active fade msg" data-ng-class="{pending: 'in'}[file.$state()]" data-file-upload-progress="file.$progress()">
+                            <div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div>
+                        </div>
+                        <p class="text-center text-danger" ng-bind="file.error"></p>
+                        <a href="javascript:void(0);" class="close" data-ng-click="file.$remove($index)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-80" ng-show="queue.length<9">
+            <span ng-class="{disabled: disabled}" class="weibo-fileupload-btn glyphicon glyphicon-plus lk-no-udl" href="javascript:void(0);" title="请选择图片">
+                <input autocomplete="off" type="file" class="cur" accept="image/gif, image/jpg,image/jpeg,image/png" name="files[]" multiple="multiple" />
+            </span>
+            </div>
+        </div>
+    </div>
+</div>

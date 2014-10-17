@@ -1,0 +1,106 @@
+<div ng-if="(!weiboList||weiboList.length==0)&&fristTip&&!loading" class="alert alert-default ft-12 t-center ng-scope" ng-class="{'bg-ff mgt-15 no-data-container pd-0':fristTip==2}"><span class="no-data-text">暂时还没有微博，现在就来发第一条微博吧!</span></div>
+<div class="wb-feed mg-20" bindonce ng-repeat="wr in weiboList | limitTo:weiboNum" ng-init="wbMediaView={};selectedImg={};selectedNum={};">
+    <a ng-if="wr.weiboUserBean.loginType!='ADMIN'" class="wb-user-head" ng-href="/weibo/#/user/{{ wr.weiboUserBean.nickName }}" at-user-popover="wr.weiboUserBean">
+        <img ng-src="{{wr.weiboUserBean.headImage}}/50" alt=""/>
+    </a>
+    <a ng-if="wr.weiboUserBean.loginType=='ADMIN'" class="wb-user-head" href="javascript:;">
+        <img ng-src="{{wr.weiboUserBean.headImage}}/50" alt=""/>
+    </a>
+    <div class="wb-detail" bindonce="wr">
+        <div class="wb-user-info">
+            <a bo-href-i="/weibo/#/user/{{wr.weiboUserBean.nickName}}" ng-if="wr.weiboUserBean.loginType!='ADMIN'" target="_blank" class="wb-name" at-user-popover="wr.weiboUserBean" bo-bind="wr.weiboUserBean.nickName"></a>
+            <span bo-if="wr.weiboUserBean.loginType=='ADMIN'" class="wb-name" at-user-popover="wr.weiboUserBean" bo-bind="wr.weiboUserBean.nickName"></span>
+            <div class="wb-gd-info" bo-if="wr.topicBean.goodsId">
+                <span class="ft-bd c-f50">
+                    <span class="yen">¥</span>
+                    <span bo-bind="wr.topicBean.goodsBriefBean.price|number:2"></span>
+                </span>
+                <span class="mglr-5 c-ccc">|</span>
+                <span class="text-muted">推广金:</span>
+                <span class="c-f50 ft-bd" bo-bind="wr.topicBean.goodsBriefBean.popularizeFund|number:2"></span>
+                <span class="mglr-5 c-ccc">|</span>
+                <span class="text-muted">返利金:</span>
+                <span class="c-f50 ft-bd" bo-bind="wr.topicBean.goodsBriefBean.rebateFund|number:2"></span>
+                <a bo-href-i="/item/#/{{wr.topicBean.goodsId}}/{{wr.topicBean.commentId}}" target="_blank" class="btn btn-primary btn-xs wb-buy-btn">
+                    立即购买
+                </a>
+            </div>
+        </div>
+        <p class="wb-text ">
+            <span compile="wr.topicBean.content | emojisFr | atLink"></span>
+            <a class="wb-gd-link" bo-if="wr.topicBean.goodsId" bo-href-i="/item/#/{{wr.topicBean.goodsId}}/{{wr.topicBean.commentId}}" target="_blank">
+                <img ng-src="/atmanlib/asset/images/icon/to_logo.gif" />
+                <span bo-bind="wr.topicBean.goodsBriefBean.goodsName"></span>
+            </a>
+        </p>
+        <ul class="wb-media clearfix" ng-if="!wbMediaView[wr.tid]">
+            <li bindonce ng-repeat="(wrkey,wrimg) in wr.topicBean.imageList track by $index" class="cur" ng-click="selectedImg[wr.tid]=wrimg;wbMediaView[wr.tid]=1;selectedNum[wr.tid]=wrkey;">
+                <img class="lazy cur mglr-3" ng-src="{{wrimg}}/80" data-original="{{wrimg}}/80" alt="" width="80" height="80">
+            </li>
+        </ul>
+        <div ng-controller="ctrl.weibo-media-view" ng-if="wbMediaView[wr.tid]"></div>
+        <!-- expand start-->
+        <div class="wb-expand wb-feed ft-12" ng-if="wr.rootTopic" ng-init="wer=wr.rootTopic;wbMediaView={};selectedImg={};selectedNum={};">
+            <div class="wb-arrow">
+                <em class="c-ddd">◆</em>
+                <span class="c-fb">◆</span>
+            </div>
+            <a class="wb-name" ng-if="wer.weiboUserBean.loginType!='ADMIN'" bo-href-i="/weibo/#/user/{{wer.weiboUserBean.nickName}}" class="h5 to-150 w-60 pull-left mgt-0" at-user-popover="wer.weiboUserBean">
+                <strong bo-bind="'@'+wer.weiboUserBean.nickName">
+                </strong>
+            </a>
+            <span class="wb-name" ng-if="wer.weiboUserBean.loginType=='ADMIN'" class="h5 to-150 w-60 pull-left mgt-0">
+                <strong bo-bind="'@'+wer.weiboUserBean.nickName">
+                </strong>
+            </span>
+            <p class="wb-expand-text mgt-5">
+                <span compile="wer.topicBean.content | emojisFr | atLink"></span>
+                <a class="wb-gd-link" bo-if="wer.topicBean.goodsId" bo-href-i="/item/#/{{wer.topicBean.goodsId}}/{{wr.topicBean.commentId}}" target="_blank">
+                    <img ng-src="/atmanlib/asset/images/icon/to_logo.gif" alt="">
+                    <span bo-bind="wer.topicBean.goodsBriefBean.goodsName"></span>
+                </a>
+            </p>
+            <ul class="wb-media mgb-7 clearfix" ng-if="!wbMediaView[wer.tid]">
+                <li bindonce ng-repeat="(wrkey,wrimg) in wer.topicBean.imageList  track by $index" class="cur" ng-click="selectedImg[wer.tid]=wrimg;wbMediaView[wer.tid]=1;selectedNum[wer.tid]=wrkey;">
+                    <img class="lazy cur" ng-src="{{wrimg}}/80" data-original="{{wrimg}}/80" alt="" width="80" height="80">
+                </li>
+            </ul>
+            <div ng-controller="ctrl.weibo-media-view" ng-if="wbMediaView[wer.tid]" ng-init="wr=wer"></div>
+            <a href="javascript:void(0);" class="c-78 pull-right" ng-click="wer.replysFlag = !wer.replysFlag" ><span  ng-bind="'&nbsp;评论(' + wer.replys+')'"></span></a>
+            <a href="javascript:void(0);" class="c-78 pull-right" ng-click="openForwards(wer)"><span  bo-bind="'转发(' + wer.forwards+') |'"></span></a>
+            <span class="c-999" bo-bind="wer.addtime*1000|date:'yyyy-MM-dd HH:mm:ss'"></span>
+            &nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0);" class="c-999">来自&nbsp;吾商微博</a>
+            <div class="wb-expand" ng-if="wer.replysFlag">
+                <div class="wb-arrow wb-expand-record-arrow">
+                    <em class="c-ddd">◆</em>
+                    <span class="c-fb ">◆</span>
+                </div>
+                <div ng-controller="ctrl.weibo-comment-input" ng-init="wr=wer;wr.root=1;btnType='reply';"></div>
+                <div ng-controller="ctrl.weibo-comment-list" ng-init="wr=wer;wr.root=1;"></div>
+            </div>
+        </div>
+        <!-- expand end-->
+        <a href="javascript:void(0);" class="c-78 pull-right" ng-click="wr.replysFlag = !wr.replysFlag"  ng-bind="'&nbsp;评论('+wr.replys+')'"></a>
+        <a href="javascript:void(0);" class="c-78 pull-right" ng-click="openForwards(wr)" bo-bind="'转发('+wr.forwards+') |'"></a>
+        <span class="c-999" bo-bind="wr.addtime*1000|date:'yyyy-MM-dd HH:mm:ss'"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:void(0);" class="c-999">来自 吾商微博</a>
+        <div class="wb-expand" ng-if="wr.replysFlag">
+            <div class="wb-arrow wb-comment-arrow">
+                <em class="c-ddd ">◆</em>
+                <span class="c-fb ">◆</span>
+            </div>
+            <div ng-controller="ctrl.weibo-comment-input" ng-init="btnType='reply';"></div>
+            <div ng-controller="ctrl.weibo-comment-list" ></div>
+        </div>
+    </div>
+</div>
+<div ng-controller="ctrl.weibo-forwards" ng-init="btnType='forward';"></div>
+<div class="loading-bar mgt-30" ng-if="loading"></div>
+<!-- <div class="t-center pd-25" ng-if="weiboList.length>0&&loading">
+    <img src="/atmanlib/asset/images/icon/ajax-loader.gif" alt="" class="mgr-5">正在加载,请稍后......</div> -->
+<!-- <div class="alert alert-success cur" ng-click="next()" ng-if="weiboPage.currentPage<3&&pagination!=weiboPage.currentPage">显示更多</div> -->
+<!-- <div class="pull-right" weibo-paging  page="weiboPage" item="weiboList" ng-if="weiboPage.currentPage>2||pagination==weiboPage.currentPage" ></div> -->
+<div class="pull-right" weibo-paging page="weiboPage" item="weiboList" ng-if="weiboPagingShow"></div>
+<!-- <button type="button" class="btn btn-default btn-block" ng-click="more()" ng-if="!weiboPagingShow">加载更多微博</button> -->

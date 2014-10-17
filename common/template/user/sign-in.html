@@ -1,0 +1,33 @@
+<form name="signInForm" autocomplete="off">
+    <div class="sign-block">
+        <div class="input-group mgtb-10">
+        <span class="input-group-addon">
+            <span class="weibo-icon weibo-icon-user"></span>
+        </span>
+            <input type="text" tabindex="1" id="siUserName" autocomplete="off" ng-keyup="keyCodeSel($event)" name="userName" class="form-control" ng-model="sign.username" placeholder="昵称/邮箱/手机号"></div>
+        <ul class="email-autocomplete" ng-if="one.emailAutocompleteShow">
+            <li  class="ea-header">请选择邮箱类型</li>
+            <li class="ea-list" ng-class="{'email-selected':emailSel==$index}"   ng-repeat="(key,val) in emailList | emailFr:sign.username" ng-click="sel(sign.username+key);">
+                <a  tabindex="-1" href="javascript:void(0);"  ng-bind="sign.username+key"></a>
+            </li>
+        </ul>
+        <div class="input-group mgtb-10">
+        <span class="input-group-addon">
+            <span class="weibo-icon weibo-icon-lock"></span>
+        </span>
+            <input type="password" tabindex="2" autocomplete="off" ng-change="pwdChange()" name="passWord" class="form-control pass-word" ng-keyup="signInKeyCode($event)" ng-model="sign.password" placeholder="密码">
+        </div>
+
+        <div class="row mgtb-10">
+            <div class="col-xs-12">
+                <button type="button" tabindex="3" ng-disabled="disabled" class="btn btn-primary btn-block" ng-click="signIn()">&nbsp; &nbsp;&nbsp; &nbsp;登录&nbsp; &nbsp;&nbsp; &nbsp;</button>
+            </div>
+        </div>
+        <div class="clearfix mgb-20">
+            <!-- <label for="" class="pull-left c-78"><input type="checkbox" tabindex="-1" ng-model="sign.rememberMe" name="rememberMe" >&nbsp;下次自动登录</label> -->
+            <span class="mg-0 c-6c">还没有吾商帐号?</span>
+            <a href="/register/#/account/mobile" class="c-f50">立即注册！</a>
+            <a href="/register/#/password/find/mobile" class="c-f50 mgl-5">忘记密码？</a>
+        </div>
+    </div>
+</form>

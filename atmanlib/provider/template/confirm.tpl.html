@@ -1,0 +1,10 @@
+<div class="popover lh-16" ng-mouseover="popMouseover()" ng-mouseout="popMouseout()" ng-click="popoverContainerClick()">
+    <div class="arrow"></div>
+    <div class="popover-content">
+        <div ng-bind-html="content"></div>
+        <div class="mgt-10">
+            <button type="button" class="btn btn-primary btn-xs" ng-click="okClick()">是</button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="cancelClick()">否</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="weiboForwardsModal modal fade" id="weiboForwardsModal" tabindex="-1" role="dialog" data-backdrop="static" >
+    <div class="modal-dialog modal-545 mg-auto mgt-50">
+        <div class="modal-content">
+            <div class="modal-header at-modal-header bg-ef">
+                转发微博
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body pdt-10" bindonce="wr">
+                <div class="wb-forwards-detail" bo-if="wr.weiboUserBean" ng-class="{open:open,cur:!open}" ng-click="open=1;">
+                    <div class="wb-title">
+                        <a ng-href="/weibo/#/user/{{wr.weiboUserBean.nickName}}" class="wb-name" at-user-popover="wr.weiboUserBean">@<span bo-bind="wr.weiboUserBean.nickName"></span></a>
+                        <!--<span class="w-arrow"><em class="down">◆</em></span>-->
+                        <span class="wb-info" bo-if="wr.topicBean.goodsId">
+                            <span class="wb-price">
+                                <span class="yen">¥</span>
+                                <span bo-bind="wr.topicBean.goodsBriefBean.price|number:2"></span>
+                            </span>
+                            <span class="mgl-10">
+                                <span class="text-muted">推广金:</span>
+                                <span class="c-f50 ft-bd" bo-bind="wr.topicBean.goodsBriefBean.popularizeFund|number:2"></span>
+                            </span>
+                            <span class="mgl-10">
+                                <span class="text-muted">返利:</span>
+                                <span class="c-f50 ft-bd" bo-bind="wr.topicBean.goodsBriefBean.rebateFund|number:2"></span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="wb-text wf-text" >
+                        <span class="wf-content" compile="wr.topicBean.content | emojisFr | atLink"></span>
+                        <a class="wb-gd-link" bo-href-i="/item/#/{{wr.topicBean.goodsId}}" title="我是一个商品名称" bo-if="wr.topicBean.goodsId">
+                            <img src="/atmanlib/asset/images/icon/to_logo.gif" alt="" />
+                            <span bo-bind="wr.topicBean.goodsBriefBean.goodsName"></span>
+                        </a>
+                    </div>
+                </div>
+                <div ng-controller="ctrl.weibo-comment-input" ng-init="btnType='forward';"></div>
+                <!-- <div weibo-comment-input  class="mgt-20 mgb-15" comment-info="wr" btn-type="forward" classh="1" ></div> -->
+            </div>
+        </div>
+    </div>
+</div>

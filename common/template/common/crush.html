@@ -1,0 +1,76 @@
+<div class="crush-container" ng-show="goodsList['today'] && goodsList['tomorrow'] && goodsList.endDate">
+    <div class="crush-title" ng-init="timeDay ='today'">
+        <div class="pull-left" ng-show="timeDay == 'today'">
+            <img src="/atmanlib/asset/images/icon/today-sale.png" alt="" class="mgr-10"/>
+        </div>
+        <div class="pull-left" ng-show="timeDay == 'tomorrow'">
+            <img src="/atmanlib/asset/images/icon/tomorrow-sale.png" alt="" class="mgr-10"/>
+        </div>
+        <div class="pull-left mgl-10 mgt-10">
+            <h5 class="c-666" ng-show="timeDay == 'today'">本期时间：{{todayStartTime | date:'MM.dd-HH:mm'}} ~ {{todayEndTime | date:'MM.dd-HH:mm'}}</h5>
+            <h5 class="c-666" ng-show="timeDay == 'tomorrow'">下期时间：{{tomorrowStartTime | date:'MM.dd-HH:mm'}} ~ {{tomorrowEndTime | date:'MM.dd-HH:mm'}}</h5>
+        </div>
+        <div class="pull-left mgl-15 mgt-10">
+            <h5 class="c-666">还剩</h5>
+        </div>
+        <div class="pull-left mgl-10">
+            <div class="day_countDown">
+                <div class="day_countDown_item" ng-bind="model.promRemainHours">00</div>
+                <i></i>
+                <div class="day_countDown_item" ng-bind="model.promRemainMinutes">00</div>
+                <i></i>
+                <div class="day_countDown_item" ng-bind="model.promRemainSeconds">00</div>
+            </div>
+        </div>
+        <div class="pull-left mgl-10 mgt-10">
+            <span ng-show="timeDay == 'today'">
+                <h5 class="c-666">结束</h5>
+            </span>
+            <span ng-show="timeDay == 'tomorrow'">
+                <h5 class="c-666">开始</h5>
+            </span>
+        </div>
+        <div class="pull-right mgt-10 mgr-10">
+            <div class="block w-80 h-30 bg-f50 text-center c-fff m-finger">
+            <span ng-show="timeDay == 'today'" ng-click="timeDay = 'tomorrow'" class="daily_promotion_rig_dotext">
+                下期预告 <span class="inline-block square_icon square_icon_size_5 promotion_icon_next"></span>
+            </span>
+            <span ng-show="timeDay == 'tomorrow'" ng-click="timeDay = 'today'" class="daily_promotion_rig_dotext">
+            <span class="inline-block square_icon square_icon_size_5 promotion_icon_pre"></span>
+                返回抢购
+            </span>
+            </div>
+        </div>
+    </div>
+    <ul class="crush-list clearfix" ng-if="timeDay == 'today'" >
+        <li ng-repeat="g in goodsList[timeDay] | limitTo:crushNum" class="scale-animate">
+            <a ng-href="/item/#/quickbuy/{{ g.goodsId }}" target="_blank">
+                <img class="sz-200 mglr-auto block" ng-src="{{ g.goodsImage }}" />
+            </a>
+            <a ng-href="/item/#/quickbuy/{{ g.goodsId }}" class="div-soldout" ng-hide="g.goodsState == 1"></a>
+            <div class="gd-name text-ellipsis w-250">
+                <a ng-href="/item/#/quickbuy/{{g.goodsId}}" target="_blank" title="{{ g.goodsName }}" ng-bind="g.goodsName"></a>
+            </div>
+            <div class="pdlr-20 pdtb-5 h-30" >
+                <span class="inline-block c-d00">
+                    <span class="yen">¥</span>
+                    <span class="ft-18" ng-bind="g.price|number:2"></span>
+                </span>
+                <span class="inline-block c-999 mgl-3">
+                    <span class="yen">¥</span><span class="text-md-ln mgl-2" ng-bind="g.originalPrice|number:2"></span>
+                </span>
+                <a ng-href="/item/#/quickbuy/{{g.goodsId}}" target="_blank" ng-show="g.goodsState == 1" class="btn btn-primary btn-xs w-60 pull-right mgt-3">抢购</a>
+            </div>
+        </li>
+    </ul>
+    <ul class="crush-list clearfix" ng-if="timeDay == 'tomorrow'"  >
+        <li ng-repeat="g in goodsList[timeDay] | limitTo:crushNum" class="scale-animate">
+            <img class="sz-200 mglr-auto block" ng-src="{{ g.goodsImage }}" />
+            <div class="gd-name text-ellipsis w-250" ng-bind="g.goodsName"  title="{{ g.goodsName }}" >
+            </div>
+            <div class="text-center pdtb-5 h-30  c-f50 ft-14" >
+                惊喜价&nbsp;&nbsp;请期待
+            </div>
+        </li>
+    </ul>
+</div>

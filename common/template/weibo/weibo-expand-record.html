@@ -1,0 +1,75 @@
+
+<div class="wb-expand wb-feed ft-12" ng-init="wr=wr.rootTopic;wbMediaView={};selectedImg={};">
+    <div class="wb-arrow">
+        <em class="c-ddd">◆</em>
+        <span class="c-fb">◆</span>
+    </div>
+    <div class="wb-expand-content">
+        <div class="wb-expand-feed">
+            <!--             <div class="wb-face">
+                <img src="images/icon/defaultImg.png" ng-src="{{wr.weiboUserBean.headImage}}" alt="" width="50" height="50"></div> -->
+            <div class="wb-expand-detail">
+                <div class="wb-title mgb-10 ft-12">
+
+                    <a class="pd-0" ng-href="#/user/{{wr.weiboUserBean.nickName}}" ng-if="wr.weiboUserBean.loginType!='ADMIN'" class="h5 to-150 w-60 pull-left mgt-0" at-user-popover="wr.weiboUserBean">
+                        <strong>@{{wr.weiboUserBean.nickName}}</strong>
+                    </a>
+                    <span class="pd-0" ng-if="wr.weiboUserBean.loginType=='ADMIN'" class="h5 to-150 w-60 pull-left mgt-0">
+                        <strong>@{{wr.weiboUserBean.nickName}}</strong>
+                    </span>
+                    <span class="wb-info pull-right" ng-if="wr.topicBean.goodsId">
+                        <span class="c-f50">
+                            <strong>¥</strong>
+                            <strong class="ft-14">{{wr.topicBean.goodsBriefBean.price|number:2}}</strong>
+                        </span>
+                        <span class="mglr-5">
+                            <label for="">推广金:</label>
+                            <span class="ft-14">{{wr.topicBean.goodsBriefBean.popularizeFund|number:2}}</span>
+                        </span>
+                        <span class="mglr-5">
+                            <label for="">返利:</label>
+                            <span class="ft-14">{{wr.topicBean.goodsBriefBean.rebateFund|number:2}}</span>
+                        </span>
+                    </span>
+                </div>
+                <div class="wb-expand-text ft-12 c-78">
+                    <span ng-bind-html="wr.topicBean.content | emojisFr | atLink"></span>
+                    <a href="/item/#/{{wr.topicBean.goodsId}}/{{wr.topicBean.commentId}}" target="_blank" ng-if="wr.topicBean.goodsId">
+                        <img src="/atmanlib/asset/images/icon/to_logo.gif" class="vb-img" width="25" height="25">
+                        <strong>{{wr.topicBean.goodsBriefBean.goodsName}}</strong>
+                    </a>
+                </div>
+                <div ng-if="!wbMediaView[wr.tid]">
+                    <ul class="wb-media clearfix">
+                        <li ng-repeat="(wrkey,wrimg) in wr.topicBean.imageList" class="cur" ng-click="selectedImg[wr.tid]=wrimg;wbMediaView[wr.tid]=1;">
+                            <img src="" ng-src="{{wrimg}}" alt="" width="80" height="80">
+                        </li>
+                    </ul>
+                </div>
+                <div weibo-media-view ng-if="wbMediaView[wr.tid]" show="wbMediaView[wr.tid]" item="wr.topicBean.imageList" selected="selectedImg[wr.tid]"></div>
+            </div>
+            <div class="wb-func ">
+                <div class="wb-handle pull-right">
+                    <a href="javascript:void(0);" class="c-ae">转发({{wr.forwards}})</a>  <i class="split-line c-ae">|</i>
+                    <a href="javascript:void(0);" class="c-ae" ng-click="wr.replysFlag = !wr.replysFlag">评论({{wr.replys}})</a>
+                </div>
+                <div class="wb-from mgtb-5">
+                    <a href="javascript:void(0);" class="c-ae">{{wr.addtime*1000|date:'yyyy-MM-dd HH:mm:ss'}}</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="c-ae">来自</span>
+                    <a href="javascript:void(0);" class="c-ae">吾商微博</a>
+                </div>
+            </div>
+            <div class="wb-expand" ng-if="wr.replysFlag">
+                <div class="wb-arrow wb-expand-record-arrow">
+                    <em class="c-ddd">◆</em>
+                    <span class="c-fb ">◆</span>
+                </div>
+                <div class="wb-expand-content mrb-20">
+                    <div weibo-comment-input comment-info="wr" btn-Type="reply"></div>
+                    <div weibo-comment-list comment-Info="wr" list-type="buyer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
