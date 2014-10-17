@@ -1,5 +1,24 @@
 //at_root_ctrl.js
-define('at_root_ctrl', ['at_app', 'atmanlib-lib/ATCONFIG', 'service/oauth', 'service/at_url', 'service/at_service', 'common-ctrl/user/at.user.state.ctrl', 'common-ctrl/at.follow.now.info.ctrl', 'directive-common/global-search', "common-ctrl/user/at.sign.in.ctrl", "common-ctrl/user/at.user.info.ctrl", "filter/forbidden", 'directive-common/tiny-shop-car', 'directive-common/notice', "directive/float-widget",'directive-common/promo', "atmanlib-provider/prompt", 'directive-common/follow-user-index'], function(app, ATCONFIG) {
+define('at_root_ctrl', [
+        'at_app',
+        'atmanlib-lib/ATCONFIG',
+        'service/oauth',
+        'service/at_url',
+        'service/at_service',
+        'common-ctrl/user/at.user.state.ctrl',
+        'common-ctrl/at.follow.now.info.ctrl',
+        'directive-common/global-search',
+        "common-ctrl/user/at.sign.in.ctrl",
+        "common-ctrl/user/at.user.info.ctrl",
+        "filter/forbidden",
+        'directive-common/tiny-shop-car',
+        'directive-common/notice',
+        "directive/float-widget",
+        'directive-common/promo',
+        "atmanlib-provider/prompt",
+        'directive-common/follow-user-index'
+    ], function(app, ATCONFIG) {
+
     app.lazy.controller('RootCtrl', ['$scope', '$cookies', '$element', '$route', '$timeout', '$window', '$document', '$location', '$rootScope', 'getTpl', 'at_route', 'OAuth', '$ATPrompt', 'getAddrById', "Notice", 'SmallShoppingCar','WeiboUser','GetStockBrief',
         function($scope, $cookies, $element, $route, $timeout, $window, $document, $location, $rootScope, getTpl, at_route, OAuth, $ATPrompt, getAddrById, Notice, SmallShoppingCar,WeiboUser,GetStockBrief) {
             $rootScope.setCookie = function(key, value, expireDay) {
@@ -49,8 +68,7 @@ define('at_root_ctrl', ['at_app', 'atmanlib-lib/ATCONFIG', 'service/oauth', 'ser
             $rootScope.getStockBrief=function() {
                 //BUG 查询还是原用户的股票首页
                 GetStockBrief.get({
-                    brief: 'brief'//,
-                    //uuid: new Date().getTime()
+                    brief: 'brief'
                 }, function(data) {
                     $scope.stockbrief = data;
                 })

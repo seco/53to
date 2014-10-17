@@ -26,7 +26,6 @@ define('filter/email',['at_app'], function(app) {
             } else {
                 return input;
             }
-
         }
     });
 });

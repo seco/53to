@@ -152,9 +152,7 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
                     });
                 });
             });
-            $routeProvider.otherwise({
-                redirectTo: '/'
-            });
+            $routeProvider.otherwise({redirectTo: '/'});
         }
     ]);
     angular.module('atApp').directive('compile', ['$compile', '$timeout',

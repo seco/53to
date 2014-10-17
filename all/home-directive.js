@@ -184,7 +184,6 @@ define('directive/at_user_popover',["at_app", "atmanlib-provider/popover", "atma
         }
     ]);
 });
-
 define('directive/float-widget',["at_app", 'atmanlib-provider/modal'], function (app) {
     app.lazy.directive("floatWidget", ["$rootScope","$window","$ATModal", function($rootScope, $window,$ATModal) {
         return {
@@ -236,7 +235,6 @@ define('directive/user/user-state',['at_app','service/oauth'], function(app) {
 })
 define('directive/at_validate',['at_app'],function(app) {
     app.lazy.service('REGEXP', [
-
         function() {
             var REGEXP = {};
             REGEXP.CURRENCY_RMB_ZERO = /^(([1-9]\d*)|0)(\.\d{1,2})?$/;
@@ -260,52 +258,6 @@ define('directive/at_validate',['at_app'],function(app) {
             //REGEXP.PASSWORD=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,16}$/;
             REGEXP.PASSWORD = /^\w{6,16}$/;
             REGEXP.INVITATIONCODE=/^[A-Za-z0-9]{20}$/;
-            // var _set = function(key, value) {
-            //     if (angular.isUndefined(key) || key === '' || key === null) {
-            //         return null;
-            //     }
-            //     if (angular.isUndefined(value) || value === '' || value === null) {
-            //         return null;
-            //     } else {
-            //         REGEXP[angular.uppercase(key)] = value;
-            //         return REGEXP[angular.uppercase(key)];
-            //     }
-
-            // },
-            //     _get = function(key) {
-            //         return REGEXP[angular.uppercase(key)];
-            //     },
-            //     _all = function() {
-            //         return REGEXP;
-            //     },
-            //     _length = function() {
-            //         var count = 0;
-            //         angular.forEach(REGEXP, function(value, key) {
-            //             count = count + 1;
-            //         });
-            //         return count;
-            //     };
-
-
-            // _set('CURRENCY_RMB_ZERO', new RegExp("^(([1-9]\d*)|0)(\.\d{1,2})?$"));
-            // _set('CURRENCY_RMB', new RegExp("^(([1-9]\d*)(\.\d{1,2})?)$|(0\.0?([1-9]\d?))$"));
-            // _set('REPLACE_NOTCURRENCY', new RegExp("[^0-9\.]", "g"));
-            // _set('INVALID_NUMBER', new RegExp("[^0-9]", "g"));
-
-
-            // _set('CURRENCY_RMB_ZERO', /^(([1-9]\d*)|0)(\.\d{1,2})?$/);
-            // _set('CURRENCY_RMB', /^(([1-9]\d*)(\.\d{1,2})?)$|(0\.0?([1-9]\d?))$/);
-            // _set('REPLACE_NOTCURRENCY', /[^0-9\.]/g);
-            // _set('INVALID_NUMBER', /[^0-9]/g);
-
-            // return {
-            //     set: _set,
-            //     get: _get,
-            //     all: _all,
-            //     length: _length,
-            //     REGEXP: REGEXP
-            // }
-
             return REGEXP;
         }
     ])

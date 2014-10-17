@@ -74,10 +74,6 @@ define('common-ctrl/user/at.user.info.ctrl', ['at_app', 'service/weibo'], functi
         }
     ]);
 })
-
-
-
-
 define('common-ctrl/at.crush.ctrl', ['at_app', 'service/goods'], function(app) {
     app.lazy.controller('ctrl.crush', ['$scope', 'goods', '$routeParams', '$element', '$compile', '$timeout',
         function($scope, goods, $routeParams, $element, $compile, $timeout) {
@@ -220,11 +216,7 @@ define('common-ctrl/user/at.user.state.ctrl', ['at_app', 'service/oauth'], funct
                     $scope.template = '/common/template/user/user-state-logout.html';
                 }
                 $compile($element.contents())($scope);
-            })
-
-            // $rootScope.homeLogout = function () {
-            //     OAuth.logout();
-            // }
+            });
         }
     ]);
 });
@@ -1386,7 +1378,7 @@ define('common-ctrl/weibo/at.weibo.forwards.ctrl', ['at_app', 'service/weibo'], 
     ])
 })
 define('common-ctrl/weibo/at.weibo.input.ctrl', ['at_app', 'filter/forbidden', 'service/weibo', 'service/EMOJIS', 'bower/caret.js/dist/jquery.caret.min', 'bower/At.js/dist/js/jquery.atwho.min', 'bower/blueimp-file-upload/js/jquery.fileupload-angular'], function(app) {
-
+    //input|图片，表情
     app.lazy.controller('ctrl.weibo-input', ['$scope', '$rootScope', '$timeout', '$compile', 'EMOJIS', 'weibo', '$filter', '$element',
         function($scope, $rootScope, $timeout, $compile, EMOJIS, weibo, $filter, $element) {
             $element.html('<div ng-include="weiboInputTmp" onload="htmlLoad()" ></div>');
