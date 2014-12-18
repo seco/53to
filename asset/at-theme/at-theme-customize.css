@@ -1,0 +1,1403 @@
+a{
+    outline: 0;
+}
+a:focus{
+    outline: 0;
+}
+.borderColor {
+    width: 80px;
+    height: 80px;
+    opacity: 0.7;
+}
+.borderColor .iconColor {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 0;
+    right: 0;
+    background: url(/atmanlib/asset/images/icon/img_sign_selected.png) no-repeat 49px -1px;
+    border: 1px solid #f50;
+}
+.icons_co{
+    background: url(/atmanlib/asset/images/icon/icons_confirmorder.png) no-repeat;
+    background-position: -15px 0px;
+    width: 15px;
+    height: 12px;
+    margin: 10px 5px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.plus{
+    background-position: 0 0;
+}
+:focus {
+    outline: 0;
+}
+.atWeiboTextarea {
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    height: 100px;
+    padding: 10px;
+    resize: none;
+    font-size: 14px;
+    line-height: 18px;
+    background: #fbfbfb;
+}
+.huatiBlock {
+    width: 400px;
+    padding: 10px;
+}
+.huatiList {
+    padding: 20px 10px 10px;
+}
+.huatiBlock .huatiList ul {
+    margin: 0 -15px;
+    overflow: hidden;
+}
+.huatiBlock .huatiList li {
+    float: left;
+    width: 155px;
+    height: 20px;
+    margin: 0 0 0 -1px;
+    padding: 0 15px;
+    overflow: hidden;
+    line-height: 20px;
+    list-style: none;
+}
+.col-80 {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+}
+.weibo-fileupload-btn {
+    position: relative;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 70px;
+    display: block;
+    border: 2px dashed;
+    font-size: 20px;
+    z-index: 1;
+}
+.weibo-fileupload-btn input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    height: 80px;
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+    outline: 0;
+}
+.weiboImgBlock {
+    position: relative;
+    overflow: hidden;
+}
+.weiboImgBlock .caption {
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 80px;
+}
+.weiboImgBlock  .msg {
+    margin-top: 40px;
+}
+.weiboImgBlock  .text-danger {
+    position: absolute;
+    top: 0;
+    margin-top: 20px;
+}
+.weiboImgBlock .close {
+    background: #000;
+    opacity: .7;
+    filter: alpha(opacity=0.7);
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.weiboImgBlock .close:hover {
+    background: #f50;
+}
+#weiboEmojisTmp{
+    width: 358px;
+}
+.weiboEmojis{
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+}
+.weiboEmojis li {
+    cursor: pointer;
+    float: left;
+    border: 1px solid #e8e8e8;
+    height: 31px;
+    width: 30px;
+    overflow: hidden;
+    margin: -1px 0 0 -1px;
+    padding: 4px 2px;
+    text-align: center;
+}
+.weiboNum{
+    font-weight: 700;
+    font-size: 18px;
+    font-family: Constantia, Georgia;
+}
+.emojisBtn,.imgBtn,.huatiBtn{
+    margin-top: 5px;
+    display: inline-block;
+    color: #888;
+}
+.emojisBtn .btn-text,
+.imgBtn .btn-text,
+.huatiBtn .btn-text {
+    line-height: 16px;
+
+}
+.weiboicon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 3px 0 0;
+    padding: 0;
+    background: url(/atmanlib/asset/images/icon/weiboBtn.png) no-repeat;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.weiboicon-emojs{
+    background-position: -31px 0;
+}
+.emojisBtn:hover .weiboicon-emojs{
+    background-position: 0 0;
+}
+.weiboicon-picture{
+    background-position: -31px -33px;
+}
+.imgBtn:hover .weiboicon-picture{
+    background-position: 0 -33px;
+}
+.weiboicon-huati{
+    background-position: -31px -142px;
+}
+.huatiBtn:hover .weiboicon-huati{
+    background-position: 0 -142px;
+}
+
+.nav-order li,.nav-order-seller li,.nav-order-item li,.nav-search li,.star-radio-s li{ list-style:none;}
+.star-radio-s{padding-left: 0; margin: 0;}
+.star-radio-s>li{float: left;width: 130px;}
+.star-radio-s input{vertical-align: middle\9;}
+.star-inline{display:inline-block;}
+.star-icon{
+    display: inline-block;
+    width: 94px;
+    height: 22px;
+    background: url(/atmanlib/asset/images/icon/icon_score.png) no-repeat;
+}
+.star_1{
+    background-position: 0px 8px;
+}
+.star_2{
+    background-position: 0px -16px;
+}
+.star_3{
+    background-position: 0px -40px;
+}
+.star_4{
+    background-position: 0px -64px;
+}
+.star_5{
+    background-position: 0px -88px;
+}
+/* 订单详情订单状态步骤 */
+.order-state-icon{
+    display: block;
+    width: 650px;
+    height: 36px;
+    background: url(/atmanlib/asset/images/icon/order-detail-steps.png) no-repeat;
+}
+.order-state-step-1{
+    background-position: 0px 0px;
+}
+.order-state-step-2{
+    background-position: 0px -38px;
+}
+.order-state-step-3{
+    background-position: 0px -83px;
+}
+.order-state-step-4{
+    background-position: 0px -123px;
+}
+.td-icon-order-state{
+    padding: 10px 100px;
+}
+/* 全屏页面样式 */
+.fullpage{
+    background-color: #f8f8f8;
+}
+.at-logo-lg{
+    display: block;
+    background: url("/atmanlib/asset/images/icon/f50-logo.png") no-repeat center center;
+    background-color: #f50;
+    height: 150px;
+}
+.top-btn-group{
+    background-color: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 30px;
+}
+.colo-2-left-static .left-static{
+    float: left;
+    margin-right: -100%;
+}
+.colo-2-left-static .right-container{
+    width: 100%;
+    float: left;
+}
+.notification{
+    margin: 0 auto;
+    display: none;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -50px;
+    z-index: 2000;
+    background: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 200px;
+    height: 100px;
+    padding: 0;
+    position: fixed;
+    text-align: center;
+}
+.notification .ntf-bg{
+    background: #bbb;
+    opacity: 0.8;
+    filter:alpha(opacity=80);
+    width: 200px;
+    height: 100px;
+    text-align: left;
+}
+.notification .ntf-container{
+    padding-top: 36px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    color: #f50;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+}
+.notification .ntf-container .glyphicon-ok-circle{
+    font-size: 30px;
+    color: #00CC00;
+    font-weight: normal;
+    margin-top: 10px;
+}
+.nav-menu {
+    position: relative;
+}
+.nav-label {
+    position: absolute;
+    margin-left: -5px;
+    height: 32px;
+    width: 100%;
+    background-color: #f8f8f8;
+    z-index: 1;
+    border-left: 5px solid #f50;
+    box-sizing: content-box;
+    transition: top 0.2s ease-out 0s;
+    -webkit-transition: top 0.2s ease-out 0s;
+}
+.at-affix{
+    border:1px solid #efefef;
+    background:#fff;
+}
+
+.float-widget {
+    position: fixed;
+    z-index: 999;
+    right: 15px;
+    bottom: 120px;
+    width: 50px;
+}
+.float-widget .return-top {
+    display: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background: url("/atmanlib/asset/images/returntop.png") no-repeat;
+}
+.float-widget .return-top:hover {
+    background-position: 0 -52px;
+}
+.float-widget .guide {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #a8a8a8;
+    margin-top: 5px;
+    border-radius: 3px;
+    text-align: center;
+    color: #fff;
+    padding-top: 8px;
+    text-decoration: none;
+}
+.float-widget .guide:hover {
+    background-color: #656565;
+}
+.float-widget .app {
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+    background-color: #a8a8a8;
+    margin-top: 5px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.float-widget .app:hover {
+    background-color: #656565;
+}
+.float-widget .app img {
+    width: 23px;
+    height: 23px;
+}
+.app-down-container {
+    width: 180px;
+    height: 180px;
+    float: left;
+}
+
+.app-down-title {
+    width: 180px;
+    height: 280px;
+    padding-top: 20px;
+    float: left;
+   /*  background: url("/atmanlib/asset/images/icon/app-arrow.png") 0 20px no-repeat;*/
+} 
+
+
+.bs-sidenav {
+    padding-top: 0;
+    z-index: 100;
+    position: relative;
+    background: transparent;
+}
+.bs-sidebar .nav > li > a {
+    display: block;
+    padding: 6px 20px;
+    line-height: 20px;
+    height: 32px;
+}
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #f8f8f8;
+}
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+    color: #444;
+    background-color: #f8f8f8;
+}
+.bs-sidebar .nav .nav > li > a {
+    padding:6px 30px;
+    font-size: 90%;
+    line-height: 20px;
+}
+.bs-sidebar.at-affix{
+    border: 1px solid #DBDBDB;
+}
+.bs-sidebar .nav>li>a h5{
+    line-height: 20px;
+}
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+    background-color: transparent;
+}
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+    color: #f50;
+    background-color: transparent;
+}
+.bs-sidebar .nav-label{
+    height: 32px;
+    width: 100%;
+    transition: top 0.2s ease-out 0s;
+    -webkit-transition: top 0.2s ease-out 0s;
+    background-color: #f8f8f8;
+    z-index: 1;
+    border-left: 5px solid #f50;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+/* 回到顶部 */
+#at-widget-rt {
+    _display:none;
+    position:fixed;
+    _position:absolute;
+    z-index:999;
+    right:15px;
+    height:112px;
+    bottom:-200px;
+    _bottom:auto;
+    text-indent:-9999px;
+    transition:bottom 0.9s;
+    -webkit-transition:bottom 0.9s;
+    -moz-transition:bottom 0.9s;
+    -o-transition:bottom 0.9s;
+}
+#at-widget-rt.at-widget-rt-active{
+    bottom:200px;
+}
+#at-return-top{
+    width:42px;
+    height:65px;
+    background-image: url("../images/returntop.png");
+    background-repeat:no-repeat;
+    background-position:center 0;
+    display:block;
+}
+#at-return-top:hover {
+    background-position:center -65px;
+}
+
+#at_weixin{
+    position:absolute;
+    top:55px;
+    left:0;
+    height:58px;
+    width:42px;
+    background:url("../images/addweixinfriend.png") no-repeat 3px 0;
+    display:block;
+    cursor:default
+}
+#at_weixin:hover{
+    background:url("../images/addweixinfriend.png") no-repeat -94px -6px;
+}
+#at_weixin:hover .at_weixinimg{
+    display:block
+}
+#at_weixin .at_weixinimg{
+    width:197px;
+    height:247px;
+    background:url("../images/addweixinfriend.png") no-repeat 0 -66px;
+    position:absolute;
+    left:-196px;
+    bottom:0;
+    display:none;
+}
+.plus {
+    background-position: 0 0;
+}
+.icons_co{
+    background: url(/atmanlib/asset/images/icon/icons_confirmorder.png) no-repeat;
+    background-position: -15px 0;
+    width: 15px;
+    height: 12px;
+    margin: 10px 5px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.plus {
+    background-position: 0 0;
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+ .addr-cur {
+    cursor: default;
+    z-index: 2;
+}
+.addr {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 226px;
+    height: 106px;
+    margin: 0 6px 14px 0;
+    color: #666;
+    cursor: pointer;
+}
+.addr .inner {
+    position: relative;
+    padding: 14px 15px;
+    z-index: 2;
+    background: url(/atmanlib/asset/images/icon/sel-mail.png) no-repeat;
+}
+.addr-cur .inner, .addr-active .inner, .addr-hover .inner {
+    background-image: url(/atmanlib/asset/images/icon/sed-mail.png);
+}
+.addr-active .inner {
+    background-image: url(/atmanlib/asset/images/icon/sed-mail.png);
+}
+.addr .curmarker {
+    background: url(/atmanlib/asset/images/icon/right.png) no-repeat;
+}
+.addr .curmarker {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    top: 77px;
+    right: 1px;
+    visibility: hidden;
+    z-index: 2;
+}
+.addr-cur .curmarker {
+    visibility: visible;
+}
+.addr-def .setdefault {
+    display: none;
+}
+.addr .setdefault {
+    color: #666;
+    background: #fff;
+}
+.addr .setdefault, .addr .deftip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 2px;
+    text-decoration: none;
+    z-index: 4;
+    opacity: 0.7;
+    background-color: #000;
+    color: #fff;
+}
+.addr .editaddr{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    padding: 0 7px;
+    text-decoration: none;
+    z-index: 5;
+    color: #f50;
+}
+.addr-set .setdefault, .addr-def .deftip {
+    display: block;
+}
+.addr .deftip {
+    background: transparent;
+    background: #ccc;
+    color: #fff;
+}
+.addr .addr-hd {
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0 0 24px;
+    margin-bottom: 5px;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    /*text-overflow: ellipsis;*/
+}
+.addr .addr-hd span {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.addr .prov-city{
+    _width: 90px;
+    max-width: 90px;
+    margin-right: 10px;
+}
+.addr .city {
+    font-weight: 700;
+    max-width: 64px;
+    margin-right: 10px;
+    _width: 64px;
+}
+.addr .name {
+    max-width: 90px;
+    margin-right: 3px;
+}
+.addr .addr-bd {
+    height: 55px;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.addr-bd span {
+    margin-right: 3px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.of{
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.yen {
+    font-family: "arial";
+}
+.fileupload-btn{position:relative;overflow:hidden}
+.fileupload-btn input{position:absolute;top:0;right:0;margin:0;opacity:0;filter:alpha(opacity=0);transform:translate(-300px, 0) scale(4);font-size:23px;direction:ltr;cursor:pointer}
+input:focus{
+    border: 1px solid #f50 !important;
+}
+.date-line {
+    height: 20px;
+    border-bottom: solid 1px #efefef;
+}
+.date-line .date{
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    margin-left: -50px;
+    background-color: #fff;
+}
+
+/* 页脚 */
+.footer {
+    background: #fff;
+    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    border-top: solid 1px #e6e6e6;
+}
+.footer .service{
+    height: 55px;
+    margin: auto;
+    background-color: #efefef;
+}
+.footer .service-container{
+    width: 720px;
+    margin: auto;
+    height: 55px;
+}
+.footer .service-item{
+    width: 120px;
+    height: 39px;
+    margin: auto;
+    margin-top: 8px;
+}
+.footer .service-item h4{
+    line-height: 36px;
+}
+.footer .service-icon{
+    width: 36px;
+    height: 36px;
+    float: left;
+    background: url("/atmanlib/asset/images/icon/img_weibo.png") no-repeat;
+}
+.footer .service-icon-1{
+    background-position: 0 -167px;
+}
+.footer .service-icon-2{
+    background-position: -44px -167px;
+}
+.footer .service-icon-3{
+    background-position: -88px -167px;
+}
+.footer .service-icon-4{
+    background-position: -134px -167px;
+}
+.footer .service-help-icon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    top: -1px;
+    background: url("/atmanlib/asset/images/icon/img_weibo.png") no-repeat;
+}
+.footer .help-icon-1 {
+    background-position: 3px -217px;
+}
+.footer .help-icon-2 {
+    background-position: -32px -217px;
+}
+.footer .help-icon-3 {
+    background-position: -68px -217px;
+}
+.footer .help-icon-4 {
+    background-position: -102px -217px;
+}
+.footer .sina-weibo-icon {
+    width: 50px;
+    height: 36px;
+    background: url("/atmanlib/asset/images/icon/img_weibo.png") no-repeat;
+    background-position: -178px -167px;
+}
+.footer .service-phone-icon {
+    width: 50px;
+    height: 36px;
+    background: url("/atmanlib/asset/images/icon/img_weibo.png") no-repeat;
+    background-position: -228px -160px;
+}
+.footer .follow-btn {
+    display: block;
+    float: left;
+    width: 128px;
+    height: 38px;
+    margin-left: 50px;
+    background: url("/atmanlib/asset/images/icon/img_weibo.png") no-repeat;
+    background-position: 0 -258px;
+}
+.footer .web-safe{
+    text-align: center;
+    width: 430px;
+    margin: 20px auto;
+   /* height: 55px;*/
+}
+.footer .web-safe .sgs{
+  float: left;
+}
+.footer .web-safe .trustutn{
+  float: left;
+  margin-left: 15px;
+}
+.footer .copyright{
+    margin-top: 10px;
+    text-align: center;
+}
+.infocenter-stock-eye{
+    position: absolute;
+    bottom: 0;
+    right: 7px;
+}
+.checkbox-inline label input, .checkbox label input {
+    /*margin-top: 2px;*/
+}
+
+.img-li {
+    overflow: hidden;
+    position: relative;
+    width: 243px;
+    height: 60px;
+    float: left;
+}
+.at-thumb {
+    height: 60px;
+    padding-left: 0;
+    position: absolute;
+    width: 999999px;
+    left: 0px;
+}
+.at-thumb li {
+    display: inline-block;
+    margin: 3px;
+    border: 2px solid #ccc;
+    padding: 5px;
+}
+.at-thumb a {
+    /* float: left;
+  position: relative;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+  */
+}
+.img-group .at-thumb-left, .img-group .at-thumb-right {
+    width: 20px;
+    height: 53px;
+    margin-top: 3px;
+    float: left;
+    /* zoom: 1;
+  vertical-align: middle;
+  display: block;
+  */
+    background: url('/atmanlib/asset/images/icon/lr_icon.png') no-repeat;
+}
+.img-group .at-thumb-left {
+    background-position: -40px 5px;
+}
+.img-group .at-thumb-left[disabled] {
+    background-position: 0 5px;
+}
+.img-group .at-thumb-right {
+    background-position: -60px 3px;
+}
+.img-group .at-thumb-right[disabled] {
+    background-position: -20px 3px;
+}
+.img-group {
+    width: 330px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+}
+.at-thumb img {
+    width: 40px;
+    height: 40px;
+}
+.gd-dtl-nav-container {
+    height: 40px;
+    margin: 20px -15px 0;
+}
+.gd-dtl-nav {
+    height: 50px;
+    width: 800px;
+    background-color: #fbfbfb;
+    border: solid 1px #efefef;
+}
+.at-tab {
+    height: 100%;
+    margin-left: -2px;
+    position: relative;
+    left: 1px;
+    padding-left: 0;
+}
+.at-tab li {
+    float: left;
+    display: inline;
+    height: 45px;
+    padding-top: 2px;
+    line-height: 45px;
+    cursor: pointer;
+}
+.at-tab li a {
+    display: block;
+    height: 100%;
+    font-size: 14px;
+    padding: 0 40px;
+    text-align: center;
+}
+.at-tab li a:hover {
+    text-decoration: none;
+}
+.at-tab .current {
+    height: 45px;
+    margin-top: -1px;
+    position: relative;
+    padding-top: 0;
+    background: #fff;
+    border-top: 3px solid #f50;
+}
+.at-tab .current a {
+    border: 1px solid #eee;
+    border-width: 0 1px;
+}
+
+.at-tab-02 {
+    padding: 0;
+    margin: 0;
+    height: 32px;
+    border-bottom: solid 1px #E8E8E8;
+}
+
+.at-tab-02 li {
+    margin-right: 3px;
+    list-style: none;
+    float: left;
+    display: inline-block;
+}
+.at-tab-02 li{
+   margin-bottom: -3px;
+}
+
+.at-tab-02 li a {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    text-decoration: none;
+    background-color: #ffffff;
+}
+
+.at-tab-02 li.active a {
+    background-color: #ffffff;
+    border-top:2px solid #ff5500;
+    border-left: 1px solid #E8E8E8;
+    border-right: 1px solid #E8E8E8;
+    border-bottom: none;
+}
+
+/*--商品详情页样式--*/
+.gd-bonus-container {
+    height: 135px;
+}
+.gd-bonus {
+}
+.gd-bonus-title {
+    margin-top: 15px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    padding-left: 10px;
+    border-bottom: solid 1px #efefef;
+}
+.img-box {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+.global-search {
+    position: relative;
+}
+.global-search-tip{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 28px;
+    left: 0;
+    background: #fff;
+    z-index: 999;
+    border: solid 2px #eee;
+}
+.global-search-tip li a {
+    display: block;
+    list-style: none;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 15px;
+    text-decoration: none;
+}
+.global-search-tip li.active a, .global-search-tip li a:hover {
+    background: #ddd;
+}
+.search-primary {
+
+}
+.top-header {
+    height: 70px;
+    background: #f50;
+}
+.top-bar {
+    font-family: "\5FAE\8F6F\96C5\9ED1", Arial;
+    width: 100%;
+    z-index: 1000;
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    border-bottom: solid 1px #ddd;
+}
+.top-header .global-search {
+    width: 300px;
+}
+.top-header .global-search-tip {
+    width: 261px;
+}
+
+.top-header .global-search input,
+.top-header .global-search input:focus {
+    border: solid 2px #eee !important;
+}
+.top-header .global-search .btn-default {
+    border-color: #eee;
+}
+
+.home-left .global-search {
+}
+.home-left .global-search-tip {
+    width: 270px;
+}
+
+.home-left .global-search input,
+.home-left .global-search input:focus {
+    border: solid 2px #f50 !important;
+}
+.home-left .global-search .btn-default {
+    background-color: #f50;
+    border-color: #f50;
+    color: #fff;
+}
+
+.icon-16 {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+.icon-24 {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-quotation-left {
+    background: url("/atmanlib/asset/images/icon/quotation_left_16.png") no-repeat;
+}
+.icon-quotation-right {
+    margin-bottom: -8px;
+    background: url("/atmanlib/asset/images/icon/quotation_right_16.png") no-repeat;
+}
+
+.loading-bar {
+    margin: auto;
+    width: 96px;
+    height: 12px;
+    background: url("/atmanlib/asset/images/icon/loadingbar.gif") no-repeat;
+}
+.tooltip-warning .tooltip-inner {
+    color: #666;
+    background: #efefef !important;
+    border-radius: 3px;
+}
+.tooltip-warning.right .tooltip-arrow {
+    border-right-color: #efefef !important;
+}
+/* 带三角的div 开始行*/
+.angle_box {
+    margin-top: 10px;
+    width: 102px;
+    height: 20px;
+    background: #fef6e1;
+    padding: 1px 10px;
+    color: #e2ba96;
+    border: 1px solid #e2ba96;
+}
+.angle_bot_cor {
+    width: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border-width: 5px;
+    border-color: transparent transparent #e2ba96 transparent;
+    border-style: dashed dashed solid dashed;
+    _border-color: white white #f3961c;
+    overflow: hidden;
+    position: absolute;
+    margin-top: -11px;
+    margin-left: 23px;
+    z-index: 30px;
+}
+.angle_top_cor {
+    overflow: hidden;
+    position: absolute;
+    border-width: 5px;
+    margin-top: -10px;
+    margin-left: 23px;
+    border-color: transparent transparent #fef6e1 transparent;
+    border-style: dashed dashed solid dashed;
+    z-index: 40px;
+}
+/* 带三角的div 结束行*/
+/* 秒杀倒计时效果  开始行*/
+.day_countDown {
+    float: left;
+    zoom: 1;
+    width: 140px;
+    /*height: 32px;*/
+    margin: 0 auto;
+    padding-top: 9px;
+    font-family: impact;
+}
+.day_countDown_item {
+    float: left;
+    position: relative;
+    width: 34px;
+    height: 32px;
+    font-size: 24px;
+    line-height: 32px;
+    border-radius: 3px;
+    background-color: #2A333D;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.day_countDown i {
+    float: left;
+    width: 17px;
+    height: 32px;
+    background-position: -120px -70px;
+    font-style: normal;
+    background: url('/atmanlib/asset/images/icon/time-point.png');
+    background-repeat: no-repeat;
+}
+/* 秒杀倒计时效果 结束行*/
+/* 秒杀售完效果 */
+.div-soldout {
+    width: 105px;
+    height: 105px;
+    overflow: hidden;
+    background: url('/atmanlib/asset/images/icon/soldout.png') no-repeat top center;
+    left: 50%;
+    top: 40%;
+    margin-left: -52px;
+    margin-top: -52px;
+    position: absolute;
+    z-index: 99;
+}
+/* 秒杀售完效果 */
+.square_icon {
+    width:0;
+    height:0;
+}
+.square_icon_size_2 {
+    border:2px solid;
+}
+.square_icon_size_5 {
+    border:5px solid;
+}
+.promotion_icon_next {
+    border-color:transparent transparent transparent #fff ;
+}
+.promotion_icon_pre {
+    border-color:transparent #fff transparent transparent;
+}
+.daily_promotion_title{
+    font: 700 16px/23px "\5FAE\8F6F\96C5\9ED1",Arial;
+    color: #29333F;
+}
+.daily_promotion_rig_dotext{
+    font: 400 14px/30px "\5FAE\8F6F\96C5\9ED1",Arial;
+}
+.about-us p{
+    text-indent:2em;
+}
+.mgl-2em{
+    margin-left:2em;
+}
+.mh-50{
+    height: auto !important;
+    min-height: 50px;
+}
+.mh-70{
+    height: auto !important;
+    min-height: 70px;
+}
+.mh-80{
+    height: auto !important;
+    min-height: 80px;
+}
+.mh-100{
+    height: auto !important;
+    min-height: 100px;
+}
+.mh-150{
+    height: auto !important;
+    min-height: 150px;
+}
+.mh-200{
+    height: auto !important;
+    min-height: 200px;
+}
+.table-bordered-ff7d00 > thead > tr > th, .table-bordered-ff7d00 > tbody > tr > th, .table-bordered-ff7d00 > tfoot > tr > th, .table-bordered-ff7d00 > thead > tr > td, .table-bordered-ff7d00 > tbody > tr > td, .table-bordered-ff7d00 > tfoot > tr > td {
+border: 1px solid #ff7d00;
+}
+.table-bordered-ff7d00 > thead > tr > th, .table-bordered-ff7d00 > tbody > tr > th, .table-bordered-ff7d00 > tfoot > tr > th, .table-bordered-ff7d00 > thead > tr > td, .table-bordered-ff7d00 > tbody > tr > td, .table-bordered-ff7d00 > tfoot > tr > td {
+border: 1px solid #ff7d00;
+}
+.deductible-pay {
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 15px;
+    border: solid 1px #efefef;
+    background-color: #fafafa;
+}
+.deductible-pay dt {
+    font-weight: normal;
+}
+.deductible-pay dl {
+    margin-bottom: 10px;
+}
+.cur{
+    cursor: pointer;
+}
+.icon-error-lg {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("/atmanlib/asset/images/icon/fail.png") no-repeat;
+}
+.icon-warning-lg {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("/atmanlib/asset/images/icon/icon-alert.png") no-repeat center;
+}
+.icon-rl-3 {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url("/atmanlib/asset/images/icon/icon_followeachother.png") no-repeat center;
+}
+
+.littleSharp {
+    display:inline;
+    border-style:solid;
+    border-color:transparent #ff5500 #ff5500 transparent;
+    width:0;
+    height:0;
+    font-size:0;
+}
+.category-msg-box{
+    position:relative;
+}
+.sharp-up{
+    /* display:inline; */
+    /* border-style:solid;
+    border-color: #ff5500 transparent transparent transparent;
+    
+    font-size:0; */
+    width:40px;
+    height:40px;
+    background: url("/atmanlib/asset/images/icon/up-arrow.png") no-repeat;
+   position:absolute;
+   z-index:100px;
+   right:10px;
+   top:20px; 
+}
+.sharp-down{
+   /*  display:inline; */
+    /* border-style:solid;
+    border-color: transparent transparent  #ff5500 transparent;
+    width:0;
+    height:0;
+    font-size:0;*/ 
+    width:40px;
+    height:40px;
+    background: url("/atmanlib/asset/images/icon/down-arrow.png") no-repeat;
+    position:absolute;
+    z-index:100px;
+    right:10px;
+    top:20px;
+}
+
+.user-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-bottom: -2px;
+    background: url("/atmanlib/asset/images/icon/icon_level.png") 0 20px no-repeat;
+}
+.user-icon-0 {
+    display: none;
+}
+.user-icon-5 {
+    background-position: 0 -35px;
+}
+.user-icon-3 {
+    background-position: 0 -13px;
+}
+.user-icon-1 {
+    background-position: 0 5px;
+}
+
+.icon-fund-detail {
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    margin-left: 5px;
+    background: url("/atmanlib/asset/images/icon/fund-icon-down.png") 0 0 no-repeat;
+}
+.icon-fund-detail:hover {
+    background-position: 0 -28px;
+}
+
+.icon-help {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-bottom: -4px;
+    background: url("/atmanlib/asset/images/icon/icon-help.png") 0 0 no-repeat;
+}
+
+.icon-gt-status {
+    display: inline-block;
+    width: 42px;
+    height: 22px;
+    margin-bottom: -7px;
+}
+.icon-gt-status-hot {
+    background: url("/atmanlib/asset/images/icon/hot.png") 0 0 no-repeat;
+}
+
+.hot-user{
+    padding: 0;
+    margin: 0;
+}
+
+.hot-user li {
+    display: block;
+    margin: 0;
+    padding: 15px 20px;
+    height: 105px;
+    border-top: solid 1px #efefef;
+}
+
+.hot-user li:first-child {
+    border-top: none;
+}
+
+.hot-user-img {
+    display: block;
+    float: left;
+    height: 75px;
+    width: 75px;
+}
+
+.hot-user-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.hot-user-info {
+    display: block;
+    margin-left: 90px;
+}
+.hot-user-desc {
+    color: #888;
+}
+.message-content a {
+  color: #f50;
+}
+.item-price {
+	color: #fff;
+	margin: 80px 10px 30px;
+	padding: 10px 30px;
+	background: #FFA039;
+	position: relative;
+}
+.item-price-arrow {
+	position: absolute;
+	width: 16px;
+	height: 23px;
+	background: url("/atmanlib/asset/images/icon/item-pricearrow.png") no-repeat;
+	top: 15px;
+	left: -16px;
+}
+.item-price-logo {
+	position: absolute;
+	width: 85px;
+	height: 84px;
+	background: url("/atmanlib/asset/images/icon/item-price-logo.png") no-repeat;
+	top: -30px;
+	right: 10px;
+}
+
+.spread-title {
+	height: 50px;
+	border: solid 1px #ddd;
+	background-color: #fff;
+	padding: 15px;
+	position: relative;
+}
+.spread-income {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	height: 50px;
+	width: 400px;
+	background-color: #f50;
+	color: #fff;
+	padding-left: 30px;
+	line-height: 50px;
+	font-size: 14px;
+	font-weight: bold;
+}

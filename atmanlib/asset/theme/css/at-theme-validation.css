@@ -1,0 +1,6 @@
+.form-control.ng-invalid {
+    /*border: solid 1px #f50;*/
+}
+.form-control.ng-valid, .form-control.ng-valid:hover{
+    /*border: solid 1px #ddd;*/
+}

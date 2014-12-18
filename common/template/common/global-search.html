@@ -1,0 +1,19 @@
+<div class="input-group">
+    <input type="text" class="form-control" ng-model="searchContent" ng-keydown="inputKeyDown($event)" ng-focus="inputFocus()" ng-blur="inputBlur()" />
+    <div class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="search()">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </div>
+</div>
+<ul class="global-search-tip toggle" ng-animate="" id="gst" ng-if="searchContent && showTip">
+    <li ng-class="{'active' : selectedIndex == 0}">
+        <a ng-href="/home/#/item/search?q={{getEncodeQStr()}}">搜 <span class="c-f50" ng-bind="subSearchContent()"></span> 相关商品</a>
+    </li>
+    <li ng-class="{'active' : selectedIndex == 1}">
+        <a ng-href="/home/#/user/search?q={{getEncodeQStr()}}">搜 <span class="c-f50" ng-bind="subSearchContent()"></span> 相关用户</a>
+    </li>
+    <li ng-class="{'active' : selectedIndex == 2}">
+        <a ng-href="/home/#/weibo/search?q={{getEncodeQStr()}}">搜 <span class="c-f50" ng-bind="subSearchContent()"></span> 相关微博</a>
+    </li>
+</ul>

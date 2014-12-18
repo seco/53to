@@ -1,0 +1,239 @@
+.modal.center .modal-dialog{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+.dialog-prompt {
+    margin-left: 0 !important;
+    /*top: 200px !important;*/
+    width: auto !important;
+}
+.dialog-prompt .modal-body {
+    font-size: 14px;
+}
+.dialog-prompt .modal-content{
+    margin-left: -50%;
+    margin-right: 50%;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.prompt-icon-error {
+    display: inline-block;
+    margin-right: 10px;
+    width: 32px;
+    height: 33px;
+    background: url("/atmanlib/asset/images/icon/fail.png") no-repeat center;
+}
+.prompt-icon-success {
+    display: inline-block;
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    background: url("/atmanlib/asset/images/icon/icon_success.png") no-repeat center;
+}
+.prompt-icon-alert {
+    display: inline-block;
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    background: url("/atmanlib/asset/images/icon/icon-alert.png") no-repeat center;
+}
+.prompt-icon-loading {
+    margin-right: 10px;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background: url("/atmanlib/asset/images/icon/circle-loading.gif") no-repeat center;
+}
+.promp-text {
+    float: left;
+    line-height: 30px;
+    font-size: 14px;
+    font-family: "微软雅黑", "\5FAE\8F6F\96C5\9ED1";
+}
+
+.popover {
+    min-width: 115px;
+    min-height: 20px;
+}
+.popover.top-left{
+    margin-top: -6px;
+}
+.popover.top-left .arrow{
+    margin-left: -7px;
+    border-bottom-width: 0;
+    border-top-color: #999;
+    bottom: -7px;
+    left: 10%;
+}
+.popover.top-left .arrow:after{
+    content: " ";
+    bottom: 1px;
+    margin-left: -6px;
+    border-bottom-width: 0;
+    border-top-color: #fff;
+}
+.popover.top-right{
+    margin-top: -6px;
+}
+.popover.top-right .arrow{
+    margin-left: -7px;
+    border-bottom-width: 0;
+    border-top-color: #ccc;
+    bottom: -7px;
+    left: 90%;
+}
+.popover.top-right .arrow:after{
+    content: " ";
+    bottom: 1px;
+    margin-left: -6px;
+    border-bottom-width: 0;
+    border-top-color: #fff;
+}
+.popover.bottom-left {
+    margin-top: 20px;
+}
+.popover.bottom-left .arrow{
+    margin-left: -7px;
+    border-top-width: 0;
+    border-bottom-color: #ccc;
+    top: -7px;
+    left: 10%;
+}
+.popover.bottom-left .arrow:after{
+    content: " ";
+    top: 1px;
+    margin-left: -6px;
+    border-top-width: 0;
+    border-bottom-color: #fff;
+}
+.popover.bottom-right{
+    margin-top: 20px;
+}
+.popover.bottom-right .arrow{
+    margin-right: -6px;
+    border-top-width:0;
+    border-bottom-color: #ccc;
+    top: -7px;
+    left: 90%;
+}
+.popover.bottom-right .arrow:after{
+    content: " ";
+    top: 1px;
+    margin-left: -6px;
+    border-top-width: 0;
+    border-bottom-color: #FFF8E5;
+}
+.popover.bottom-right-order{
+    margin-top: 20px;
+}
+.popover.bottom-right-order .arrow{
+    margin-right: -12px;
+    border-top-width:0;
+    border-bottom-color: #FFBA05;
+    top: -7px;
+    left: 80%;
+}
+.popover.bottom-right-order .arrow:after{
+    content: " ";
+    top: 1px;
+    margin-left: -6px;
+    border-top-width: 0;
+    border-bottom-color: #FFF8E5;
+}
+.popover.right-top{
+    margin-left: 20px;
+}
+.popover.right-top .arrow{
+    margin-left: -7px;
+    border-left-width:0;
+    border-right-color: #ccc;
+    top: 5px;
+}
+.popover.right-top .arrow:after{
+    content: " ";
+    left: 1px;
+    margin-top: -6px;
+    border-left-width: 0;
+    border-right-color: #fff;
+}
+.popover.left-top{
+    margin-right: 20px;
+}
+.popover.left-top .arrow{
+    margin-right: -7px;
+    border-right-width:0;
+    border-left-color: #ccc;
+    top: 5px;
+    right: 0;
+}
+.popover.left-top .arrow:after{
+    content: " ";
+    right: 1px;
+    margin-top: -6px;
+    border-right-width: 0;
+    border-left-color: #fff;
+}
+.popover-static-warning {
+    min-width: 100px;
+    z-index: 1;
+    display: block;
+    position: relative;
+    border-color: #FFA684;
+    background-color: #FFF9F9;
+}
+.popover-static-warning.right-top .arrow{
+    top: 3px;
+    border-right-color: #FF895B;
+}
+.popover-static-warning.right-top .arrow:after{
+    border-right-color: #FFF9F9;
+}
+
+.popover-static {
+    z-index: 1;
+    display: block;
+    position: relative;
+}
+
+.popover-bg-fb{
+    background-color: #fbfbfb;
+}
+.popover-bg-fb.left-top .arrow:after,
+.popover-bg-fb.right-top .arrow:after,
+.popover-bg-fb.top-left .arrow:after,
+.popover-bg-fb.top-right .arrow:after,
+.popover-bg-fb.bottom-left .arrow:after,
+.popover-bg-fb.bottom-right .arrow:after{
+    border-right-color: #fbfbfb !important;
+}
+/*评星的样式*/
+.commstar{
+    background-color:red;
+    width:105px;
+    height:20px;
+    background:url(/atmanlib/asset/images/icon/commstar.png) 0 -21px repeat-x;
+    position:relative;
+    display:inline-block;
+    float:left;
+}
+
+.commstar a{
+    width:20%;
+    cursor:pointer;
+    position:absolute;
+    top:0;
+    left:0;
+    display:inline-block;
+    height:20px;
+}
+.commstar a:hover,.commstar .active{
+    background:url(/atmanlib/asset/images/icon/commstar.png) left top repeat-x
+}
+    
+.commstar .star1{width:20%;z-index:9;}
+.commstar .star2{width:40%;z-index:8;}
+.commstar .star3{width:60%;z-index:7;}
+.commstar .star4{width:80%;z-index:6;}
+.commstar .star5{width:100%;z-index:5;}

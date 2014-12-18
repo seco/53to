@@ -1,0 +1,141 @@
+/* Including border, background, etc. */
+
+/* Border width*/
+.bd-0{border: none !important;}
+.bd-1{border-width: 1px; border-style: solid;}
+.bd-2{border-width: 2px; border-style: solid;}
+.bd-3{border-width: 3px; border-style: solid;}
+.bd-4{border-width: 4px; border-style: solid;}
+.bd-5{border-width: 5px; border-style: solid;}
+.bd-10{border-width: 10px; border-style: solid;}
+
+.bdt-0{border-top: none !important;}
+.bdt-1{border-top-width: 1px; border-style: solid;}
+.bdt-2{border-top-width: 2px; border-top-style: solid;}
+.bdt-3{border-top-width: 3px; border-top-style: solid;}
+.bdt-4{border-top-width: 4px; border-top-style: solid;}
+.bdt-5{border-top-width: 5px; border-top-style: solid;}
+
+.bdr-0{border-right: none !important;}
+.bdr-1{border-right-width: 1px; border-right-style: solid;}
+.bdr-2{border-right-width: 2px; border-right-style: solid;}
+.bdr-3{border-right-width: 3px; border-right-style: solid;}
+.bdr-4{border-right-width: 4px; border-right-style: solid;}
+.bdr-5{border-right-width: 5px; border-right-style: solid;}
+
+.bdb-0{border-bottom: none !important;}
+.bdb-1{border-bottom-width: 1px; border-bottom-style: solid;}
+.bdb-2{border-bottom-width: 2px; border-bottom-style: solid;}
+.bdb-3{border-bottom-width: 3px; border-bottom-style: solid;}
+.bdb-4{border-bottom-width: 4px; border-bottom-style: solid;}
+.bdb-5{border-bottom-width: 5px; border-bottom-style: solid;}
+
+.bdl-0{border-left: none !important;}
+.bdl-1{border-left-width: 1px; border-left-style: solid;}
+.bdl-2{border-left-width: 2px; border-left-style: solid;}
+.bdl-3{border-left-width: 3px; border-left-style: solid;}
+.bdl-4{border-left-width: 4px; border-left-style: solid;}
+.bdl-5{border-left-width: 5px; border-left-style: solid;}
+
+/* Border */
+.bd-l{border-style: none !important; border-left-style: solid !important;}
+.bd-t{border-style: none !important; border-top-style: solid !important;}
+.bd-r{border-style: none !important; border-right-style: solid !important;}
+.bd-b{border-style: none !important; border-bottom-style: solid !important;}
+.bd-lt{border-style: none !important; border-left-style: solid !important; border-top-style: solid !important;}
+.bd-lr{border-style: none !important; border-left-style: solid !important; border-right-style: solid !important;}
+.bd-lb{border-style: none !important; border-left-style: solid !important; border-bottom-style: solid !important;}
+.bd-tr{border-style: none !important; border-top-style: solid !important; border-right-style: solid !important;}
+.bd-tb{border-style: none !important; border-top-style: solid !important; border-bottom-style: solid !important;}
+.bd-rb{border-style: none !important; border-right-style: solid !important; border-bottom-style: solid !important;}
+.bd-ltr{border-style: solid !important; border-bottom-style: none !important;}
+.bd-trb{border-style: solid !important; border-left-style: none !important;}
+.bd-lbr{border-style: solid !important; border-top-style: none !important;}
+.bd-ltb{border-style: solid !important; border-right-style: none !important;}
+
+.bd-dot{border-style: dotted !important;}
+.bd-l-dot{border-style: none !important; border-left-style: dotted !important;}
+.bd-t-dot{border-style: none !important; border-top-style: dotted !important;}
+.bd-r-dot{border-style: none !important; border-right-style: dotted !important;}
+.bd-b-dot{border-style: none !important; border-bottom-style: dotted !important;}
+.bd-lt-dot{border-style: none !important; border-left-style: dotted !important; border-top-style: dotted !important;}
+.bd-lr-dot{border-style: none !important; border-left-style: dotted !important; border-right-style: dotted !important;}
+.bd-lb-dot{border-style: none !important; border-left-style: dotted !important; border-bottom-style: dotted !important;}
+.bd-tr-dot{border-style: none !important; border-top-style: dotted !important; border-right-style: dotted !important;}
+.bd-tb-dot{border-style: none !important; border-top-style: dotted !important; border-bottom-style: dotted !important;}
+.bd-rb-dot{border-style: none !important; border-right-style: dotted !important; border-bottom-style: dotted !important;}
+.bd-ltr-dot{border-style: dotted !important; border-bottom-style: none !important;}
+.bd-trb-dot{border-style: dotted !important; border-left-style: none !important;}
+.bd-lbr-dot{border-style: dotted !important; border-top-style: none !important;}
+.bd-ltb-dot{border-style: none !important; border-right-style: dotted !important;}
+
+.bd-dash{border-style: dashed !important;}
+.bd-l-dash{border-style: none !important; border-left-style: dashed !important;}
+.bd-t-dash{border-style: none !important; border-top-style: dashed !important;}
+.bd-r-dash{border-style: none !important; border-right-style: dashed !important;}
+.bd-b-dash{border-style: none !important; border-bottom-style: dashed !important;}
+.bd-lt-dash{border-style: none !important; border-left-style: dashed !important; border-top-style: dashed !important;}
+.bd-lr-dash{border-style: none !important; border-left-style: dashed !important; border-right-style: dashed !important;}
+.bd-lb-dash{border-style: none !important; border-left-style: dashed !important; border-bottom-style: dashed !important;}
+.bd-tr-dash{border-style: none !important; border-top-style: dashed !important; border-right-style: dashed !important;}
+.bd-tb-dash{border-style: none !important; border-top-style: dashed !important; border-bottom-style: dashed !important;}
+.bd-rb-dash{border-style: none !important; border-right-style: dashed !important; border-bottom-style: dashed !important;}
+.bd-ltr-dash{border-style: dashed !important; border-bottom-style: none !important;}
+.bd-trb-dash{border-style: dashed !important; border-left-style: none !important;}
+.bd-lbr-dash{border-style: dashed !important; border-top-style: none !important;}
+.bd-ltb-dash{border-style: none !important; border-right-style: dashed !important;}
+
+.bd-rd-3{border-radius: 3px !important; -webkit-border-radius: 3px !important; -moz-border-radius: 3px !important;}
+.bd-rd-4{border-radius: 4px !important; -webkit-border-radius: 4px !important; -moz-border-radius: 4px !important;}
+.bd-rd-5{border-radius: 5px !important; -webkit-border-radius: 5px !important; -moz-border-radius: 5px !important;}
+
+/* Border color */
+.bdc-f50{border-color: #f50 !important;}
+.bdc-ee{border-color: #eeeeee !important;}
+.bdc-ef{border-color: #efefef !important;}
+.bdc-ec{border-color: #ececec !important;}
+.bdc-e6{border-color: #e6e6e6 !important;}
+.bdc-e2{border-color: #e2e2e2 !important;}
+.bdc-dd{border-color: #ddd !important;}
+.bdc-bb{border-color: #bbb !important;}
+.bdc-cc{border-color: #ccc !important;}
+.bdc-ff{border-color: #fff !important;}
+.bdc-f8{border-color: #f8f8f8 !important;}
+.bdc-78{border-color: #787878 !important;}
+.bdc-e7{border-color: #e7e7e7 !important;}
+.bdc-ffa785{border-color: #ffa785 !important;} /* 比f50稍暗淡的边框颜色 */
+.bd-trans{border-color: transparent !important;}
+.bdc-a9e1ba{border-color: #a9e1ba !important;}/* 绿色边框 */
+.bdc-ff7d00{border-color: #ff7d00 !important;}/* 配送表格 */
+.bdc-FFBA05{border-color:#FFBA05 !important;}/*确认订单提示选择收货地址的边框*/
+
+/* Background color */
+.bg-trans{background-color: transparent !important;}
+.bg-f50{background-color: #f50 !important;}
+.bg-ff{background-color: #fff !important;}
+.bg-fa{background-color: #fafafa !important;}
+.bg-f1{background-color: #f1f1f1 !important;}
+.bg-f8{background-color: #f8f8f8 !important;}
+.bg-ef{background-color: #efefef !important;}
+.bg-ed{background-color: #ededed !important;}
+.bg-ea{background-color: #eaeaea !important;}
+.bg-F0F0F0{background-color: #F0F0F0 !important;}
+.bg-f5{background-color: #f5f5f5 !important;}
+.bg-dd{background-color: #ddd !important;}
+.bg-bc{background-color: #bcbcbc !important;}
+.bg-c00{background-color: #CD0000 !important;}
+.bg-FFF8E5{background-color: #FFF8E5 !important;}/*确认订单提示选择收货地址的背景*/
+.bg-ffd9c6{background-color: #ffd9c6 !important;}
+.bg-fffaf9{background-color: #fffaf9 !important;}
+.bg-d6f0e0{background-color: #d6f0e0 !important;}/* 绿色背景 */
+.bg-ff932c{background-color: #ff932c !important;}/* 配送表格 */
+.bg-fffae4{background-color: #fffae4 !important;}
+.hv-bg-f50:hover{background-color: #f50 !important;}
+.hv-bg-ff:hover{background-color: #fff !important;}
+.hv-bg-fa:hover{background-color: #fafafa !important;}
+.hv-bg-f8:hover{background-color: #f8f8f8 !important;}
+.hv-bg-ef:hover{background-color: #efefef !important;}
+.hv-bg-ed:hover{background-color: #ededed !important;}
+.hv-bg-dd:hover{background-color: #ddd !important;}
+.hv-bg-bc:hover{background-color: #bcbcbc !important;}
+

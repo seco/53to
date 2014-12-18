@@ -1,0 +1,54 @@
+<div class="pull-right mz-hv ">
+    <div class="mz-hv-title pdlr-10 h-35">
+        <a ng-href="/trade/#/cart" class="lh-30 lk-no-udl">
+            <span class="glyphicon glyphicon-shopping-cart c-f50"></span>
+            <span class="mg-l-5">购物车</span>
+            <span class="ft-bd c-f50" ng-cloak ng-bind="smallShoppingCarData.cartItemBeans.length || 0"></span>
+        </a>
+    </div>
+    <div class="mz-hv-show w-250 pos-r-0 lh-20">
+        <div ng-if="smallShoppingCarData.cartItemBeans">
+            <div class="pd-10 pdt-0">
+                <div class="h-80 pdtb-10" ng-repeat="carItems in smallShoppingCarData.cartItemBeans | limitTo:5" ng-class="{'bd-1 bd-t-dot bdc-dd':$index > 0}">
+                    <a class="pull-left sz-60" href="/item/#/{{carItems.goodsBrief.goodsId}}" target="_blank">
+                        <img class="media-object sz-60" ng-src="{{carItems.goodsBrief.goodsImage}}" alt="">
+                    </a>
+                    <div class="mgl-70">
+                        <div class="h-40 overflow-hd ft-12">
+                            <a href="/item/#/{{carItems.goodsBrief.goodsId}}" target="_blank" ng-bind="carItems.goodsBrief.goodsName"></a>
+                        </div>
+                        <div>
+                            <span class="yen c-f50">¥</span>
+                            <span class="c-f50 ft-14" ng-bind="carItems.goodsBrief.price | number:2"></span>
+                            &times;
+                            <span class="c-f50" ng-bind="carItems.quantity"></span>
+                        </div>
+                    </div>
+                </div>
+                <a href="javascirpt:void(0)" ng-href="/trade/#/cart" ng-show="smallShoppingCarData.cartItemBeans.length > 5">查看全部
+                    <span class="highlight" ng-bind="smallShoppingCarData.cartItemBeans.length"></span>
+                    件商品
+                </a>
+            </div>
+            <div class="panel-footer" ng-show="smallShoppingCarData.cartItemBeans">
+                <div class="text-right">
+                    共
+                    <span class="c-f50" ng-bind="smallShoppingCarData.cartItemBeans.length"></span>
+                    件商品总计 ：
+                    <span class="yen c-d00">¥</span>
+                    <span class="c-d00 ft-18" ng-bind="smallShoppingCarData.totalPrice | number:2"></span>
+                </div>
+                <div class="text-right mgt-5">
+                    <a class="btn btn-primary" ng-href="/trade/#/cart">去结算</a>
+                </div>
+            </div>
+        </div>
+        <div class="mg-10" ng-if="!smallShoppingCarData.cartItemBeans.length">
+            您的购物车是空的,去
+            <span class="c-f50"><a ng-href="/#/" class="lk-primary">随便逛逛</a></span>
+            <p ng-if="!isLogged">
+                如您已添加商品，请 <a ng-href="/login" class="c-f50">登录</a> 查看
+            </p>
+        </div>
+    </div>
+</div>

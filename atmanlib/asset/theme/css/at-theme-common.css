@@ -1,0 +1,486 @@
+/* common classes (utility) */
+body,
+button,
+input,
+select,
+textarea,
+fieldset,
+label{
+    /*font: 12px/1.5 "微软雅黑", "\5FAE\8F6F\96C5\9ED1","Lucida Grande", tahoma, arial, \5b8b\4f53;*/
+    font: 12px/1.5 "Lucida Grande",tahoma,arial,\5b8b\4f53;
+    color: #333;
+}
+.page-990 .container{
+    width: 990px;
+}
+/* Fonts */
+.ft-yh{font-family: "微软雅黑", "\5FAE\8F6F\96C5\9ED1"; font-weight: normal;}
+.ft-bd{font-weight: bold;}
+.ft-10{font-size: 10px;}
+.ft-12{font-size: 12px;}
+.ft-14{font-size: 14px;}
+.ft-16{font-size: 16px;}
+.ft-18{font-size: 18px;}
+.ft-20{font-size: 20px;}
+.ft-22{font-size: 22px;}
+.ft-24{font-size: 24px;}
+.ft-26{font-size: 26px;}
+.ft-28{font-size: 28px;}
+.ft-30{font-size: 30px;}
+.ft-32{font-size: 32px;}
+.ft-36{font-size: 36px;}
+.ft-40{font-size: 40px;}
+
+.text-middle{vertical-align: middle !important;}
+.text-md-ln{text-decoration: line-through !important;}
+
+/* Color */
+.c-f50{color: #f50;}
+.c-fa8{color: #fa8;}
+.c-03f{color: #03f;}
+.c-c00{color: #c00;}
+.c-d00{color: #d00;}
+.c-090{color: #090;}
+.c-fff{color: #fff;}
+.c-222{color: #222;}
+.c-333{color: #333;}
+.c-444{color: #444;}
+.c-555{color: #555;}
+.c-666{color: #666;}
+.c-888{color: #888;}
+.c-999{color: #999;}
+.c-aaa{color: #aaa;}
+.c-ccc{color: #ccc;}
+.c-ddd{color: #ddd;}
+.c-eee{color: #eee;}
+.c-000{color: #000;}
+.c-0c0{color: #0C0;}
+.c-f00{color: #F00;}
+.c-d7{color:#d7d7d7;}
+.c-fb{color:#fbfbfb;}
+.c-ae{color:#aeaeae;}
+.c-e71f19{color: #e71f19;}
+.c-632316{color: #632316;}
+.c-a0a0{color: #a0a0a0;} /* 深灰 */
+.c-7878{color: #787878;} /* 浅灰 */
+.c-ff5400{color: #ff5400;}
+.c-78{color: #787878;}
+.c-ae{color: #aeaeae;}
+.c-91{color: #919191;}
+.c-4C88FA{color: #4C88FA;}/*蓝色*/
+.c-88{color: #888;}/*蓝色*/
+
+/* Line height */
+.lh-10{line-height: 10px;}
+.lh-12{line-height: 12px;}
+.lh-14{line-height: 14px;}
+.lh-16{line-height: 16px;}
+.lh-18{line-height: 18px;}
+.lh-20{line-height: 20px;}
+.lh-22{line-height: 22px;}
+.lh-24{line-height: 24px;}
+.lh-26{line-height: 26px;}
+.lh-28{line-height: 28px;}
+.lh-30{line-height: 30px;}
+.lh-32{line-height: 32px;}
+.lh-36{line-height: 36px;}
+.lh-40{line-height: 40px;}
+.lh-50{line-height: 50px;}
+.lh-80{line-height: 80px;}
+.lh-100{line-height: 100px;}
+.lh-120{line-height: 120px;}
+.lh-150{line-height: 150px;}
+.lh-180{line-height: 180px;}
+.lh-200{line-height: 200px;}
+
+/* Link */
+.lk-default{color: #08c;}
+.lk-default:hover{color: #08c;}
+.lk-primary{color: #f50;}
+.lk-primary:hover{color: #f50;}
+.lk-gray{color: #666;}
+.lk-gray:hover{color: #f50;}
+.lk-no-udl, .lk-no-udl:hover{text-decoration: none;}
+.lk-white{color:#fff;}
+.lk-white:hover{color: #fff;}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+
+/* at-number-input */
+.at-number-input,
+.at-number-input-sm,
+.at-number-input-lg {
+    width: 100px;
+}
+.at-number-input .input-group-btn,
+.at-number-input-sm .input-group-btn,
+.at-number-input-lg .input-group-btn {
+    z-index: 98 !important;
+}
+.at-number-input .btn,
+.at-number-input-sm .btn,
+.at-number-input-lg .btn {
+    background-color: #f2f2f2;
+    border: solid 1px #ddd;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+}
+.at-number-input .btn:hover,
+.at-number-input-sm .btn:hover,
+.at-number-input-lg .btn:hover {
+    border-color: #f50;
+    color: #f50;
+}
+.at-number-input .btn:active,
+.at-number-input-sm .btn:active,
+.at-number-input-lg .btn:active {
+    outline: none;
+}
+.at-number-input input,
+.at-number-input input:focus,
+.at-number-input-sm input,
+.at-number-input-sm input:focus,
+.at-number-input-lg input,
+.at-number-input-lg input:focus{
+    border: solid 1px #ddd;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+}
+.at-number-input input{
+    height: 30px;
+    padding: 3px 3px;
+    font-size: 14px;
+}
+.at-number-input .btn{
+    height: 30px;
+    padding: 3px 9px;
+}
+.at-number-input-sm input{
+    height: 24px;
+    padding: 0 3px;
+    font-size: 12px;
+}
+.at-number-input-sm .btn{
+    height: 24px;
+    padding: 0 9px;
+}
+.at-number-input-lg input{
+    height: 36px;
+    padding: 6px 3px;
+    font-size: 16px;
+}
+.at-number-input-lg .btn{
+    height: 36px;
+    padding: 6px 9px;
+}
+
+/* Display */
+.block{display: block !important;}
+.inline{display: inline !important;}
+.inline-block{display: inline-block !important;}
+
+.wizard-step{
+    position: relative;
+    clear:both;
+    font-weight: normal;
+    height:32px
+}
+.wizard-step .step h5{
+    position: relative;
+    text-align: center;
+    height:32px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 32px;
+    color: #666;
+    background: #DEDEDE;
+    margin: 0 -4px;
+}
+.wizard-step .step h5:before, .wizard-step .step h5:after {
+    width:0;
+    height:0;
+    position: absolute;
+    content: "";
+    top: 0;
+}
+.wizard-step .step h5:before{
+    border-top: 16px solid #DEDEDE;
+    border-bottom: 16px solid #DEDEDE;
+    border-left:16px solid transparent;
+    left: -16px;
+}
+.wizard-step .step h5:after {
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left:16px solid #DEDEDE;
+    right: -16px;
+}
+.wizard-step .step.first h5 {
+    margin-left: 0;
+}
+.wizard-step .step.last h5 {
+    margin-right: 16px;
+}
+.wizard-step .step.first h5:before {
+    border: none;
+}
+.wizard-step .step.active h5{
+    color: #FFF;
+    background: #ff5500;
+}
+.wizard-step .step.active h5:before {
+    border-top: 16px solid #ff5500;
+    border-bottom: 16px solid #ff5500;
+}
+.wizard-step .step.active h5:after {
+    border-left: 16px solid #ff5500;
+}
+.mz-hv {
+    border: transparent;
+    position: relative;
+}
+.mz-hv-show {
+    display: none;
+}
+.mz-hv .mz-hv-title {
+    border: solid 1px transparent;
+    border-bottom: none;
+    background-color: transparent;
+    position: relative;
+}
+.mz-hv:hover .mz-hv-show {
+    display: block;
+    position: absolute;
+    z-index: 799;
+    background-color: #fff;
+    border: solid 1px #ddd;
+    margin-top: -1px;
+    box-shadow:2px 2px 2px rgba(0,0,0,0.1);
+}
+.mz-hv:hover .mz-hv-title {
+    border-color: #ddd;
+    background-color: #fff;
+    z-index: 800;
+}
+.mz-hv:hover .exp-icon {
+    display: none;
+}
+.at-fixed-top{
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    z-index: 1000;
+}
+.at-arrow{
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    margin: 4px 0 3px;
+    margin-bottom: 4px \9;
+}
+.at-arrow-f50-left{
+    border-right-color: #f50;
+    border-left-width: 0;
+}
+.disabled .at-arrow-f50-left{
+    border-right-color: #ddd;
+}
+.at-arrow-f50-top{
+    border-bottom-color: #f50;
+    border-top-width: 0;
+}
+.disabled .at-arrow-f50-top{
+    border-bottom-color: #ddd;
+}
+.at-arrow-f50-right{
+    border-left-color: #f50;
+    border-right-width: 0;
+}
+.disabled .at-arrow-f50-right{
+    border-left-color: #ddd;
+}
+.at-arrow-f50-bottom{
+    border-top-color: #f50;
+    border-bottom-width: 0;
+}
+.disabled .at-arrow-f50-bottom{
+    border-bottom-color: #ddd;
+}
+.z-inherit{
+    z-index: inherit !important;
+}
+.z-1{
+    z-index: 1 !important;
+}
+.z-2{
+    z-index: 2 !important;
+}
+.z-99{
+    z-index: 99 !important;
+}
+.z-100{
+    z-index: 100 !important;
+}
+.z-199{
+    z-index: 199 !important;
+}
+.z-200{
+    z-index: 200 !important;
+}
+.z-399{
+    z-index: 399 !important;
+}
+.z-400{
+    z-index: 400 !important;
+}
+.z-799{
+    z-index: 799 !important;
+}
+.z-800{
+    z-index: 800 !important;
+}
+.z-999{
+    z-index: 999 !important;
+}
+.z-1000{
+    z-index: 1000 !important;
+}
+
+.overflow{
+    overflow: auto;
+}
+.overflow-x{
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.overflow-y{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.overflow-hd{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.nowrap{
+    white-space: nowrap !important;
+}
+.wrap{
+    word-break:break-all !important;
+    word-wrap:break-word !important;
+}
+.break-all {
+    word-break: break-all !important;
+}
+/* 扁平风格，无box-shadow、text-shadow */
+.flat {
+    text-shadow: none;
+    box-shadow: none;
+    -moz-webkit-box-shadow: none;
+    -ms-webkit-box-shadow: none;
+    -o-webkit-box-shadow: none;
+    webkit-box-shadow: none;
+}
+/* 鼠标形状:默认、手型; */
+.m-default{
+    cursor: default;
+}
+.m-finger{
+    cursor: pointer;
+}
+
+.text-ellipsis{
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*加点的*/
+    white-space: nowrap;
+    font-weight:normal;
+    display: block;
+}
+.to-50{
+    min-width: 0px;
+    max-width:50px;
+    display: block;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*加点的*/
+    white-space: nowrap;
+    font-weight:normal;
+}
+.to-80{
+    
+    min-width: 0px;
+    max-width:80px;
+    display: block;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*加点的*/
+    white-space: nowrap;
+    font-weight:normal;
+}
+.to-100{
+    min-width: 0px;
+    max-width:100px;
+    display: block;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*加点的*/
+    white-space: nowrap;
+    font-weight:normal;
+}
+.to-130{
+    min-width: 0px;
+    max-width:130px;
+    display: block;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*加点的*/
+    white-space: nowrap;
+    font-weight:normal;
+}
+.to-150{
+    min-width: 0px;
+    max-width: 150px;
+    display: block;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*加点的*/
+    white-space: nowrap;
+    font-weight:normal;
+}
+
+.ti-24{
+    text-indent: 24px;
+}
+.ti-40{
+    text-indent: 40px;
+}
+
+.h-over-40{
+    min-height: 0px;
+    max-height:40px;
+    display: block;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    text-overflow: ellipsis;/*加点的*/
+    white-space: nowrap;
+    font-weight:normal;
+}
+
+.over-line,.word-break{
+     word-break:break-all; 
+     overflow:auto;
+}

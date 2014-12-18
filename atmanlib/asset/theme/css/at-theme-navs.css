@@ -1,0 +1,97 @@
+.at-sidenav {
+    color: #000;
+    border:1px solid #DBDBDB;
+}
+.at-sidenav > li:first-child > a {
+    background-color: #EFEFEF;
+    padding: 10px 15px;
+}
+.at-sidenav > li:first-child > a:hover{
+    background-color: #EFEFEF;
+}
+.at-sidenav li > a {
+    font-size: 14px;
+    display: block;
+    color: #333;
+    padding: 8px 15px;
+    border-left: solid 3px transparent;
+    transition: background 0.5s, border 0.5s;
+    -webkit-transition: background 0.5s, border 0.5s;
+    -moz-transition: background 0.5s, border 0.5s;
+    -ms-transition: background 0.5s, border 0.5s;
+    -o-transition: background 0.5s, border 0.5s;
+}
+.at-sidenav li>a:hover, .at-sidenav li>a:active, .at-sidenav li.active>a  {
+    border-left: solid 3px #f50;
+    color: #f50;
+    text-decoration: none;
+    background-color: #fafafa;
+}
+.at-sidenav > li > ul > li> a {
+    padding-left: 30px;
+    font-size: 12px;
+}
+.at-sidenav li.child-nav > a {
+    padding-left: 30px;
+    font-size: 12px;
+}
+/* home/#!/index和home/#!/channel/:id; */
+
+.home-sidenav > li:first-child {
+    color: #999;
+    border-bottom: 1px solid #efefef;
+}
+.home-sidenav > li:last-child > a {
+    border-bottom: none;
+}
+.home-sidenav li{
+    position: relative;
+}
+.home-sidenav li .arrow{
+    display: none;
+    border: solid 6px transparent;
+    border-left-color: #f50;
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+.home-sidenav li.active {
+    display: block;
+    border-left: solid 8px #f50;
+}
+.home-sidenav li.active .arrow{
+    display: block;
+}
+.home-sidenav li > a {
+    display: block;
+    padding: 14px 15px 15px;
+    transition: background 0.5s, border 0.5s;
+    -webkit-transition: background 0.5s, border 0.5s;
+    -moz-transition: background 0.5s, border 0.5s;
+    -ms-transition: background 0.5s, border 0.5s;
+    -o-transition: background 0.5s, border 0.5s;
+    border-bottom: 1px solid #efefef;
+    border-top: 1px solid transparent;
+}
+.home-sidenav li > a .gt-name{
+    font-size: 14px;
+    color: #000;
+}
+.home-sidenav li>a:hover, .home-sidenav li>a:active, .home-sidenav li.active>a  {
+    text-decoration: none;
+    background-color: #fafafa;
+}
+.home-sidenav li>a:hover .gt-name, .home-sidenav li>a:active .gt-name, .home-sidenav li.active>a .gt-name  {
+    text-decoration: underline;
+    color: #f50;
+}
+.home-sidenav li.active>a  {
+    border-top: 1px solid #efefef;
+    padding-left: 7px;
+    margin-right: -1px;
+    /* margin-top: -2px;
+    padding-top: 16px;
+    padding-bottom: 14px;*/
+}
+
+/* home/#!/index和home/#!/channel/:id; */

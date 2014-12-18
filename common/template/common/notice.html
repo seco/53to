@@ -1,0 +1,27 @@
+<div class="pull-right mz-hv">
+    <div class="mz-hv-title pdlr-10 h-35">
+        <a href="javascript:;" class="lh-30 lk-no-udl nowrap">
+            <span class="glyphicon glyphicon-envelope c-f50" ng-hide="noticeAmount > 0"></span>
+            <!-- <div class="openenvelope" ng-show="noticeAmount > 0"></div> -->
+            <img class="mgb-5" src="/atmanlib/asset/images/icon/envelope.gif" alt="" ng-show="noticeAmount > 0">
+            <span class="mglr-2">消息 </span>
+            <span class="ft-bd c-f50" ng-bind="noticeAmount||0" ng-class="{'num-jump':false}"></span>
+        </a>
+    </div>
+    <div class="mz-hv-show w-120 pos-r-0 pdtb-5">
+        <ul>
+            <li>
+                <a class="block lh-26 hv-bg-dd pdlr-15" ng-href="/weibo/#/user/{{ nickName }}/comment/">查看评论</a>
+            </li>
+            <li>
+                <a class="block lh-26 hv-bg-dd pdlr-15" ng-href="/weibo/#/user/{{ nickName }}/at/">查看@我<span ng-show="noticeData.atNew">(<span class="c-f50" ng-bind="noticeData.atNew"></span>)</span></a>
+            </li>
+            <li>
+                <a class="block lh-26 hv-bg-dd pdlr-15" ng-href="/weibo/#/user/{{ nickName }}/message/">查看私信<span ng-show="noticeData.newpm">(<span class="c-f50" ng-bind="noticeData.newpm"></span>)</span></a>
+            </li>
+            <li>
+                <a class="block lh-26 hv-bg-dd pdlr-15" ng-href="/weibo/#/user/{{ nickName }}/fans/">查看粉丝<span ng-show="noticeData.fansNew">(<span class="c-f50" ng-bind="noticeData.fansNew"></span>)</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

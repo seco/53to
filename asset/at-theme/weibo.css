@@ -1,0 +1,454 @@
+.wb-container {
+    padding-left: 200px;
+    background-color: #F5F5F5;
+    position: relative;
+    border: solid 1px #e6e6e6;
+}
+.wb-right {
+    padding: 20px;
+    margin: auto;
+    background-color: #fff;
+    min-height: 600px;
+    border-left: solid 1px #e6e6e6;
+}
+.wb-home-head {
+    display: block;
+    float: left;padding: 2px;
+    background-color: #fff;
+    border: solid 1px #ddd;
+}
+.wb-home-head img {
+    width: 100px;
+    height: 100px;
+}
+.wb-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+}
+.wb-left-nav-container {
+    display: none;
+}
+.wb-left-nav {
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    border-top: solid 1px #e3e3e3;
+}
+
+.wb-left-nav li {
+    list-style: none;
+}
+
+.wb-left-nav li a {
+    display: block;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #777;
+}
+
+.wb-left-nav li a:hover,
+.wb-left-nav li.active a,
+.wb-left-nav li:hover {
+    color: #f50;
+}
+
+.wb-left-nav li.active,
+.wb-left-nav li:hover {
+    background-color: #fff;
+    margin-right: -1px;
+}
+
+
+/* 微博列表 */
+.wb-list {
+    margin: auto;
+}
+.wb-item {
+    word-break: break-all;
+    padding: 15px 0 10px;
+    border-bottom: dashed 1px #E6E6E6;
+}
+.wb-face {
+    float: left;
+    width: 50px;
+    position: relative;
+    margin-top: 4px;
+}
+.wb-face .wb-head-img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+}
+.wb-face .wb-head-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 2px;
+}
+.wb-item-right {
+    margin-left: 65px;
+}
+.wb-detail {
+    margin: 0;
+}
+.wb-detail-goods {
+    border: solid 1px #ddd;
+    background: #FBFBFB;
+    margin-top: 4px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.wb-detail-goods .arrow-left {
+    border: solid 6px transparent;
+    border-right-color: #d5d5d5;
+    position: absolute;
+    top: 10px;
+    left: -12px;
+}
+.wb-detail-goods .arrow-left:before {
+    content: " ";
+    display: block;
+    border: solid 5px transparent;
+    border-right-color: #fafafa;
+    position: absolute;
+    left: -4px;
+    top: -5px;
+}
+.wb-detail-goods .arrow-top {
+    border: solid 6px transparent;
+    border-bottom-color: #d5d5d5;
+    position: absolute;
+    top: -12px;
+}
+.wb-detail-goods .arrow-top:before {
+    content: " ";
+    display: block;
+    border: solid 5px transparent;
+    border-bottom-color: #fafafa;
+    position: absolute;
+    left: -5px;
+    top: -4px;
+}
+.wb-exp-arrow {
+    left: 10px;
+}
+
+.wb-content {
+    font-size: 14px;
+    border-bottom: solid 1px #e8e8e8;
+    padding-bottom: 10px;
+}
+.wb-gd-ctn {
+    margin-top: 15px;
+    height: 132px;
+}
+.wb-gd-img {
+    display: block;
+    width: 132px;
+    height: 132px;
+    float: left;
+}
+.wb-gd-img img{
+    width: 132px;
+    height: 132px;
+}
+.wb-gd-info {
+    margin-left: 150px;
+    height: 132px;
+}
+.wb-gd-title {
+    height: 24px;
+}
+.wb-gd-title .wb-gd-name {
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    max-width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.wb-gd-title .wb-gd-name img {
+    width: 16px;
+    height: 16px;
+}
+.wb-gd-price {
+    height: 30px;
+    margin-top: 5px;
+}
+.wb-user-name {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+.wb-text {
+    font-size: 14px;
+    padding: 4px 0 4px;
+}
+.wb-func {
+    margin-top: 6px;
+    color: #999;
+}
+.wb-func a{
+    color: #999;
+}
+.wb-func .wb-from {
+    color: #888;
+    margin: 5px 0;
+}
+.wb-exp {
+    position: relative;
+    border: 1px solid #E6E6E6;
+    padding: 10px 20px 10px 20px;
+    margin: 10px 0;
+    background-color: #FBFBFB;
+}
+.wb-expand-text {
+    font-size: 12px;
+    padding: 4px 0 4px;
+}
+
+.wb-exp .wb-exp-arrow, .wb-exp .wb-arrow-cmt {
+    border: solid 6px transparent;
+    border-bottom-color: #d5d5d5;
+    position: absolute;
+    top: -12px;
+}
+.wb-exp .wb-exp-arrow:before, .wb-exp .wb-arrow-cmt:before {
+    content: " ";
+    display: block;
+    border: solid 5px transparent;
+    border-bottom-color: #fafafa;
+    position: absolute;
+    left: -5px;
+    top: -4px;
+}
+.wb-exp-arrow {
+    left: 10px;
+}
+.wb-arrow-cmt {
+    right: 10px;
+}
+.wb-media-list {
+    margin: 5px 0 0;
+    position: relative;
+}
+.wb-media-list ul {
+    width: 255px;
+    display: block;
+    padding: 0;
+}
+.wb-media-list ul li {
+    display: block;
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+}
+.wb-media-list ul li img {
+    width: 80px;
+    height: 80px;
+}
+.wb-media-expanded {
+    width: 440px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px 20px 10px;
+    margin: 5px 0 15px;
+    border-color: #DDDDDD;
+    background-color: #FBFBFB;
+}
+.wb-media-ctn {
+    width: 400px;
+}
+.wb-exp .wb-media-ctn {
+    margin-top: 5px;
+}
+.wb-media-func {
+    padding: 0;
+    margin: 0;
+}
+.wb-media-imgbox {
+    width: 400px;
+    margin-top: 8px;
+    text-align: center;
+    position: relative;
+}
+.wb-media-img {
+    width: 400px;
+    position: relative;
+}
+.wb-media-img img {
+    max-width: 400px;
+}
+.img-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    display: none;
+    width: 20px;
+    height: 20px;
+    background: url("/atmanlib/asset/images/icon/loader03.GIF");
+}
+.cursor-zoom-in {
+    background: #fff !important;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    zoom: 1;
+    overflow: hidden;
+    z-index: 200;
+    cursor: url('/atmanlib/asset/images/icon/zoom-in2.ico'), auto !important;
+}
+.wb-media-imgbox .cursor-left, .wb-media-imgbox .cursor-right {
+    background: #fff !important;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: absolute;
+    width: 33%;
+    height: 100%;
+    top: 0;
+    zoom: 1;
+    overflow: hidden;
+}
+.wb-media-imgbox .cursor-left {
+    left: 0;
+    z-index: 201;
+    cursor: url('/atmanlib/asset/images/icon/ico-left.ico'), auto !important;
+}
+.wb-media-imgbox .cursor-right {
+    right: 0;
+    z-index: 202;
+    cursor: url('/atmanlib/asset/images/icon/ico-right.ico'), auto !important;
+}
+.wb-media-thumb {
+    height: 56px;
+    margin-top: 10px;
+}
+.wb-media-thumb ul {
+    transition: margin 0.2s linear;
+    -webkit-transition: margin 0.2s linear;
+}
+.wb-media-thumb .thumb-left, .wb-media-thumb .thumb-right {
+    width: 16px;
+    height: 56px;
+    float: left;
+    cursor: pointer;
+}
+.wb-media-thumb .thumb-left:before, .wb-media-thumb .thumb-right:before {
+    content: " ";
+    display: block;
+    width: 16px;
+    height: 20px;
+    margin-top: 18px;
+    background: url("/atmanlib/asset/images/icon/img_weibo.png") no-repeat;
+}
+.wb-media-thumb .thumb-left:before {
+    background-position: -19px -134px;
+}
+.wb-media-thumb .thumb-left.disable:before {
+    background-position: 0 -134px;
+}
+.wb-media-thumb .thumb-right:before {
+    background-position: -30px -134px;
+}
+.wb-media-thumb .thumb-right.disable:before {
+    background-position: -48px -134px;
+}
+.thumb-list {
+    width: 360px;
+    height: 56px;
+    overflow: hidden;
+    float: left;
+    margin: 0 4px;
+}
+.wb-media-thumb ul {
+    width: 550px;
+    height: 56px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.wb-media-thumb ul li {
+    list-style: none;
+    width: 56px;
+    height: 56px;
+    display: block;
+    float: left;
+    margin: 0 2px;
+    border: solid 2px transparent;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 1px;
+}
+.wb-media-thumb ul li.active, .wb-media-thumb ul li:hover {
+    border-color: #f50;
+}
+.wb-media-thumb ul li img {
+    width: 50px;
+    height: 50px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.wb-media-thumb ul li.active img, .wb-media-thumb ul li:hover img {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.wb-cmt {
+
+}
+.wb-cmt-txt textarea {
+    overflow-y: hidden;
+    height: 38px;
+    line-height: 18px;
+}
+.wb-cmt-list {
+    /*overflow: hidden;*/
+}
+.wb-cmt-list > dl {
+    padding: 6px 0 8px;
+    margin: -1px 0 0;
+    border-bottom: solid 1px #e5e5e5;
+}
+.wb-cmt-list > dl:last-child {
+    border-bottom: none;
+}
+.wb-cmt-list > dl > dt {
+    float: left;
+    display: inline;
+    width: 30px;
+    padding: 3px 0 0;
+}
+.wb-cmt-list > dl > dt img {
+    width: 40px;
+    height: 40px;
+    display: block;
+    overflow: hidden;
+    border: none;
+}
+.wb-cmt-list > dl > dd {
+    margin: 0 0 0 50px;
+    line-height: 21px;
+    word-wrap: break-word;
+    zoom: 1;
+    vertical-align: text-bottom;
+}
+.wb-cmt-info {
+    margin-top: 5px;
+    box-sizing: border-box;
+}
