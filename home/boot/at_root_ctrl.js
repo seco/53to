@@ -129,6 +129,8 @@ define('at_root_ctrl', ['at_app', 'atmanlib-lib/ATCONFIG', 'service/oauth', 'ser
 
             $scope.$on("$routeChangeSuccess", function(angularEvent, currentRoute, previousRoute) {
                 console.log("--- $routeChangeSuccess ---");
+                console.log(previousRoute);
+                console.log(currentRoute);
 
                 $rootScope.at_path = $location.path();
                 $rootScope.modules_path = $route.current.originalPath;
