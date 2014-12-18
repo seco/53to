@@ -1,46 +1,93 @@
 {
-    "item.quickBuy": {
+    "home.error": {
         "routes": [{
-            "path": "/quickbuy/:goodsId",
-            "controller": "ctrl.item.quickbuy",
-            "templateUrl": "/item/view/quickbuy.html"
-        },{
-            "path": "/quickbuy/:goodsId/:commentId",
-            "controller": "ctrl.item.quickbuy",
-            "templateUrl": "/item/view/quickbuy.html"
-        },{
-            "path": "/quickbuy/:goodsId/:commentId/:key",
-            "controller": "ctrl.item.quickbuy",
-            "templateUrl": "/item/view/quickbuy.html"
+            "path": "/404",
+            "templateUrl": "/home/view/404.html"
+        }, {
+            "path": "/500",
+            "templateUrl": "/home/view/500.html"
+        }, {
+            "path": "/502",
+            "templateUrl": "/home/view/502.html"
+        }],
+        "dependencies": []
+    },
+    "home.index": {
+        "routes": [{
+            "path": "/",
+            "controller": "ctrl.home.index",
+            "templateUrl": "/home/view/index.html"
         }],
         "dependencies": [
-            "item-ctrl/quickbuy"
+            "home-ctrl/index"
         ]
     },
-    "item.detail": {
+    "home.channel": {
         "routes": [{
-            "path": "/comment/:goodsId",
-            "controller": "ctrl.item.detail",
-            "templateUrl": "/item/view/detail.html"
-        },{
-            "path": "/comment/:goodsId/:commentId",
-            "controller": "ctrl.item.detail",
-            "templateUrl": "/item/view/detail.html"
-        },{
-            "path": "/:goodsId",
-            "controller": "ctrl.item.detail",
-            "templateUrl": "/item/view/detail.html"
-        }, {
-            "path": "/:goodsId/:commentId",
-            "controller": "ctrl.item.detail",
-            "templateUrl": "/item/view/detail.html"
-        }, {
-            "path": "/:goodsId/:commentId/:key",
-            "controller": "ctrl.item.detail",
-            "templateUrl": "/item/view/detail.html"
+            "path": "/channel/:id",
+            "controller": "ctrl.home.channel",
+            "templateUrl": "/home/view/channel.html"
         }],
         "dependencies": [
-            "item-ctrl/detail"
+            "home-ctrl/channel"
+        ]
+    },
+    "home.goods.detail": {
+        "routes": [{
+            "path": "/goods/:goodsId",
+            "controller": "ctrl.home.goods.detail",
+            "templateUrl": "/home/view/goods-detail.html"
+        }, {
+            "path": "/goods/:goodsId/:commentId",
+            "controller": "ctrl.home.goods.detail",
+            "templateUrl": "/home/view/goods-detail.html"
+        }, {
+            "path": "/goods/:goodsId/:commentId/:key",
+            "controller": "ctrl.home.goods.detail",
+            "templateUrl": "/home/view/goods-detail.html"
+        }],
+        "dependencies": [
+            "home-ctrl/goods-detail"
+        ]
+    },
+    "home.weibo.search": {
+        "routes": [{
+            "path": "/weibo/search",
+            "controller": "ctrl.home.weibo.search",
+            "templateUrl": "/home/view/weibo-search.html"
+        }],
+        "dependencies": [
+            "home-ctrl/weibo-search"
+        ]
+    },
+    "home.user.search": {
+        "routes": [{
+            "path": "/user/search",
+            "controller": "ctrl.home.user.search",
+            "templateUrl": "/home/view/user-search.html"
+        }],
+        "dependencies": [
+            "home-ctrl/user-search"
+        ]
+    },
+    "home.goods.search": {
+        "routes": [{
+            "path": "/item/search",
+            "controller": "goodsSearchCtrl",
+            "templateUrl": "/home/view/goods-search.html"
+        }],
+        "dependencies": [
+            "home-ctrl/goods-search"
+        ]
+    },
+    "home.item.list": {
+        "routes": [{
+            "path": "/item/list",
+            "controller": "itemListCtrl",
+            "templateUrl": "/home/view/item-list.html"
+        }],
+        "dependencies": [
+            "home-ctrl/item-list"
         ]
     }
 }

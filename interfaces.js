@@ -4,6 +4,10 @@
 /restful/rest/buyer/stock/brief?uuid=3001154002114333
 {"buyerId":600000437,"cash":0.000,"availableStock":0,"frozenStock":0,"totalProfit":0.000,"bonusDetail":{"bonusYesterday":0,"yearReturnRate":6.2874,"bonusPerTenThousand":0,"quantity":0}}
 
+/restful/rest/buyer/account/myself?uuid=3003455044312141
+{"buyerId":600000437,"cash":0.00,"rebateFund":0.00,"jsCredit":160,"frozenCash":0.00,"frozenJsCredit":0}
+
+
 /restful/rest/buyer/brief?uuid=3001154002114333
 {"buyerId":600000437,"nickName":"去你大爷","headImage":"/imageServer/0000noimg.jpg","source":"da","buyerType":0,"addTime":1413173438000,"status":2,"uid":454,"promoGoodsCount":0,"mobile":"150****8316"}
 

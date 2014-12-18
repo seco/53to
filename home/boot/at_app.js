@@ -32,8 +32,8 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
                     return response || $q.when(response);
                 },
                 responseError: function(response) {
-                    console.log('--- response ---');
-                    console.log(response);
+                    //console.log('--- response ---');
+                    //console.log(response);
 
                     if (response.status === 404) {
                         if (/\/restful\/rest\/\.*/.test(response.config.url)) {
@@ -127,7 +127,7 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
             delete $httpProvider.defaults.headers.common['X-Requested-With'];
             $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension|data):/);
             $httpProvider.interceptors.push('httpInterceptor');
-            // $httpProvider.defaults.headers.get={ 'UUID' : new Date().getTime().toString(6)};
+            $httpProvider.defaults.headers.get={ 'UUID' : new Date().getTime().toString(6)};
             app.lazy = {
                 controller: $controllerProvider.register,
                 directive: $compileProvider.directive,
@@ -141,7 +141,7 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
                 animation: $animateProvider.register
             };
             $locationProvider.html5Mode(!1);
-            // $locationProvider.hashPrefix('!');
+            $locationProvider.hashPrefix('!');
             angular.forEach(modules, function(moduleConfig) {
                 angular.forEach(moduleConfig.routes, function(route) {
                     $routeProvider.when(route.path, {
@@ -152,6 +152,7 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
                     });
                 });
             });
+            console.log("--- 开始跳转 ---");
             $routeProvider.otherwise({redirectTo: '/'});
         }
     ]);
