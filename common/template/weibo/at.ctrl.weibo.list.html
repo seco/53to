@@ -1,0 +1,284 @@
+
+<div class="wb-list">
+    <div class="wb-item clearfix" ng-repeat="wr in weiboList track by $index">
+        <div class="wb-face">
+            <a class="wb-head-img" ng-href="/weibo/#/user/{{ wr.weiboUserBean.nickName }}" at-user-popover="wr.weiboUserBean">
+                <img ng-src="{{wr.weiboUserBean.headImage}}/50" alt=""/>
+            </a>
+        </div>
+        <div class="wb-item-right">
+            <!--商品微博-->
+            <div class="wb-detail" ng-if="wr.topicBean.goodsId && !wr.rootTopic">
+                <div class="wb-detail-goods">
+                    <div class="arrow-left"></div>
+                    <div class="wb-content">
+                        <a ng-href="/weibo/#/user/{{ wr.weiboUserBean.nickName }}" target="_blank" class="wb-user-name" at-user-popover="wr.weiboUserBean" ng-bind="wr.weiboUserBean.nickName"></a>
+                        <span class="user-icon user-icon-{{ wr.weiboUserBean.buyerType }}"></span>
+                        :
+                        <span compile="wr.topicBean.content | emojisFr | atLink"></span>
+                    </div>
+                    <div class="wb-gd-ctn">
+                        <a ng-href="/item/#/{{wr.topicBean.goodsId}}" target="_blank" class="wb-gd-img">
+                            <img ng-src="{{ wr.topicBean.goodsBriefBean.goodsImage }}/{{ATConfig.IconSize.middle}}" />
+                        </a>
+                        <div class="wb-gd-info">
+                            <div class="wb-gd-title">
+                                <a ng-if="wr.topicBean.goodsBriefBean.goodsState == 1" ng-href="/item/#/{{wr.topicBean.goodsId}}" target="_blank" class="btn btn-primary btn-xs pull-right">
+                                    立即购买
+                                </a>
+                                <a ng-if="!(wr.topicBean.goodsBriefBean.goodsState == 1)" ng-href="/item/#/{{wr.topicBean.goodsId}}" target="_blank" class="btn btn-default btn-xs pull-right">
+                                    已售完
+                                </a>
+                                <a class="wb-gd-name ft-yh" ng-href="/item/#/{{wr.topicBean.goodsId}}" target="_blank">
+                                    <img src="/atmanlib/asset/images/icon/to_logo.gif" alt="">
+                                    <span ng-bind="wr.topicBean.goodsBriefBean.goodsName"></span>
+                                </a>
+                            </div>
+                            <div class="wb-gd-price">
+                                <span class="ft-bd c-f50 ft-16">
+                                    <span class="yen">¥</span>
+                                    <span ng-bind="wr.topicBean.goodsBriefBean.price|number:2"></span>
+                                </span>
+                            </div>
+                            <div ng-if="wr.topicBean.goodsBriefBean.recentBuyer.length > 0">
+                                <div class="text-muted">以下用户购买了此商品</div>
+                                <a class="inline-block sz-30 mg-10 mgl-0" ng-repeat="buyer in wr.topicBean.goodsBriefBean.recentBuyer" href="javascript:;" at-user-popover="buyer.nickName" data-placement="bottom-right">
+                                    <img ng-src="{{ buyer.headImage }}/50" class="sz-30" />
+                                </a>
+                                <!--<div class="mgt-15 text-muted" ng-if="wr.topicBean.goodsBriefBean.recentBuyer.length == 0">
+                                    <span>暂无用户购买此商品！</span>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--商品转发微博-->
+            <div class="wb-detail" ng-if="wr.rootTopic && wr.rootTopic.topicBean.goodsId">
+	            <a ng-if="wr.rootTopic.topicBean.goodsBriefBean.goodsState == 1" ng-href="/item/#/{{wr.rootTopic.topicBean.goodsId}}/{{ wr.topicBean.commentId }}" target="_blank" class="btn btn-primary btn-xs pull-right">
+		            立即购买
+	            </a>
+	            <a ng-if="!(wr.rootTopic.topicBean.goodsBriefBean.goodsState == 1)" ng-href="/item/#/{{wr.rootTopic.topicBean.goodsId}}/{{ wr.topicBean.commentId }}" target="_blank" class="btn btn-default btn-xs pull-right">
+		            已售完
+	            </a>
+                <a ng-href="/weibo/#/user/{{ wr.weiboUserBean.nickName }}" target="_blank" class="wb-user-name" at-user-popover="wr.weiboUserBean" ng-bind="wr.weiboUserBean.nickName"></a>
+                <span class="user-icon user-icon-{{ wr.weiboUserBean.buyerType }}"></span>
+                <div class="wb-text">
+                    <span compile="wr.topicBean.content | emojisFr | atLink"></span>
+                </div>
+                <div class="wb-detail" ng-if="wr.rootTopic.topicBean.goodsId && !wr.rootTopic.rootTopic">
+                    <div class="wb-detail-goods">
+                        <div class="arrow-top"></div>
+                        <div class="wb-content">
+                            <a ng-href="/weibo/#/user/{{ wr.rootTopic.weiboUserBean.nickName }}" target="_blank" class="ft-bd" at-user-popover="wr.rootTopic.weiboUserBean">
+                                @<span ng-bind="wr.rootTopic.weiboUserBean.nickName"></span>
+                            </a>
+                            <span class="user-icon user-icon-{{ wr.rootTopic.weiboUserBean.buyerType }}"></span>
+                            ：
+                            <span compile="wr.rootTopic.topicBean.content | emojisFr | atLink"></span>
+                        </div>
+                        <div class="wb-gd-ctn">
+                            <a ng-href="/item/#/{{wr.rootTopic.topicBean.goodsId}}/{{ wr.topicBean.commentId }}" target="_blank" class="wb-gd-img">
+                                <img ng-src="{{ wr.rootTopic.topicBean.goodsBriefBean.goodsImage }}/{{ATConfig.IconSize.middle}}" />
+                            </a>
+                            <div class="wb-gd-info">
+                                <div class="wb-gd-title">
+                                    <a class="wb-gd-name ft-yh" ng-href="/item/#/{{wr.rootTopic.topicBean.goodsId}}/{{ wr.rootTopic.topicBean.commentId }}" target="_blank">
+                                        <img src="/atmanlib/asset/images/icon/to_logo.gif" alt="">
+                                        <span ng-bind="wr.rootTopic.topicBean.goodsBriefBean.goodsName"></span>
+                                    </a>
+                                </div>
+                                <div class="wb-gd-price">
+                                    <span class="ft-bd c-f50 ft-16">
+                                        <span class="yen">¥</span>
+                                        <span ng-bind="wr.rootTopic.topicBean.goodsBriefBean.price|number:2"></span>
+                                    </span>
+                                </div>
+                                <div ng-if="wr.rootTopic.topicBean.goodsBriefBean.recentBuyer.length > 0">
+                                    <div class="text-muted">以下用户购买了此商品</div>
+                                    <a class="inline-block sz-30 mg-10 mgl-0" ng-repeat="buyer in wr.rootTopic.topicBean.goodsBriefBean.recentBuyer" href="javascript:;" at-user-popover="buyer.nickName" data-placement="bottom-right">
+                                        <img ng-src="{{ buyer.headImage }}/50" class="sz-30" />
+                                    </a>
+                                    <!--<div class="mgt-15 text-muted" ng-if="wr.rootTopic.topicBean.goodsBriefBean.recentBuyer.length == 0">
+                                        <span>暂无用户购买此商品！</span>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wb-func">
+                            <a href="javascript:void(0);" class="pull-right" ng-click="showReply(wr.rootTopic, wr)">
+                                评论(<span ng-bind="wr.rootTopic.replys"></span>)
+                            </a>
+                            <a href="javascript:void(0);" class="pull-right" ng-click="openForwards(wr.rootTopic)">
+                                转发(<span ng-bind="wr.rootTopic.forwards"></span>)
+                                <span class="mgr-5">|</span>
+                            </a>
+                            <div class="wb-from">
+                                <span ng-bind="wr.rootTopic.addtime*1000|date:'yyyy-MM-dd HH:mm:ss'"></span><span class="mgl-5 c-888">来自</span><span class="mgl-5">吾商微博</span>
+                            </div>
+                        </div>
+                        <!--评论-->
+                        <div class="wb-cmt mgt-15" ng-if="wr.rootTopic.replyStatus > 0" ng-include="'/common/template/weibo/weibo.subcomment.list.html'"></div>
+                    </div>
+                </div>
+            </div>
+            <!--普通微博-->
+            <div class="wb-detail" ng-if="!wr.topicBean.goodsId && !wr.rootTopic">
+                <a ng-href="/weibo/#/user/{{ wr.weiboUserBean.nickName }}" target="_blank" class="wb-user-name" at-user-popover="wr.weiboUserBean" ng-bind="wr.weiboUserBean.nickName"></a>
+                <span class="user-icon user-icon-{{ wr.weiboUserBean.buyerType }}"></span>
+                <div class="wb-text">
+                    <span compile="wr.topicBean.content | emojisFr | atLink"></span>
+                </div>
+                <div class="wb-media-list clearfix" id="media_list_{{ wr.tid }}">
+                    <ul ng-if="wr.topicBean.imageList && wr.topicBean.imageList.length > 0" ng-hide="wr.imgExpanded">
+                        <li ng-repeat="mediaImg in wr.topicBean.imageList track by $index" ng-click="mediaImgClick(wr, $index, wr.tid)">
+                            <img ng-src="{{mediaImg}}/{{ATConfig.IconSize.tiny}}"/>
+                        </li>
+                    </ul>
+                    <div class="img-loading"></div>
+                </div>
+                <div class="wb-media-expanded hide" ng-class="{hide: !wr.imgExpanded}">
+                    <!--微博图片插件-->
+                    <div class="wb-media-ctn" id="media_{{ wr.tid }}">
+                        <div class="wb-media-func">
+                            <a href="javascript:;" ng-click="closeMediaImg(wr)" class="retract">
+                                <span class="weibo-icon weibo-icon-retract"></span>
+                                收起
+                            </a>
+                            <span class="mglr-5">|</span>
+                            <a href="javascript:void(0);" class="turn-left" ng-click="transformRotateFun(-90, wr.tid)">
+                                <span class="weibo-icon weibo-icon-clockwise"></span>
+                                向左转
+                            </a>
+                            <span class="mglr-5">|</span>
+                            <a href="javascript:void(0);" class="turnRight" ng-click="transformRotateFun(90, wr.tid)">
+                                <span class="weibo-icon weibo-icon-anticlockwise"></span>
+                                向右转
+                            </a>
+                        </div>
+                        <div class="wb-media-imgbox">
+                            <div class="wb-media-img">
+                                <img />
+                                <div class="img-loading"></div>
+                            </div>
+                            <div ng-click="closeMediaImg(wr)" class="cursor-zoom-in"></div>
+                            <div ng-click="mediaImgLeft(wr, wr.tid)" class="cursor-left" ng-if="wr.selectedImgIdx > 0"></div>
+                            <div ng-click="mediaImgRight(wr, wr.tid)" class="cursor-right" ng-if="wr.selectedImgIdx < wr.topicBean.imageList.length - 1"></div>
+                        </div>
+                        <div class="wb-media-thumb" ng-if="wr.topicBean.imageList.length > 1">
+                            <div ng-click="imgThumnbLeft(wr)" class="thumb-left" ng-if="wr.topicBean.imageList.length > 6" ng-class="{disable: wr.imgThumnbIdx==1}"></div>
+                            <div class="thumb-list">
+                                <ul ng-style="{'margin-left': (wr.imgThumnbIdx - 1)*(wr.topicBean.imageList.length - 6)*(0-60)}">
+                                    <li ng-class="{active: wr.selectedImgIdx==$index}" ng-repeat="mediaImg in wr.topicBean.imageList track by $index" ng-click="selectMediaImg(wr, $index, wr.tid)">
+                                        <img ng-src="{{ mediaImg }}/{{ATConfig.IconSize.tiny}}"/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div ng-click="imgThumnbRight(wr)" class="thumb-right" ng-if="wr.topicBean.imageList.length > 6" ng-class="{disable: wr.imgThumnbIdx==2}"></div>
+                        </div>
+                    </div>
+                    <!--微博图片插件结束-->
+                </div>
+            </div>
+            <!--普通转发微博-->
+            <div class="wb-detail" ng-if="wr.rootTopic && !wr.rootTopic.topicBean.goodsId">
+                <a ng-href="/weibo/#/user/{{ wr.weiboUserBean.nickName }}" target="_blank" class="wb-user-name" at-user-popover="wr.weiboUserBean" ng-bind="wr.weiboUserBean.nickName"></a>
+                <span class="user-icon user-icon-{{ wr.weiboUserBean.buyerType }}"></span>
+                <div class="wb-text">
+                    <span compile="wr.topicBean.content | emojisFr | atLink"></span>
+                </div>
+                <div class="wb-exp" ng-if="wr.rootTopic">
+                    <div class="wb-exp-arrow"></div>
+                    <a class="ft-bd" ng-href="/weibo/#/user/{{wr.rootTopic.weiboUserBean.nickName}}" at-user-popover="wr.rootTopic.weiboUserBean">
+                        @<span ng-bind="wr.rootTopic.weiboUserBean.nickName"></span>
+                    </a>
+                    <span class="user-icon user-icon-{{ wr.rootTopic.weiboUserBean.buyerType }}"></span>
+                    <div class="wb-expand-text">
+                        <span compile="wr.rootTopic.topicBean.content | emojisFr | atLink"></span>
+                    </div>
+                    <div class="wb-media-list clearfix" id="media_list_{{ wr.tid }}_{{ wr.totid }}">
+                        <ul ng-if="wr.rootTopic.topicBean.imageList && wr.rootTopic.topicBean.imageList.length > 0" ng-hide="wr.rootTopic.imgExpanded">
+                            <li ng-repeat="mediaImg in wr.rootTopic.topicBean.imageList track by $index" ng-click="mediaImgClick(wr.rootTopic, $index, wr.tid, wr.totid)">
+                                <img ng-src="{{mediaImg}}/{{ATConfig.IconSize.tiny}}"/>
+                            </li>
+                        </ul>
+                        <div class="img-loading"></div>
+                    </div>
+                    <!--微博图片插件-->
+                    <div class="wb-media-ctn hide" ng-class="{hide: !wr.rootTopic.imgExpanded}" id="media_{{ wr.tid }}_{{ wr.totid }}">
+                        <div class="wb-media-func">
+                            <a href="javascript:;" ng-click="closeMediaImg(wr.rootTopic)" class="retract">
+                                <span class="weibo-icon weibo-icon-retract"></span>
+                                收起
+                            </a>
+                            <span class="mglr-5">|</span>
+                            <a href="javascript:void(0);" class="turn-left" ng-click="transformRotateFun(-90, wr.tid, wr.totid)">
+                                <span class="weibo-icon weibo-icon-clockwise"></span>
+                                向左转
+                            </a>
+                            <span class="mglr-5">|</span>
+                            <a href="javascript:void(0);" class="turnRight" ng-click="transformRotateFun(90, wr.tid, wr.totid)">
+                                <span class="weibo-icon weibo-icon-anticlockwise"></span>
+                                向右转
+                            </a>
+                        </div>
+                        <div class="wb-media-imgbox">
+                            <div class="wb-media-img">
+                                <img />
+                                <div class="img-loading"></div>
+                            </div>
+                            <div ng-click="closeMediaImg(wr.rootTopic)" class="cursor-zoom-in"></div>
+                            <div ng-click="mediaImgLeft(wr.rootTopic, wr.tid, wr.totid)" class="cursor-left" ng-if="wr.rootTopic.selectedImgIdx > 0"></div>
+                            <div ng-click="mediaImgRight(wr.rootTopic, wr.tid, wr.totid)" class="cursor-right" ng-if="wr.rootTopic.selectedImgIdx < wr.rootTopic.topicBean.imageList.length - 1"></div>
+                        </div>
+                        <div class="wb-media-thumb" ng-if="wr.rootTopic.topicBean.imageList.length > 1">
+                            <div ng-click="imgThumnbLeft(wr.rootTopic)" class="thumb-left" ng-if="wr.rootTopic.topicBean.imageList.length > 6" ng-class="{disable: wr.rootTopic.imgThumnbIdx==1}"></div>
+                            <div class="thumb-list">
+                                <ul ng-style="{'margin-left': (wr.rootTopic.imgThumnbIdx - 1)*(wr.rootTopic.topicBean.imageList.length - 6)*(0-60)}">
+                                    <li ng-class="{active: wr.rootTopic.selectedImgIdx==$index}" ng-repeat="mediaImg in wr.rootTopic.topicBean.imageList track by $index" ng-click="selectMediaImg(wr.rootTopic, $index, wr.tid, wr.totid)">
+                                        <img ng-src="{{ mediaImg }}/{{ATConfig.IconSize.tiny}}"/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div ng-click="imgThumnbRight(wr.rootTopic)" class="thumb-right" ng-if="wr.rootTopic.topicBean.imageList.length > 6" ng-class="{disable: wr.rootTopic.imgThumnbIdx==2}"></div>
+                        </div>
+                    </div>
+                    <!--微博图片插件结束-->
+                    <div class="wb-func">
+                        <a href="javascript:void(0);" class="pull-right" ng-click="showReply(wr.rootTopic, wr)">
+                            评论(<span ng-bind="wr.rootTopic.replys"></span>)
+                        </a>
+                        <a href="javascript:void(0);" class="pull-right" ng-click="openForwards(wr.rootTopic)">
+                            转发(<span ng-bind="wr.rootTopic.forwards"></span>)
+                            <span class="mgr-5">|</span>
+                        </a>
+                        <div class="wb-from">
+                            <span ng-bind="wr.rootTopic.addtime*1000|date:'yyyy-MM-dd HH:mm:ss'"></span><span class="mgl-5 c-888">来自</span><span class="mgl-5">吾商微博</span>
+                        </div>
+                    </div>
+                    <!--评论-->
+                    <div class="wb-cmt mgt-15" ng-if="wr.rootTopic.replyStatus > 0" ng-include="'/common/template/weibo/weibo.subcomment.list.html'"></div>
+                </div>
+            </div>
+            <div class="wb-func">
+                <a href="javascript:void(0);" class="pull-right" ng-click="showReply(wr)">
+                    评论(<span ng-bind="wr.replys"></span>)
+                </a>
+                <a href="javascript:void(0);" class="pull-right" ng-click="openForwards(wr)">
+                    转发(<span ng-bind="wr.forwards"></span>)
+                    <span class="mgr-5">|</span>
+                </a>
+                <div class="wb-from">
+                    <span ng-bind="wr.addtime*1000|date:'yyyy-MM-dd HH:mm:ss'"></span><span class="mgl-5 c-888">来自</span><span class="mgl-5">吾商微博</span>
+                </div>
+            </div>
+            <div class="wb-exp wb-exp-cmt" ng-if="wr.replyStatus > -1">
+                <div class="wb-arrow-cmt"></div>
+                <div class="loading-bar" ng-if="wr.replyStatus == 0"></div>
+                <!--评论-->
+                <div class="wb-cmt" ng-if="wr.replyStatus > 0" ng-include="'/common/template/weibo/weibo.comment.list.html'"></div>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="ctrl.weibo-forwards" ng-init="btnType='forward';"></div>
+</div>
