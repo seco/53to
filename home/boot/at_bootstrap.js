@@ -9,6 +9,7 @@ require.config({
         bower: "/atmanlib/vendor/bower_components",
         bootstrap: "/atmanlib/vendor/bower_components/bootstrap/dist/js/bootstrap.min",
         "load-image": "/atmanlib/vendor/bower_components/blueimp-load-image/js/load-image",
+        "load-image-ios": "/atmanlib/vendor/bower_components/blueimp-load-image/js/load-image-ios",
         "load-image-meta": "/atmanlib/vendor/bower_components/blueimp-load-image/js/load-image-meta",
         "load-image-exif": "/atmanlib/vendor/bower_components/blueimp-load-image/js/load-image-exif",
         "canvas-to-blob": "/atmanlib/vendor/bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.min",

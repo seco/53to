@@ -12,14 +12,14 @@ define('directive-common/follow-user-index',['at_app','filter/stockcode', "atman
                         $scope.twoNum;
                         $scope.threeNum;
                         var totalNum;
-                        //查询
-                        UserRecommend.get(function(data){
-                            $scope.userList=data;
-                            totalNum=$scope.userList.length;
-                            $scope.oneNum=0;
-                            $scope.twoNum=1;
-                            $scope.threeNum=2;
-                        })
+                        //TODO:查询推荐用户列表
+/*                        UserRecommend.get(function(data){
+                            $scope.userList = data;
+                            totalNum = $scope.userList.length;
+                            $scope.oneNum = 0;
+                            $scope.twoNum = 1;
+                            $scope.threeNum = 2;
+                        })*/
                         $scope.getUser=function(){
                             if((totalNum-$scope.threeNum)==2){
                                 $scope.oneNum=$scope.threeNum+1;
@@ -63,13 +63,6 @@ define('directive-common/follow-user-index',['at_app','filter/stockcode', "atman
                                             user.isFollowRelation = 2;
                                             user.fansCount -=1;
                                             $rootScope.WbUser.followCount -=1;
-                                            // if($rootScope.WbUser.nickName == $rootScope.USER.nickName) {
-                                            //     $rootScope.WbUser.followCount -=1;
-                                            // }
-                                            // if($rootScope.WbUser && $rootScope.WbUser.nickName == user.nickName){
-                                            //     $rootScope.WbUser.fansCount -=1;
-                                            // }
-                                            // $rootScope.notification("已取消关注 " + follows.nickName);
                                         }
                                     });
                                 }
@@ -85,17 +78,9 @@ define('directive-common/follow-user-index',['at_app','filter/stockcode', "atman
                                 if(!data){
                                     $rootScope.notification("关注失败");
                                 }else{
-                                    // $rootScope.notification("关注成功");
-                                    //init(1);
                                     user.isFollowRelation=1;
                                     user.fansCount +=1;
                                     $rootScope.WbUser.followCount +=1;
-                                    // if($rootScope.WbUser.nickName == $rootScope.USER.nickName) {
-                                    //     $rootScope.WbUser.followCount +=1;
-                                    // }
-                                    // if($rootScope.WbUser && $rootScope.WbUser.nickName == user.nickName){
-                                    //     $rootScope.WbUser.fansCount +=1;
-                                    // }
                                 }
                             });
                         }

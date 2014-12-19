@@ -32,8 +32,8 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
                     return response || $q.when(response);
                 },
                 responseError: function(response) {
-                    //console.log('--- response ---');
-                    //console.log(response);
+                    console.log('--- response ---');
+                    console.log(response);
 
                     if (response.status === 404) {
                         if (/\/restful\/rest\/\.*/.test(response.config.url)) {
@@ -101,8 +101,7 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
         value: app.value,
         animation: app.animation
     };
-    console.log('--- app.lazy ---');
-    console.dir(app.lazy);
+    console.log('--- at_app.js > app.lazy ---');
 
     angular.module('atApp').constant('UA', function() {
         var Sys = {};
@@ -140,10 +139,11 @@ define('at_app', ['dependency_resolver','json!at_modules.json'], function(depend
                 value: $provide.value,
                 animation: $animateProvider.register
             };
-            $locationProvider.html5Mode(!1);
-            $locationProvider.hashPrefix('!');
+            //$locationProvider.html5Mode(!1);
+            //$locationProvider.hashPrefix('!');
             angular.forEach(modules, function(moduleConfig) {
                 angular.forEach(moduleConfig.routes, function(route) {
+                    console.log("route.path: "+route.path);
                     $routeProvider.when(route.path, {
                         templateUrl: route.templateUrl,
                         controller: route.controller,

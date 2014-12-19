@@ -7,14 +7,13 @@ define('directive-common/tiny-shop-car',['at_app'], function(app) {
                 replace: true,
                 scope: {},
                 link: function(scope, iElement, iAttrs) {
-
                     scope.isLogged = $rootScope.isLogged;
-
                     //小购物车请求数据
                     function getCar() {
                         scope.smallShoppingCarData = SmallShoppingCar.get();
                     }
-                    getCar();
+                    //getCar();
+
                     $rootScope.$on('at.getsmallshopingcar', function(e, data) {
                         if (data) {
                             getCar();

@@ -7,14 +7,12 @@ define('directive-common/notice', ['at_app'], function(app) {
                 replace: true,
                 scope: {},
                 link: function(scope, iElement, iAttrs) {
-                    getNotice();
-
+                    //getNotice();
                     function getNotice() {
                         Notice.get().$promise.then(function(data) {
                             scope.noticeData = data;
                             scope.noticeAmount = (scope.noticeData.atNew || 0) + (scope.noticeData.fansNew || 0) + (scope.noticeData.newpm || 0);
                             var _title = document.title;
-                            /*titile动态提示效果*/
                             if (scope.noticeAmount > 0) {
                                 if (!$rootScope.timer) {
                                     var step = 0;
@@ -39,16 +37,11 @@ define('directive-common/notice', ['at_app'], function(app) {
                                 }
 
                             }
-                            /*titile动态提示效果*/
                         });
                         setTimeout(getNotice, 60000);
                         //不刷新页面的情况，新消息提醒一分钟查询一次哦~
                     }
-                    /*$rootScope.$on('OAuth:login', function(e, data) {
-                     if (data) {
-                     getNotice();
-                     }
-                     })*/
+
                     //消息的手动推送请求：送
                     $rootScope.$on('getNotice:remind', function(e, data) {
                         if (data) {

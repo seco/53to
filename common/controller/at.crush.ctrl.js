@@ -7,7 +7,7 @@
              $compile($element.contents())($scope);
 
              $scope.htmlLoad = function() {
-                 goods.getGoodsPromotion(function(data) {
+/*                 goods.getGoodsPromotion(function(data) {
                      $scope.goodsList = data;
                      $scope.model = {};
                      getlastTime();
@@ -29,7 +29,7 @@
                          $scope.tomorrowEndTime = new Date(y, m - 1, d + 2, '10', '00');
                     }
                     
-                 })
+                 })*/
 
                  function getlastTime() {
                      var lastTime = $scope.goodsList.endDate - new Date().getTime();
@@ -65,8 +65,6 @@
                          //$scope.goodsList = goods.getGoodsPromotion();
                      }
                  }
-
-
              }
          }
      ]);

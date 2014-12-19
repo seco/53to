@@ -17,6 +17,7 @@ define('common-ctrl/at.follow.now.info.ctrl', ['at_app', 'service/goods', 'filte
                     $scope.GoodsType = datas;
                 });
             }
+
             $rootScope.$on('OAuth:login', function(e, data) {
                 if (data) {
                     getGoodsType();
@@ -28,16 +29,11 @@ define('common-ctrl/at.follow.now.info.ctrl', ['at_app', 'service/goods', 'filte
             }, function(news, olds) {
                 $scope.path = news;
             })
+
             $scope.getStockItemsByGoodsType = function(goodsTypeId, i) {
                 $scope.idIndex = i;
                 window.location.href = "/home/#/channel/" + goodsTypeId;
             }
-            /*$scope.toHelp1=function(){
-             window.open('/common/template/serviceClause/consumer-finance.html');
-             }
-             $scope.toHelp=function(){
-             window.open('/common/template/serviceClause/consumer-finance.html#perTenThousand');
-             }*/
         }
     ]);
 })

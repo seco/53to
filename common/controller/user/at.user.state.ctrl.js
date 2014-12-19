@@ -11,10 +11,6 @@ define('common-ctrl/user/at.user.state.ctrl', ['at_app', 'service/oauth'], funct
                 }
                 $compile($element.contents())($scope);
             })
-
-            // $rootScope.homeLogout = function () {
-            //     OAuth.logout();
-            // }
         }
     ]);
 })

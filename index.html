@@ -192,6 +192,7 @@
                 </li>
             </ul>
         </div>
+        <!--- 推荐用户列表 Directive -->
         <div follow-user-index></div>
     </div>
     <div class="w-800 pull-left" ng-cloak>
@@ -213,18 +214,25 @@
                 <span class="c-ccc">|</span>
                 <a target="_blank" href="/manage/#/infocenter" class="mglr-5">我的吾商</a>
             </div>
+            <!--- 购物车 Directive -->
             <div tiny-shop-car class="pull-right"></div>
+            <!--- 通知 Directive -->
             <div notice class="pull-right"></div>
             <div class="pull-right" ng-show="promoCoin" ng-cloak>
                 <div class="bdc-f50 bdl-1 bdr-1 bdb-1 pdtb-8 pdlr-15 pull-left" ng-bind="'领取('+promoCoin+')吾商币'"></div>
                 <a href="javascript:void(0);" class="bg-f50 lk-white lk-no-udl bd-trans pd-8 bdl-1 bdr-1 bdb-1 pull-right" title="" ng-click="promoCoin=!promoCoin;">^</a>
             </div>
         </div>
+
+        <!--- loading -->
         <div ng-include="loading"></div>
     </div>
 </div>
+
 <div ng-include="ATConfig.footTemplate"></div>
+
 <div float-widget></div>
+
 <script src="atmanlib/vendor/bower_components/requirejs/require.js" data-main="home/boot/at_bootstrap"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@
                  showRecUser();
              }
              else {
-                 showPromo();
+                 //showPromo();
              }
              $scope.bannerList = {
                  "slide": [{
@@ -39,8 +39,6 @@
                      "linkUrl": "http://www.53to.com/item/#/239"
                  }]
              };
-             // $scope.bannerList =  BannerItem.get();
-
 
              function showPromo() {
                  var day = new Date().getDate();
@@ -159,7 +157,7 @@
                      }
                  })
              }
-             getWeiboList(true);
+             //getWeiboList(true);
              //执行下一页/上一页查询
              $scope.$on("at.paging.currentPage", function(e, data) {
                  angular.extend($scope.searchItems, data);

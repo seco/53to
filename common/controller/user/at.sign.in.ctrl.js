@@ -31,9 +31,6 @@ define('common-ctrl/user/at.sign.in.ctrl', ['at_app', 'bower/md5/md5.min', 'serv
                         $scope.one.emailAutocompleteShow = 0;
                     }
                 };
-                // $element.find('#siUserName').bind('blur',function(){
-                // $scope.one.emailAutocompleteShow = 0;
-                // })
                 $scope.sel = function(data) {
                     $log.log('username=', data);
                     $scope.one.emailAutocompleteShow = 0;

@@ -15,15 +15,6 @@ define('common-ctrl/user/at.user.info.ctrl', ['at_app', 'service/weibo'], functi
                     }
                 });
 
-                // Notice.get().$promise.then(function(data) {
-                //         scope.noticeData = data;
-                //         scope.noticeAmount = (scope.noticeData.atNew || 0) + (scope.noticeData.fansNew || 0) + (scope.noticeData.newpm || 0);
-                //     });
-
-                // $rootScope.$watch('isLogged', function(news,olds){
-                //     getWbUI();
-                // })
-
                 function getWbUI() {
                     weibo.getWbUser({
                         name: $rootScope.userInfo.nickName//,
@@ -31,9 +22,6 @@ define('common-ctrl/user/at.user.info.ctrl', ['at_app', 'service/weibo'], functi
                     }).then(function(data) {
                         $scope.wbUserInfo = data;
                     })
-                    // $rootScope.loadWbUser($rootScope.userInfo.nickName);
-                    // $scope.wbUserInfo =$rootScope.WbUser;
-                    // console.log($rootScope.WbUser);
                 }
 
                 function getStockBrief() {
@@ -45,13 +33,10 @@ define('common-ctrl/user/at.user.info.ctrl', ['at_app', 'service/weibo'], functi
                         $scope.stockbrief = data;
                     })
                 }
-                // $timeout(function(){
+
                 getWbUI();
                 getStockBrief();
                 $scope.buyerAccountInfo = BuyerAccountmyself.get();
-                // },100)
-
-
             }
         }
     ]);
